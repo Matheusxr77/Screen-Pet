@@ -5,6 +5,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 @Entity
 public abstract class Person {
@@ -17,8 +20,32 @@ public abstract class Person {
 	private Date dateBirth;
 	private boolean active;
 	
+	@ManyToOne
+	@Cascade(CascadeType.ALL)
+	private Address address;
+	
+	@ManyToOne
+	@Cascade(CascadeType.ALL)
+	private NumberPhone numberPhone;
+	
 	public Person() {
 		
+	}
+	
+	public Address getAddress() {
+		return address;
+	}
+	
+	public void setAddress(Address endereco) {
+		this.address = endereco;
+	}
+	
+	public NumberPhone getNumberPhone() {
+		return numberPhone;
+	}
+	
+	public void setNumberPhone(NumberPhone numberPhone) {
+		this.numberPhone = numberPhone;
 	}
 
 	public String getName() {
