@@ -6,21 +6,21 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class VaccinationHistoric {
+public class Breed {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private String comments;
+	private long id;
+	private String type;
 	
-	public VaccinationHistoric() {
-
+	public Breed() {
+		
 	}
 
-	public String getComments() {
-		return comments;
+	public String getType() {
+		return type;
 	}
 
-	public void setComments(String comments) {
-		this.comments = comments;
+	public void setType(String type) {
+		this.type = type;
 	}
 }
