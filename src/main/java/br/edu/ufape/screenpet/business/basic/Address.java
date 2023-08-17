@@ -75,7 +75,4 @@ public class Address {
 	public void setState(String state) {
 		this.state = state;
 	}
-	
-	
-	
 }
