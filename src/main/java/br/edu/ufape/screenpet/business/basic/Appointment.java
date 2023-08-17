@@ -13,9 +13,7 @@ public class Appointment {
     private String anamnesis;
 
     public Appointment(long id, String anamnesis) {
-        super();
-        this.id = id;
-        this.setAnamnesis(anamnesis);
+    	
     }
 
     public String getAnamnesis() {

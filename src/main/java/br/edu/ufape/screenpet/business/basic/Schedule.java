@@ -16,11 +16,7 @@ public class Schedule {
     private Date date;
 
     public Schedule(long id, int time, String type, Date date) {
-        super();
-        this.id = id;
-		this.setTime(time);
-		this.setType(type);
-        this.setDate(date);
+    	
     }
 
     public int getTime() {

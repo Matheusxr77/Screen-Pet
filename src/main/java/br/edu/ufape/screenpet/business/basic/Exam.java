@@ -17,11 +17,7 @@ public class Exam {
     private String comments;
 
     public Exam(long id, String laboratory, Date date, String type, String comments) {
-        super();
-        this.setLaboratory(laboratory);
-        this.setDate(date);
-        this.setType(type);
-        this.setComments(comments);
+    	
     }
 
     public String getLaboratory() {
