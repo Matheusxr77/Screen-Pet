@@ -13,7 +13,19 @@ public class VaccinationHistoric {
 	private String comments;
 	
 	public VaccinationHistoric() {
+<<<<<<< HEAD
 		
+=======
+
+	}
+
+	public String getComments() {
+		return comments;
+	}
+
+	public void setComments(String comments) {
+		this.comments = comments;
+>>>>>>> 2c98b0a8d203c7cec70b651538985f2694b98efa
 	}
 
 	public String getComments() {
