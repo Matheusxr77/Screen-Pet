@@ -15,7 +15,7 @@ public class Vaccine {
 	private int frequency;
 	private String comments;
 	
-	public Vaccine (int id, String name, String type, int frequency, String comments) {
+	public Vaccine () {
 		
 	}
 	

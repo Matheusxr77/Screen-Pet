@@ -3,7 +3,7 @@ package br.edu.ufape.screenpet.business.basic;
 import jakarta.persistence.Entity;
 
 @Entity
-public class Deworming {
+public class Deworming extends Medicament {
 	private int frequency;
     private String comments;
     
