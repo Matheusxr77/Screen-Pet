@@ -5,6 +5,10 @@ import jakarta.persistence.Entity;
 @Entity
 public class Veterinarian extends Person {
     private int crmv;
+    
+    public Veterinarian() {
+    	
+    }
 
     public int getCrmv() {
         return crmv;

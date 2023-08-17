@@ -17,10 +17,7 @@ public class Pet {
 	private Date dateBirth;
 	
 	public Pet(long id, String name, String gender, Date dateBirth) {
-		this.id = id;
-		this.setName(name);
-		this.setGender(gender);
-		this.setDateBirth(dateBirth);
+		
 	}
 
 	public String getName() {

@@ -14,10 +14,7 @@ public class NumberPhone {
 	private int number;
 	
 	public NumberPhone(long id, int ddd, int number) {
-		super();
-		this.id = id;
-		this.setDdd(ddd);
-		this.setNumber(number);
+		
 	}
 
 	public int getDdd() {

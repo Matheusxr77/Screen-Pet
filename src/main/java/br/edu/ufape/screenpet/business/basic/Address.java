@@ -18,14 +18,7 @@ public class Address {
 	private String state;
 	
 	public Address(long id, int cep, String publicPlace, int number, String district, String city, String state) {
-		super();
-		this.id = id;
-		this.setCep(cep);
-		this.setPublicPlace(publicPlace);
-		this.setNumber(number);
-		this.setDistrict(district);
-		this.setCity(city);
-		this.setState(state);
+		
 	}
 
 	public int getCep() {
