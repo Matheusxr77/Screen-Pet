@@ -34,4 +34,5 @@ public class VaccinationCalendar {
 	public void setFrequency(Date frequency) {
 		this.frequency = frequency;
 	}
+
 }

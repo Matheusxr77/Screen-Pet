@@ -13,7 +13,6 @@ public class VaccinationHistoric {
 	private String comments;
 	
 	public VaccinationHistoric() {
-
 	}
 
 	public String getComments() {
