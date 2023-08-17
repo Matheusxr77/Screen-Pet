@@ -11,7 +11,7 @@ public class VaccinationHistoric {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String comments;
-
+	
 	public VaccinationHistoric() {
 
 	}
