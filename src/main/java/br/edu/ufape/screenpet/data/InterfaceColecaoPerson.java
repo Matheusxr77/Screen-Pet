@@ -7,5 +7,5 @@ import br.edu.ufape.screenpet.business.basic.Person;
 
 @Repository
 public interface InterfaceColecaoPerson extends JpaRepository<Person, Long> {
-	
+
 }
