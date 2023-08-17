@@ -15,12 +15,12 @@ public class VaccinationHistoric {
 	public VaccinationHistoric() {
 
 	}
-	
+
 	public String getComments() {
 		return comments;
 	}
-	
-	public void setcomments(String comments) {
+
+	public void setComments(String comments) {
 		this.comments = comments;
 	}
 }

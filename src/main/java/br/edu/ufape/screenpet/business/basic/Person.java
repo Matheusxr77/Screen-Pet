@@ -23,7 +23,7 @@ public abstract class Person {
 	@ManyToOne
 	@Cascade(CascadeType.ALL)
 	private Address address;
-	
+
 	@ManyToOne
 	@Cascade(CascadeType.ALL)
 	private NumberPhone numberPhone;
