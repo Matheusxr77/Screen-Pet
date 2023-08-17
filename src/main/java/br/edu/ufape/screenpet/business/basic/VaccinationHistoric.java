@@ -11,6 +11,7 @@ public class VaccinationHistoric {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String comments;
+<<<<<<< HEAD
 
 	public VaccinationHistoric (int id, String comments) {
 
@@ -24,4 +25,18 @@ public class VaccinationHistoric {
 		this.comments = comments;
 	}
 
+=======
+	
+	public VaccinationHistoric() {
+
+	}
+	
+	public String getComments() {
+		return comments;
+	}
+	
+	public void setcomments(String comments) {
+		this.comments = comments;
+	}
+>>>>>>> e68e30fb3f39a77f33b1b93a004c2be74a7acc10
 }
