@@ -12,8 +12,12 @@ public class VaccinationHistoric {
 	private int id;
 	private String comments;
 	
+<<<<<<< HEAD
+	public VaccinationHistoric (int id, String comments) {
+=======
 	public VaccinationHistoric() {
 <<<<<<< HEAD
+>>>>>>> 541c357cf4cace52b1ff186d8ae82deda3c97944
 		
 =======
 
@@ -33,6 +37,14 @@ public class VaccinationHistoric {
 	}
 
 	public void setComments(String comments) {
+		this.comments = comments;
+	}
+	
+	public String getComments() {
+		return comments;
+	}
+	
+	public void setcomments(String comments) {
 		this.comments = comments;
 	}
 }
