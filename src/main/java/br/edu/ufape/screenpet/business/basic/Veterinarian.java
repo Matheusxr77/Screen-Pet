@@ -1,5 +1,16 @@
 package br.edu.ufape.screenpet.business.basic;
 
-public class Veterinarian {
+import jakarta.persistence.Entity;
 
+@Entity
+public class Veterinarian extends Person {
+    private int crmv;
+
+    public int getCrmv() {
+        return crmv;
+    }
+
+    public void setCrmv(int crmv) {
+        this.crmv = crmv;
+    }
 }
