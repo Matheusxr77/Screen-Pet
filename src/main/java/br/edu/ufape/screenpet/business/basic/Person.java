@@ -17,14 +17,8 @@ public abstract class Person {
 	private Date dateBirth;
 	private boolean active;
 	
-	public Person(long id, String name, String cpf, String gender, Date dateBirth, boolean active) {
-		super();
-		this.id = id;
-		this.setName(name);
-		this.setCpf(cpf);
-		this.setGender(gender);
-		this.setDateBirth(dateBirth);
-		this.setActive(active);
+	public Person() {
+		
 	}
 
 	public String getName() {
