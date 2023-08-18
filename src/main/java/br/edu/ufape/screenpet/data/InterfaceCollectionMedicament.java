@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.edu.ufape.screenpet.business.basic.Medicament;
 
 @Repository
-public interface InterfaceColecaoMedicament extends JpaRepository<Medicament, Long>{
+public interface InterfaceCollectionMedicament extends JpaRepository<Medicament, Long>{
 
 }
