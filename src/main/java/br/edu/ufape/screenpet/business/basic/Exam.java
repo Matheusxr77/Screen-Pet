@@ -16,10 +16,6 @@ public class Exam {
     private String type;
     private String comments;
 
-    public Exam(long id, String laboratory, Date date, String type, String comments) {
-    	
-    }
-
     public String getLaboratory() {
         return laboratory;
     }
@@ -51,4 +47,13 @@ public class Exam {
     public void setComments(String comments) {
         this.comments = comments;
     }
+
+	public Exam(long id, String laboratory, Date date, String type, String comments) {
+		super();
+		this.id = id;
+		this.laboratory = laboratory;
+		this.date = date;
+		this.type = type;
+		this.comments = comments;
+	}
 }

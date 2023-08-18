@@ -12,10 +12,6 @@ public class NumberPhone {
 	private long id;
 	private int ddd;
 	private int number;
-	
-	public NumberPhone(long id, int ddd, int number) {
-		
-	}
 
 	public int getDdd() {
 		return ddd;
@@ -30,6 +26,13 @@ public class NumberPhone {
 	}
 
 	public void setNumber(int number) {
+		this.number = number;
+	}
+
+	public NumberPhone(long id, int ddd, int number) {
+		super();
+		this.id = id;
+		this.ddd = ddd;
 		this.number = number;
 	}
 }
