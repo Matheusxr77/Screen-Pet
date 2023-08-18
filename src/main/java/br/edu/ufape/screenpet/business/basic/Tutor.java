@@ -4,5 +4,7 @@ import jakarta.persistence.Entity;
 
 @Entity
 public class Tutor extends Person {
+	
+	
     
 }
