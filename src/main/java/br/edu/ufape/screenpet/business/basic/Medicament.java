@@ -1,9 +1,16 @@
 package br.edu.ufape.screenpet.business.basic;
 
+import java.util.List;
+import java.util.ArrayList;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 public class Medicament {
@@ -16,9 +23,17 @@ public class Medicament {
     private int dosage;
     private String comments;
     
-    public Medicament() {
-    	
-    }
+    @ManyToMany
+    @Cascade(CascadeType.ALL)
+    private List<Treatment> treatments;
+
+	public List<Treatment> getTreatments() {
+		return treatments;
+	}
+
+	public void setTreatments(List<Treatment> treatments) {
+		this.treatments = treatments;
+	}
 
 	public String getName() {
 		return name;
@@ -58,5 +73,16 @@ public class Medicament {
 
 	public void setComments(String comments) {
 		this.comments = comments;
+	}
+
+	public Medicament(long id, String name, String type, String activeCompound, int dosage, String comments, List<Treatment> treatments) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.type = type;
+		this.activeCompound = activeCompound;
+		this.dosage = dosage;
+		this.comments = comments;
+		this.treatments = new ArrayList<>();
 	}
 }

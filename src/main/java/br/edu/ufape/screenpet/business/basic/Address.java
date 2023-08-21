@@ -16,10 +16,6 @@ public class Address {
 	private String district;
 	private String city;
 	private String state;
-	
-	public Address(long id, int cep, String publicPlace, int number, String district, String city, String state) {
-		
-	}
 
 	public int getCep() {
 		return cep;
@@ -66,6 +62,17 @@ public class Address {
 	}
 
 	public void setState(String state) {
+		this.state = state;
+	}
+
+	public Address(long id, int cep, String publicPlace, int number, String district, String city, String state) {
+		super();
+		this.id = id;
+		this.cep = cep;
+		this.publicPlace = publicPlace;
+		this.number = number;
+		this.district = district;
+		this.city = city;
 		this.state = state;
 	}
 }

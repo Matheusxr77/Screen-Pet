@@ -1,11 +1,15 @@
 package br.edu.ufape.screenpet.business.basic;
 
 import java.util.Date;
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
@@ -20,31 +24,39 @@ public abstract class Person {
 	private Date dateBirth;
 	private boolean active;
 	
-	@ManyToOne
+	@OneToMany
 	@Cascade(CascadeType.ALL)
-	private Address address;
+	private List<Address> address;
 
-	@ManyToOne
+	@OneToMany
 	@Cascade(CascadeType.ALL)
-	private NumberPhone numberPhone;
+	private List<NumberPhone> numberPhone;
 	
-	public Person() {
-		
+	@OneToOne
+	@Cascade(CascadeType.ALL)
+	private User user;
+	
+	public User getUser() {
+		return user;
 	}
-	
-	public Address getAddress() {
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public List<Address> getAddress() {
 		return address;
 	}
 	
-	public void setAddress(Address endereco) {
+	public void setAddress(List<Address> endereco) {
 		this.address = endereco;
 	}
 	
-	public NumberPhone getNumberPhone() {
+	public List<NumberPhone> getNumberPhone() {
 		return numberPhone;
 	}
 	
-	public void setNumberPhone(NumberPhone numberPhone) {
+	public void setNumberPhone(List<NumberPhone> numberPhone) {
 		this.numberPhone = numberPhone;
 	}
 
@@ -86,5 +98,18 @@ public abstract class Person {
 
 	public void setActive(boolean active) {
 		this.active = active;
+	}
+
+	public Person(long id, String name, String cpf, String gender, Date dateBirth, boolean active, List<Address> address, List<NumberPhone> numberPhone, User user) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.cpf = cpf;
+		this.gender = gender;
+		this.dateBirth = dateBirth;
+		this.active = active;
+		this.address = address;
+		this.numberPhone = numberPhone;
+		this.user = user;
 	}
 }
