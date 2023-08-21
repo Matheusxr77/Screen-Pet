@@ -8,4 +8,6 @@ import br.edu.ufape.screenpet.business.basic.User;
 @Repository
 public interface InterfaceCollectionUser extends JpaRepository<User, Long> {
 
+	User findByEmail(String email);
+
 }
