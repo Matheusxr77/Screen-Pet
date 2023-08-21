@@ -1,11 +1,11 @@
 package br.edu.ufape.screenpet.business.register.exception;
 
-public class UserNotExistsException extends Exception {
+public class UserDuplicateException extends Exception {
 	private static final long serialVersionUID = 1L;
 	private String email;
 	
-	public UserNotExistsException(String email) {
-		super("Não existe no sistema um usuário com o email informado!");
+	public UserDuplicateException(String email) {
+		super("Não é possível cadastrar dois usuários com o mesmo email!");
 		this.email = email;
 	}
 	
