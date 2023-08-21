@@ -7,5 +7,7 @@ import br.edu.ufape.screenpet.business.basic.Medicament;
 
 @Repository
 public interface InterfaceCollectionMedicament extends JpaRepository<Medicament, Long>{
+	
+	Medicament findByActiveCompound(String activeCompound);
 
 }
