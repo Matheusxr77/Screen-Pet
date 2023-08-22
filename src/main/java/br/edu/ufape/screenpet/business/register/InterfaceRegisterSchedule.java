@@ -1,6 +1,6 @@
 package br.edu.ufape.screenpet.business.register;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import br.edu.ufape.screenpet.business.basic.Schedule;
@@ -20,6 +20,5 @@ public interface InterfaceRegisterSchedule {
 	Schedule findScheduleId(Long id);
 
 	void removeSchedule(Date date) throws ScheduleNotExistsException;
-
 
 }
