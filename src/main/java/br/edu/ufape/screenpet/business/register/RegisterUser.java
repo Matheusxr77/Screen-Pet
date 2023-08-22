@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import br.edu.ufape.screenpet.data.InterfaceCollectionUser;
 import br.edu.ufape.screenpet.business.basic.User;
+import br.edu.ufape.screenpet.business.register.exception.DisabledUserException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistUserException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateUserException;
 
@@ -60,5 +61,10 @@ public class RegisterUser implements InterfaceRegisterUser {
 	public void removeUserId(Long id) throws DoesNotExistUserException {
 		User u = findUserId(id);
 		collectionUser.delete(u);
+	}
+	
+	public void deactivateUser(String email) throws DoesNotExistUserException, DisabledUserException {
+		User u = findUserEmail(email);
+		u.setActive(false);
 	}
 }

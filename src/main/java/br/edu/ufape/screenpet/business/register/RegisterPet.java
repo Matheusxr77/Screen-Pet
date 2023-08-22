@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import br.edu.ufape.screenpet.data.InterfaceCollectionPet;
 import br.edu.ufape.screenpet.business.basic.Pet;
 import br.edu.ufape.screenpet.business.register.exception.DuplicatePetException;
+import br.edu.ufape.screenpet.business.register.exception.DisabledPetException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistPetException;
 
 @Service
@@ -56,5 +57,10 @@ public class RegisterPet implements InterfaceRegisterPet {
 	public void removePetId(Long id) throws DoesNotExistPetException {
 		Pet u = findPetId(id);
 		collectionPet.delete(u);
+	}
+	
+	public void deactivatePet(String name) throws DoesNotExistPetException, DisabledPetException {
+		Pet u = findPetName(name);
+		u.setActive(false);
 	}
 }

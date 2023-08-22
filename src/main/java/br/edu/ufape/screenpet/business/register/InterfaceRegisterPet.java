@@ -3,6 +3,7 @@ package br.edu.ufape.screenpet.business.register;
 import java.util.List;
 import br.edu.ufape.screenpet.business.basic.Pet;
 import br.edu.ufape.screenpet.business.register.exception.DuplicatePetException;
+import br.edu.ufape.screenpet.business.register.exception.DisabledPetException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistPetException;
 
 public interface InterfaceRegisterPet {
@@ -13,4 +14,5 @@ public interface InterfaceRegisterPet {
 	boolean checkPetExistence(Long id);
 	Pet findPetId(Long id);
 	void removePetId(Long id) throws DoesNotExistPetException;
+	void deactivatePet(String name) throws DoesNotExistPetException, DisabledPetException;
 }

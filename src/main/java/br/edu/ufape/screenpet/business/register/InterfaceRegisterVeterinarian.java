@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.edu.ufape.screenpet.business.basic.Veterinarian;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateVeterinarianException;
+import br.edu.ufape.screenpet.business.register.exception.DisabledVeterinarianException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistVeterinarianException;
 
 public interface InterfaceRegisterVeterinarian {
@@ -14,4 +15,5 @@ public interface InterfaceRegisterVeterinarian {
 	boolean checkVeterinarianExistence(Long id);
 	Veterinarian findVeterinarianId(Long id);
 	void removeVeterinarianId(Long id) throws DoesNotExistVeterinarianException;
+	void deactivateVeterinarian(int crmv) throws DoesNotExistVeterinarianException, DisabledVeterinarianException;
 }
