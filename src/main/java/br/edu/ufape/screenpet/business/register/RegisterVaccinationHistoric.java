@@ -12,10 +12,8 @@ import br.edu.ufape.screenpet.business.register.exception.VaccinationHistoricDoe
 
 @Service
 public class RegisterVaccinationHistoric {
-	
 	@Autowired
 	private InterfaceCollectionVaccinationHistoric collectionVaccinationHistoric;
-
 	
 	public VaccinationHistoric findVaccinationHistoric(VaccinationCalendar vaccinationCalendar) throws VaccinationHistoricDoesNotExistException {
 		VaccinationHistoric vaccinationHistoric = collectionVaccinationHistoric.findByVaccinationCalendar(vaccinationCalendar); 
@@ -42,8 +40,7 @@ public class RegisterVaccinationHistoric {
 		return collectionVaccinationHistoric.existsById(id);
 	}
 
-	public VaccinationHistoric findAppointmentId(Long id) {
+	public VaccinationHistoric findVaccinationHistoricId(Long id) {
 		return collectionVaccinationHistoric.findById(id).orElse(null);
 	}
-
 }

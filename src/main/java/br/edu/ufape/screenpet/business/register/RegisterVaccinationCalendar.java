@@ -50,17 +50,4 @@ private InterfaceCollectionVaccinationCalendar collectionVaccinationCalendar;
 		VaccinationCalendar vc = findVaccinationCalendar(date);
 		collectionVaccinationCalendar.delete(vc);
 	}
-<<<<<<< HEAD
-
-	@Override
-	public void removeVaccinationCalendar(Date date) throws VaccinationCalendarNotExistsException {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
 }
-=======
-}
->>>>>>> b392f2a093b88cd011508c9d62a8018a0aad363e

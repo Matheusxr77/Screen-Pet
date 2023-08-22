@@ -21,6 +21,7 @@ public class VaccinationHistoric {
 	private String comments;
 	
 	@OneToMany
+	@Cascade(CascadeType.ALL)
 	private VaccinationCalendar vaccinationCalendar;
 
 	@ManyToMany

@@ -8,7 +8,5 @@ import br.edu.ufape.screenpet.business.basic.VaccinationHistoric;
 
 @Repository
 public interface InterfaceCollectionVaccinationHistoric extends JpaRepository<VaccinationHistoric, Long> {
-
 	VaccinationHistoric findByVaccinationCalendar(VaccinationCalendar vaccinationCalendar);
-
 }

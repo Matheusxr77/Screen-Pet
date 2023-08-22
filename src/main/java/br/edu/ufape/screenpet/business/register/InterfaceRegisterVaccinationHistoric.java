@@ -2,19 +2,15 @@ package br.edu.ufape.screenpet.business.register;
 
 import java.util.List;
 
+import br.edu.ufape.screenpet.business.basic.VaccinationCalendar;
 import br.edu.ufape.screenpet.business.basic.VaccinationHistoric;
-import br.edu.ufape.screenpet.business.register.exception.DuplicateMedicamentException;
-import br.edu.ufape.screenpet.business.register.exception.MedicamentDoesNotExistException;
+import br.edu.ufape.screenpet.business.register.exception.DuplicateVaccinationHistoricException;
+import br.edu.ufape.screenpet.business.register.exception.VaccinationHistoricDoesNotExistException;
 
 public interface InterfaceRegisterVaccinationHistoric {
-	
-	VaccinationHistoric findVaccinationHistoric(String activeCompound) throws VaccinationHistoricDoesNotExistException;
-
-	VaccinationHistoric saveMedicament(VaccinationHistoric entity) throws DuplicateVaccinationHistoricException, VaccinationHistoricDoesNotExistException;
-
+	VaccinationHistoric findVaccinationHistoric(VaccinationCalendar vaccinationCalendar) throws VaccinationHistoricDoesNotExistException;
+	VaccinationHistoric saveVaccinationHistoric(VaccinationHistoric entity)throws VaccinationHistoricDoesNotExistException, DuplicateVaccinationHistoricException;
 	List<VaccinationHistoric> listVaccinationHistorics();
-
 	boolean checkExistenceVaccinationHistoricId(Long id);
-
 	VaccinationHistoric findVaccinationHistoricId(Long id);
 }
