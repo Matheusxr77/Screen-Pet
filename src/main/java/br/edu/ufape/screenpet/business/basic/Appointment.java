@@ -1,6 +1,7 @@
 package br.edu.ufape.screenpet.business.basic;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.annotations.Cascade;
@@ -20,6 +21,7 @@ public class Appointment {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
     private String anamnesis;
+    private Date date;
 
     @ManyToMany
     @Cascade(CascadeType.ALL)
@@ -86,5 +88,13 @@ public class Appointment {
 		this.schedule = schedule;
 		this.diagnosis = diagnosis;
 		this.vaccinationHistoric = new ArrayList<>();
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 }
