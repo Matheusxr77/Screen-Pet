@@ -11,6 +11,7 @@ import org.hibernate.annotations.CascadeType;
 
 @Entity
 public class Tutor extends Person {
+
 	@OneToMany
 	@Cascade(CascadeType.ALL)
 	private List<Pet> pets;
