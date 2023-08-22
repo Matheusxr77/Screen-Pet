@@ -1,7 +1,6 @@
 package br.edu.ufape.screenpet.business.register.exception;
 
 public class DuplicateTutorException extends Exception {
-
 	private static final long serialVersionUID = 1L;
 	private String cpf;
 	
@@ -13,5 +12,4 @@ public class DuplicateTutorException extends Exception {
 	public String getCpf() {
 		return this.cpf;
 	}
-
 }

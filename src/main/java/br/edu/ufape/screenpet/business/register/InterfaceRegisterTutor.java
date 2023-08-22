@@ -5,14 +5,14 @@ import java.util.List;
 import br.edu.ufape.screenpet.business.basic.Tutor;
 import br.edu.ufape.screenpet.business.register.exception.DisabledTutorException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateTutorException;
-import br.edu.ufape.screenpet.business.register.exception.TutorDoesNotExistException;
+import br.edu.ufape.screenpet.business.register.exception.DoesNotExistTutorException;
 
 public interface InterfaceRegisterTutor {
-	Tutor findTutorCpf(String cpf) throws TutorDoesNotExistException;
+	Tutor findTutorCpf(String cpf) throws DoesNotExistTutorException;
 	Tutor saveTutor(Tutor entity) throws DuplicateTutorException;
-	Tutor updateTutor(Tutor entity) throws TutorDoesNotExistException;
+	Tutor updateTutor(Tutor entity) throws DoesNotExistTutorException;
 	List<Tutor> listTutor();
-	boolean checkUserExistence(Long id);
+	boolean checkTutorExistence(Long id);
 	Tutor findTutorId(Long id);
-	void deactivateTutor(String cpf) throws TutorDoesNotExistException, DisabledTutorException;
+	void deactivateTutor(String cpf) throws DoesNotExistTutorException, DisabledTutorException;
 }

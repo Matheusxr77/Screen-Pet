@@ -7,29 +7,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.ufape.screenpet.business.basic.VaccinationCalendar;
-import br.edu.ufape.screenpet.business.register.exception.VaccinationCalendarDuplicateException;
-import br.edu.ufape.screenpet.business.register.exception.VaccinationCalendarNotExistsException;
+import br.edu.ufape.screenpet.business.register.exception.DuplicateVaccinationCalendarException;
+import br.edu.ufape.screenpet.business.register.exception.DoesNotExistVaccinationCalendarException;
 import br.edu.ufape.screenpet.data.InterfaceCollectionVaccinationCalendar;
 
 @Service
 public class RegisterVaccinationCalendar implements InterfaceRegisterVaccinationCalendar{
 	@Autowired
-private InterfaceCollectionVaccinationCalendar collectionVaccinationCalendar;
-
+	private InterfaceCollectionVaccinationCalendar collectionVaccinationCalendar;
 	
-	public VaccinationCalendar findVaccinationCalendar(Date date) throws VaccinationCalendarNotExistsException {
+	public VaccinationCalendar findVaccinationCalendar(Date date) throws DoesNotExistVaccinationCalendarException {
 		VaccinationCalendar vc = collectionVaccinationCalendar.findByVaccinationCalendar(date); 
 		if(vc == null) {
-			throw new VaccinationCalendarNotExistsException(date);
+			throw new DoesNotExistVaccinationCalendarException(date);
 		}
 		return vc;
 	}
 	
-	public VaccinationCalendar saveVaccinationCalendar(VaccinationCalendar entity) {
+	public VaccinationCalendar saveVaccinationCalendar(VaccinationCalendar entity) throws DuplicateVaccinationCalendarException, DoesNotExistVaccinationCalendarException {
 		try {
 			findVaccinationCalendar(entity.getDate());
-			throw new VaccinationCalendarDuplicateException(entity.getDate());
-		} catch(VaccinationCalendarNotExistsException | VaccinationCalendarDuplicateException err) {
+			throw new DuplicateVaccinationCalendarException(entity.getDate());
+		} catch(DoesNotExistVaccinationCalendarException err) {
 			return collectionVaccinationCalendar.save(entity);
 		}
 	}
@@ -46,7 +45,7 @@ private InterfaceCollectionVaccinationCalendar collectionVaccinationCalendar;
 		return collectionVaccinationCalendar.findById(id).orElse(null);
 	}
 
-	public void removeVaccinationCalendar(Date date) throws VaccinationCalendarNotExistsException {
+	public void removeVaccinationCalendar(Date date) throws DoesNotExistVaccinationCalendarException {
 		VaccinationCalendar vc = findVaccinationCalendar(date);
 		collectionVaccinationCalendar.delete(vc);
 	}

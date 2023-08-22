@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import br.edu.ufape.screenpet.data.InterfaceCollectionUser;
 import br.edu.ufape.screenpet.business.basic.User;
-import br.edu.ufape.screenpet.business.register.exception.UserNotExistsException;
+import br.edu.ufape.screenpet.business.register.exception.DoesNotExistUserException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateUserException;
 
 @Service
@@ -14,10 +14,10 @@ public class RegisterUser implements InterfaceRegisterUser {
 	@Autowired
 	private InterfaceCollectionUser collectionUser;
 	
-	public User findUserEmail(String email) throws UserNotExistsException {
+	public User findUserEmail(String email) throws DoesNotExistUserException {
 		User u = collectionUser.findByEmail(email); 
 		if(u == null) {
-			throw new UserNotExistsException(email);
+			throw new DoesNotExistUserException(email);
 		}
 		return u;
 	}
@@ -26,17 +26,17 @@ public class RegisterUser implements InterfaceRegisterUser {
 		try {
 			findUserEmail(entity.getEmail());
 			throw new DuplicateUserException(entity.getEmail());
-		} catch(UserNotExistsException err) {
+		} catch(DoesNotExistUserException err) {
 			return collectionUser.save(entity);
 		}
 	}
 	
-	public User updateUser(User entity) throws UserNotExistsException {
+	public User updateUser(User entity) throws DoesNotExistUserException {
 		try {
 			findUserEmail(entity.getEmail());
 			return collectionUser.save(entity);
-		} catch(UserNotExistsException err) {
-			throw new UserNotExistsException(entity.getEmail());
+		} catch(DoesNotExistUserException err) {
+			throw new DoesNotExistUserException(entity.getEmail());
 		}
 	}
 	
@@ -52,12 +52,12 @@ public class RegisterUser implements InterfaceRegisterUser {
 		return collectionUser.findById(id).orElse(null);
 	}
 	
-	public void removeUserEmail(String email) throws UserNotExistsException {
+	public void removeUserEmail(String email) throws DoesNotExistUserException {
 		User u = findUserEmail(email);
 		collectionUser.delete(u);
 	}
 	
-	public void removeUserId(Long id) throws UserNotExistsException {
+	public void removeUserId(Long id) throws DoesNotExistUserException {
 		User u = findUserId(id);
 		collectionUser.delete(u);
 	}

@@ -12,5 +12,4 @@ public class DisabledTutorException extends Exception {
 	public boolean getActive() {
 		return this.active;
 	}
-
 }

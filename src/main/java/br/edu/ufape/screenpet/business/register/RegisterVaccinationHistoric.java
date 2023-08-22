@@ -8,26 +8,26 @@ import br.edu.ufape.screenpet.data.InterfaceCollectionVaccinationHistoric;
 import br.edu.ufape.screenpet.business.basic.VaccinationCalendar;
 import br.edu.ufape.screenpet.business.basic.VaccinationHistoric;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateVaccinationHistoricException;
-import br.edu.ufape.screenpet.business.register.exception.VaccinationHistoricDoesNotExistException;
+import br.edu.ufape.screenpet.business.register.exception.DoesNotExistVaccinationHistoricException;
 
 @Service
 public class RegisterVaccinationHistoric {
 	@Autowired
 	private InterfaceCollectionVaccinationHistoric collectionVaccinationHistoric;
 	
-	public VaccinationHistoric findVaccinationHistoric(VaccinationCalendar vaccinationCalendar) throws VaccinationHistoricDoesNotExistException {
+	public VaccinationHistoric findVaccinationHistoric(VaccinationCalendar vaccinationCalendar) throws DoesNotExistVaccinationHistoricException {
 		VaccinationHistoric vaccinationHistoric = collectionVaccinationHistoric.findByVaccinationCalendar(vaccinationCalendar); 
 		if(vaccinationHistoric == null) {
-			throw new VaccinationHistoricDoesNotExistException(vaccinationCalendar);
+			throw new DoesNotExistVaccinationHistoricException(vaccinationCalendar);
 		}
 		return vaccinationHistoric;
 	}
 	
-	public VaccinationHistoric saveVaccinationHistoric(VaccinationHistoric entity)throws VaccinationHistoricDoesNotExistException, DuplicateVaccinationHistoricException {
+	public VaccinationHistoric saveVaccinationHistoric(VaccinationHistoric entity)throws DoesNotExistVaccinationHistoricException, DuplicateVaccinationHistoricException {
 		try {
 			findVaccinationHistoric(entity.getVaccinationCalendar());
 			throw new DuplicateVaccinationHistoricException(entity.getVaccinationCalendar());
-		} catch(VaccinationHistoricDoesNotExistException err) {
+		} catch(DoesNotExistVaccinationHistoricException err) {
 			return collectionVaccinationHistoric.save(entity);
 		}
 	}

@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.ufape.screenpet.business.basic.Vaccine;
-import br.edu.ufape.screenpet.business.register.exception.VaccineDuplicateException;
-import br.edu.ufape.screenpet.business.register.exception.VaccineDoesNotExistsException;
+import br.edu.ufape.screenpet.business.register.exception.DuplicateVaccineException;
+import br.edu.ufape.screenpet.business.register.exception.DoesNotExistVaccineException;
 import br.edu.ufape.screenpet.data.InterfaceCollectionVaccine;
 
 @Service
@@ -14,19 +14,19 @@ public class RegisterVaccine implements InterfaceRegisterVaccine {
 	@Autowired
 	private InterfaceCollectionVaccine collectionVaccine;
 
-	public Vaccine findVaccine(String name) throws VaccineDoesNotExistsException {
+	public Vaccine findVaccine(String name) throws DoesNotExistVaccineException {
 		Vaccine vac = collectionVaccine.findByName(name); 
 		if(vac == null) {
-			throw new VaccineDoesNotExistsException(name);
+			throw new DoesNotExistVaccineException(name);
 		}
 		return vac;
 	}
 	
-	public Vaccine saveVaccine(Vaccine entity) throws VaccineDoesNotExistsException, VaccineDuplicateException {
+	public Vaccine saveVaccine(Vaccine entity) throws DoesNotExistVaccineException, DuplicateVaccineException {
 		try {
 			findVaccine(entity.getName());
-			throw new VaccineDuplicateException(entity.getName());
-		} catch(VaccineDoesNotExistsException err) {
+			throw new DoesNotExistVaccineException(entity.getName());
+		} catch(DoesNotExistVaccineException err) {
 			return collectionVaccine.save(entity);
 		}
 	}
@@ -43,7 +43,7 @@ public class RegisterVaccine implements InterfaceRegisterVaccine {
 		return collectionVaccine.findById(id).orElse(null);
 	}
 
-	public void removeVaccine(String name) throws VaccineDoesNotExistsException {
+	public void removeVaccine(String name) throws DoesNotExistVaccineException {
 		Vaccine vac = findVaccine(name);
 		collectionVaccine.delete(vac);
 	}

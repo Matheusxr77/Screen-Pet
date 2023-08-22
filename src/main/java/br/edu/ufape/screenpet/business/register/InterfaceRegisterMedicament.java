@@ -4,13 +4,13 @@ import java.util.List;
 
 import br.edu.ufape.screenpet.business.basic.Medicament;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateMedicamentException;
-import br.edu.ufape.screenpet.business.register.exception.MedicamentDoesNotExistException;
+import br.edu.ufape.screenpet.business.register.exception.DoesNotExistMedicamentException;
 
 public interface InterfaceRegisterMedicament {
-	Medicament findMedicament(String activeCompound) throws MedicamentDoesNotExistException;
-	Medicament saveMedicament(Medicament entity) throws DuplicateMedicamentException, MedicamentDoesNotExistException;
+	Medicament findMedicament(String activeCompound) throws DoesNotExistMedicamentException;
+	Medicament saveMedicament(Medicament entity) throws DuplicateMedicamentException, DoesNotExistMedicamentException;
 	List<Medicament> listMedicaments();
 	boolean checkExistenceMedicamentId(Long id);
 	Medicament findMedicamentId(Long id);
-	void removeMedicament(String activeCompound) throws MedicamentDoesNotExistException;
+	void removeMedicament(String activeCompound) throws DoesNotExistMedicamentException;
 }

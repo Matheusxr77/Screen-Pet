@@ -8,27 +8,27 @@ import org.springframework.stereotype.Service;
 
 import br.edu.ufape.screenpet.data.InterfaceCollectionSchedule;
 import br.edu.ufape.screenpet.business.basic.Schedule;
-import br.edu.ufape.screenpet.business.register.exception.ScheduleDuplicateException;
-import br.edu.ufape.screenpet.business.register.exception.ScheduleNotExistsException;
+import br.edu.ufape.screenpet.business.register.exception.DuplicateScheduleException;
+import br.edu.ufape.screenpet.business.register.exception.DoesNotExistScheduleException;
 
 @Service
 public class RegisterSchedule implements InterfaceRegisterSchedule {
 	@Autowired
 	private InterfaceCollectionSchedule collectionSchedule;
 
-	public Schedule findSchedule(Date date) throws ScheduleNotExistsException {
+	public Schedule findSchedule(Date date) throws DoesNotExistScheduleException {
 		Schedule s = collectionSchedule.findByDate(date); 
 		if(s == null) {
-			throw new ScheduleNotExistsException(date);
+			throw new DoesNotExistScheduleException(date);
 		}
 		return s;
 	}
 	
-	public Schedule saveSchedule(Schedule entity)throws ScheduleNotExistsException, ScheduleDuplicateException {
+	public Schedule saveSchedule(Schedule entity)throws DoesNotExistScheduleException, DuplicateScheduleException {
 		try {
 			findSchedule(entity.getDate());
-			throw new ScheduleDuplicateException(entity.getDate());
-		} catch(ScheduleNotExistsException err) {
+			throw new DuplicateScheduleException(entity.getDate());
+		} catch(DoesNotExistScheduleException err) {
 			return collectionSchedule.save(entity);
 		}
 	}
@@ -45,7 +45,7 @@ public class RegisterSchedule implements InterfaceRegisterSchedule {
 		return collectionSchedule.findById(id).orElse(null);
 	}
 
-	public void removeSchedule(Date date) throws ScheduleNotExistsException {
+	public void removeSchedule(Date date) throws DoesNotExistScheduleException {
 		Schedule s = findSchedule(date);
 		collectionSchedule.delete(s);
 	}	

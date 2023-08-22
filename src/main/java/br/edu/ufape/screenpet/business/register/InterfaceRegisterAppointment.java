@@ -5,17 +5,12 @@ import java.util.List;
 
 import br.edu.ufape.screenpet.business.basic.Appointment;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateAppointmentException;
-import br.edu.ufape.screenpet.business.register.exception.AppointmentDoesNotExistException;
+import br.edu.ufape.screenpet.business.register.exception.DoesNotExistAppointmentException;
 
 public interface InterfaceRegisterAppointment {
-	
-	Appointment findAppointment(Date date) throws AppointmentDoesNotExistException;
-
-	Appointment saveMedicament(Appointment entity) throws DuplicateAppointmentException, AppointmentDoesNotExistException;
-
+	Appointment findAppointment(Date date) throws DoesNotExistAppointmentException;
+	Appointment saveMedicament(Appointment entity) throws DuplicateAppointmentException, DoesNotExistAppointmentException;
 	List<Appointment> listAppointments();
-
 	boolean checkExistenceAppointmentId(Long id);
-
 	Appointment findAppointmentId(Long id);
 }

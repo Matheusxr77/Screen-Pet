@@ -3,15 +3,15 @@ package br.edu.ufape.screenpet.business.register;
 import java.util.List;
 
 import br.edu.ufape.screenpet.business.basic.Veterinarian;
-import br.edu.ufape.screenpet.business.register.exception.VeterinarianDuplicateException;
-import br.edu.ufape.screenpet.business.register.exception.VeterinarianNotExistsException;
+import br.edu.ufape.screenpet.business.register.exception.DuplicateVeterinarianException;
+import br.edu.ufape.screenpet.business.register.exception.DoesNotExistVeterinarianException;
 
 public interface InterfaceRegisterVeterinarian {
-	Veterinarian findByCrmv(int crmv) throws VeterinarianNotExistsException;
-	Veterinarian saveVeterinarian(Veterinarian entity) throws VeterinarianDuplicateException;
-	Veterinarian updateVeterinarian(Veterinarian entity) throws VeterinarianNotExistsException;
+	Veterinarian findByCrmv(int crmv) throws DoesNotExistVeterinarianException;
+	Veterinarian saveVeterinarian(Veterinarian entity) throws DuplicateVeterinarianException;
+	Veterinarian updateVeterinarian(Veterinarian entity) throws DoesNotExistVeterinarianException;
 	List<Veterinarian> listVeterinarian();
 	boolean checkVeterinarianExistence(Long id);
 	Veterinarian findVeterinarianId(Long id);
-	void removeVeterinarianId(Long id) throws VeterinarianNotExistsException;
+	void removeVeterinarianId(Long id) throws DoesNotExistVeterinarianException;
 }

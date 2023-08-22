@@ -8,28 +8,26 @@ import org.springframework.stereotype.Service;
 import br.edu.ufape.screenpet.data.InterfaceCollectionAppointment;
 import br.edu.ufape.screenpet.business.basic.Appointment;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateAppointmentException;
-import br.edu.ufape.screenpet.business.register.exception.AppointmentDoesNotExistException;
+import br.edu.ufape.screenpet.business.register.exception.DoesNotExistAppointmentException;
 
 @Service
 public class RegisterAppointment {
-	
 	@Autowired
 	private InterfaceCollectionAppointment collectionAppointment;
-
 	
-	public Appointment findAppointment(Date date) throws AppointmentDoesNotExistException {
+	public Appointment findAppointment(Date date) throws DoesNotExistAppointmentException {
 		Appointment appointment = collectionAppointment.findByDate(date); 
 		if(appointment == null) {
-			throw new AppointmentDoesNotExistException(date);
+			throw new DoesNotExistAppointmentException(date);
 		}
 		return appointment;
 	}
 	
-	public Appointment saveAppointment(Appointment entity)throws AppointmentDoesNotExistException, DuplicateAppointmentException {
+	public Appointment saveAppointment(Appointment entity)throws DoesNotExistAppointmentException, DuplicateAppointmentException {
 		try {
 			findAppointment(entity.getDate());
 			throw new DuplicateAppointmentException(entity.getDate());
-		} catch(AppointmentDoesNotExistException err) {
+		} catch(DoesNotExistAppointmentException err) {
 			return collectionAppointment.save(entity);
 		}
 	}
@@ -45,5 +43,4 @@ public class RegisterAppointment {
 	public Appointment findAppointmentId(Long id) {
 		return collectionAppointment.findById(id).orElse(null);
 	}
-
 }

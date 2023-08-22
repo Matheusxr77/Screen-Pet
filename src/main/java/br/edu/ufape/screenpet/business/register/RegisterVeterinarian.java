@@ -6,38 +6,38 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.ufape.screenpet.business.basic.Veterinarian;
-import br.edu.ufape.screenpet.business.register.exception.VeterinarianDuplicateException;
-import br.edu.ufape.screenpet.business.register.exception.VeterinarianNotExistsException;
+import br.edu.ufape.screenpet.business.register.exception.DuplicateVeterinarianException;
+import br.edu.ufape.screenpet.business.register.exception.DoesNotExistVeterinarianException;
 import br.edu.ufape.screenpet.data.InterfaceCollectionVeterinarian;
 
 @Service
-public class RegisterVeterinarian implements InterfaceRegisterVeterinarian{
+public class RegisterVeterinarian implements InterfaceRegisterVeterinarian {
 	@Autowired
 	private InterfaceCollectionVeterinarian collectionVeterinarian;
 	
-	public Veterinarian findByCrmv(int crmv) throws VeterinarianNotExistsException{
+	public Veterinarian findByCrmv(int crmv) throws DoesNotExistVeterinarianException {
 		Veterinarian v = collectionVeterinarian.findByCrmv(crmv);
 		if (v == null) {
-			throw new VeterinarianNotExistsException(crmv);
+			throw new DoesNotExistVeterinarianException(crmv);
 		}
 		return v;
 	}
 	
-	public Veterinarian saveVeterinarian (Veterinarian entity) throws VeterinarianDuplicateException{
+	public Veterinarian saveVeterinarian (Veterinarian entity) throws DuplicateVeterinarianException {
 		try {
 			findByCrmv(entity.getCrmv());
-			throw new VeterinarianDuplicateException(entity.getCrmv());
-		} catch(VeterinarianNotExistsException err) {
+			throw new DuplicateVeterinarianException(entity.getCrmv());
+		} catch(DoesNotExistVeterinarianException err) {
 			return collectionVeterinarian.save(entity);
 		}
 	}
 	
-	public Veterinarian updateVeterinarian(Veterinarian entity) throws VeterinarianNotExistsException{
+	public Veterinarian updateVeterinarian(Veterinarian entity) throws DoesNotExistVeterinarianException {
 		try {
 			findByCrmv(entity.getCrmv());
 			return collectionVeterinarian.save(entity);
-		} catch(VeterinarianNotExistsException err) {
-			throw new VeterinarianNotExistsException(entity.getCrmv());
+		} catch(DoesNotExistVeterinarianException err) {
+			throw new DoesNotExistVeterinarianException(entity.getCrmv());
 		}
 	}
 	
@@ -53,14 +53,13 @@ public class RegisterVeterinarian implements InterfaceRegisterVeterinarian{
 		return collectionVeterinarian.findById(id).orElse(null);
 	}
 	
-	public void removeByCrmv(int crmv) throws VeterinarianNotExistsException {
+	public void removeByCrmv(int crmv) throws DoesNotExistVeterinarianException {
 		Veterinarian v = findByCrmv(crmv);
 		collectionVeterinarian.delete(v);
 	}
 	
-	public void removeVeterinarianId(Long id) throws VeterinarianNotExistsException {
+	public void removeVeterinarianId(Long id) throws DoesNotExistVeterinarianException {
 		Veterinarian v = findVeterinarianId(id);
 		collectionVeterinarian.delete(v);
 	}
-
 }

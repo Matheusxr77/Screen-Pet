@@ -7,26 +7,26 @@ import org.springframework.stereotype.Service;
 import br.edu.ufape.screenpet.data.InterfaceCollectionMedicament;
 import br.edu.ufape.screenpet.business.basic.Medicament;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateMedicamentException;
-import br.edu.ufape.screenpet.business.register.exception.MedicamentDoesNotExistException;
+import br.edu.ufape.screenpet.business.register.exception.DoesNotExistMedicamentException;
 
 @Service
 public class RegisterMedicament implements InterfaceRegisterMedicament {
 	@Autowired
 	private InterfaceCollectionMedicament collectionMedicament;
 
-	public Medicament findMedicament(String activeCompound) throws MedicamentDoesNotExistException {
+	public Medicament findMedicament(String activeCompound) throws DoesNotExistMedicamentException {
 		Medicament med = collectionMedicament.findByActiveCompound(activeCompound); 
 		if(med == null) {
-			throw new MedicamentDoesNotExistException(activeCompound);
+			throw new DoesNotExistMedicamentException(activeCompound);
 		}
 		return med;
 	}
 	
-	public Medicament saveMedicament(Medicament entity)throws MedicamentDoesNotExistException, DuplicateMedicamentException {
+	public Medicament saveMedicament(Medicament entity)throws DoesNotExistMedicamentException, DuplicateMedicamentException {
 		try {
 			findMedicament(entity.getActiveCompound());
 			throw new DuplicateMedicamentException(entity.getActiveCompound());
-		} catch(MedicamentDoesNotExistException err) {
+		} catch(DoesNotExistMedicamentException err) {
 			return collectionMedicament.save(entity);
 		}
 	}
@@ -43,7 +43,7 @@ public class RegisterMedicament implements InterfaceRegisterMedicament {
 		return collectionMedicament.findById(id).orElse(null);
 	}
 
-	public void removeMedicament(String activeCompound) throws MedicamentDoesNotExistException {
+	public void removeMedicament(String activeCompound) throws DoesNotExistMedicamentException {
 		Medicament med = findMedicament(activeCompound);
 		collectionMedicament.delete(med);
 	}

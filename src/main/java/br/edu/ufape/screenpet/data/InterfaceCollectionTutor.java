@@ -7,7 +7,5 @@ import br.edu.ufape.screenpet.business.basic.Tutor;
 
 @Repository
 public interface InterfaceCollectionTutor extends JpaRepository<Tutor, Long>{
-
 	Tutor findByCpf(String cpf);
-
 }
