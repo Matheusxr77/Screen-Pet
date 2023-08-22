@@ -3,6 +3,7 @@ package br.edu.ufape.screenpet.business.register;
 import java.util.List;
 
 import br.edu.ufape.screenpet.business.basic.Tutor;
+import br.edu.ufape.screenpet.business.register.exception.DisabledTutorException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateTutorException;
 import br.edu.ufape.screenpet.business.register.exception.TutorDoesNotExistException;
 
@@ -13,5 +14,5 @@ public interface InterfaceRegisterTutor {
 	List<Tutor> listTutor();
 	boolean checkUserExistence(Long id);
 	Tutor findTutorId(Long id);
-	void deactivateTutor(String cpf) throws TutorDoesNotExistException;
+	void deactivateTutor(String cpf) throws TutorDoesNotExistException, DisabledTutorException;
 }
