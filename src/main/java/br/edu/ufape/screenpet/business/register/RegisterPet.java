@@ -59,8 +59,35 @@ public class RegisterPet implements InterfaceRegisterPet {
 		collectionPet.delete(u);
 	}
 
+<<<<<<< HEAD
+	@Override
+	public boolean checkExistencePetId(Long id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void removePet(String name) throws PetNotExistsException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Pet findPetByName(String name) throws PetNotExistsException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Pet findByName(String name) throws PetNotExistsException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}
+=======
 	public void removePetName(String name) throws PetNotExistsException {
 		Pet p = findPetName(name);
 		collectionPet.delete(p);
 	}
 }
+>>>>>>> b392f2a093b88cd011508c9d62a8018a0aad363e

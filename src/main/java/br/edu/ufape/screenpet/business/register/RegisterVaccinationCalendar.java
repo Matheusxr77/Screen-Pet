@@ -25,11 +25,11 @@ private InterfaceCollectionVaccinationCalendar collectionVaccinationCalendar;
 		return vc;
 	}
 	
-	public VaccinationCalendar saveVaccinationCalendar(VaccinationCalendar entity)throws VaccinationCalendarNotExistsException, VaccinationCalendarDuplicateException {
+	public VaccinationCalendar saveVaccinationCalendar(VaccinationCalendar entity) {
 		try {
 			findVaccinationCalendar(entity.getDate());
 			throw new VaccinationCalendarDuplicateException(entity.getDate());
-		} catch(VaccinationCalendarNotExistsException err) {
+		} catch(VaccinationCalendarNotExistsException | VaccinationCalendarDuplicateException err) {
 			return collectionVaccinationCalendar.save(entity);
 		}
 	}
@@ -50,4 +50,17 @@ private InterfaceCollectionVaccinationCalendar collectionVaccinationCalendar;
 		VaccinationCalendar vc = findVaccinationCalendar(date);
 		collectionVaccinationCalendar.delete(vc);
 	}
+<<<<<<< HEAD
+
+	@Override
+	public void removeVaccinationCalendar(Date date) throws VaccinationCalendarNotExistsException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
 }
+=======
+}
+>>>>>>> b392f2a093b88cd011508c9d62a8018a0aad363e

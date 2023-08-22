@@ -7,12 +7,11 @@ import br.edu.ufape.screenpet.business.register.exception.VeterinarianDuplicateE
 import br.edu.ufape.screenpet.business.register.exception.VeterinarianNotExistsException;
 
 public interface InterfaceRegisterVeterinarian {
-	Veterinarian findVeterinarian(int crmv) throws VeterinarianNotExistsException;
+	Veterinarian findByCrmv(int crmv) throws VeterinarianNotExistsException;
 	Veterinarian saveVeterinarian(Veterinarian entity) throws VeterinarianDuplicateException;
 	Veterinarian updateVeterinarian(Veterinarian entity) throws VeterinarianNotExistsException;
 	List<Veterinarian> listVeterinarian();
 	boolean checkVeterinarianExistence(Long id);
 	Veterinarian findVeterinarianId(Long id);
-	void removeVeterinarian(int crmv) throws VeterinarianNotExistsException;
 	void removeVeterinarianId(Long id) throws VeterinarianNotExistsException;
 }
