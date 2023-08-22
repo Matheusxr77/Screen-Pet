@@ -21,6 +21,7 @@ public class Pet {
 	private String name;
 	private String gender;
 	private Date dateBirth;
+	private boolean active;
 	
 	@OneToMany
 	@Cascade(CascadeType.ALL)
@@ -82,7 +83,15 @@ public class Pet {
 		this.dateBirth = dateBirth;
 	}
 
-	public Pet(long id, String name, String gender, Date dateBirth, List<Schedule> schedules, VaccinationCalendar vaccinationCalendar, List<Appointment> appointment) {
+	public boolean getActive() {
+		return active;
+	}
+	
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+	
+	public Pet(long id, String name, String gender, Date dateBirth, List<Schedule> schedules, VaccinationCalendar vaccinationCalendar, List<Appointment> appointment){
 		super();
 		this.id = id;
 		this.name = name;
