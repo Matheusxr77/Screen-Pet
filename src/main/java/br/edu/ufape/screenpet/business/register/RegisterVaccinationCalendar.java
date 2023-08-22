@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.ufape.screenpet.business.basic.VaccinationCalendar;
+import br.edu.ufape.screenpet.business.register.exception.VaccinationCalendarDuplicateException;
 import br.edu.ufape.screenpet.business.register.exception.VaccinationCalendarNotExistsException;
 import br.edu.ufape.screenpet.data.InterfaceCollectionVaccinationCalendar;
 
@@ -24,11 +25,11 @@ private InterfaceCollectionVaccinationCalendar collectionVaccinationCalendar;
 		return vc;
 	}
 	
-	public VaccinationCalendar saveVaccinationCalendar(VaccinationCalendar entity)throws VaccinationCalendarNotExistsException, VaccinationCalendarDuplicateException {
+	public VaccinationCalendar saveVaccinationCalendar(VaccinationCalendar entity) {
 		try {
 			findVaccinationCalendar(entity.getDate());
 			throw new VaccinationCalendarDuplicateException(entity.getDate());
-		} catch(VaccinationCalendarNotExistsException err) {
+		} catch(VaccinationCalendarNotExistsException | VaccinationCalendarDuplicateException err) {
 			return collectionVaccinationCalendar.save(entity);
 		}
 	}
@@ -48,6 +49,12 @@ private InterfaceCollectionVaccinationCalendar collectionVaccinationCalendar;
 	public void removeSchedule(Date date) throws VaccinationCalendarNotExistsException {
 		VaccinationCalendar vc = findVaccinationCalendar(date);
 		collectionVaccinationCalendar.delete(vc);
+	}
+
+	@Override
+	public void removeVaccinationCalendar(Date date) throws VaccinationCalendarNotExistsException {
+		// TODO Auto-generated method stub
+		
 	}
 
 

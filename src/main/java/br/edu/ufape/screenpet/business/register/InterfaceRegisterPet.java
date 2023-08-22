@@ -6,7 +6,7 @@ import br.edu.ufape.screenpet.business.register.exception.PetDuplicateException;
 import br.edu.ufape.screenpet.business.register.exception.PetNotExistsException;
 
 public interface InterfaceRegisterPet {
-	Pet findPetName(String name) throws PetNotExistsException;
+	Pet findByName(String name) throws PetNotExistsException;
 	Pet savePet(Pet entity) throws PetDuplicateException, PetNotExistsException;
 	List<Pet> listPets();
 	boolean checkExistencePetId(Long id);

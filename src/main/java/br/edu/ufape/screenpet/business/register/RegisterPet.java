@@ -23,7 +23,7 @@ public class RegisterPet implements InterfaceRegisterPet {
 	private InterfaceCollectionPet collectionPet;
 	
 	public Pet findPetName(String name) throws PetNotExistsException {
-		Pet p = collectionPet.findPetName(name); 
+		Pet p = collectionPet.findByName(name); 
 		if(p == null) {
 			throw new PetNotExistsException(name);
 		}
@@ -63,5 +63,29 @@ public class RegisterPet implements InterfaceRegisterPet {
 	public void removePetId(Long id) throws PetNotExistsException {
 		Pet u = findPetId(id);
 		collectionPet.delete(u);
+	}
+
+	@Override
+	public boolean checkExistencePetId(Long id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void removePet(String name) throws PetNotExistsException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Pet findPetByName(String name) throws PetNotExistsException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Pet findByName(String name) throws PetNotExistsException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
