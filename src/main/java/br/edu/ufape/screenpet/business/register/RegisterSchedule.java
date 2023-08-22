@@ -2,6 +2,7 @@ package br.edu.ufape.screenpet.business.register;
 
 import java.util.Date;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,9 +16,8 @@ public class RegisterSchedule implements InterfaceRegisterSchedule {
 	@Autowired
 	private InterfaceCollectionSchedule collectionSchedule;
 
-	
 	public Schedule findSchedule(Date date) throws ScheduleNotExistsException {
-		Schedule s = collectionSchedule.findSchedule(date); 
+		Schedule s = collectionSchedule.findByDate(date); 
 		if(s == null) {
 			throw new ScheduleNotExistsException(date);
 		}
@@ -48,6 +48,5 @@ public class RegisterSchedule implements InterfaceRegisterSchedule {
 	public void removeSchedule(Date date) throws ScheduleNotExistsException {
 		Schedule s = findSchedule(date);
 		collectionSchedule.delete(s);
-	}
-
+	}	
 }

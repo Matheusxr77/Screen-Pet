@@ -11,13 +11,17 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class VaccinationHistoric {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 	private String comments;
+	
+	@OneToMany
+	private VaccinationCalendar vaccinationCalendar;
 
 	@ManyToMany
 	@Cascade(CascadeType.ALL)
@@ -44,5 +48,9 @@ public class VaccinationHistoric {
 		this.id = id;
 		this.comments = comments;
 		this.appointment = new ArrayList<>();
+	}
+
+	public VaccinationCalendar getVaccinationCalendar() {
+		return vaccinationCalendar;
 	}
 }

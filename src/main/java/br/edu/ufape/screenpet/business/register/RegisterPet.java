@@ -1,21 +1,15 @@
 package br.edu.ufape.screenpet.business.register;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.ufape.screenpet.data.InterfaceCollectionPet;
-import br.edu.ufape.screenpet.business.basic.Appointment;
 import br.edu.ufape.screenpet.business.basic.Pet;
-import br.edu.ufape.screenpet.business.basic.Schedule;
-import br.edu.ufape.screenpet.business.basic.Pet;
-import br.edu.ufape.screenpet.business.basic.VaccinationCalendar;
-import br.edu.ufape.screenpet.business.register.exception.InvalidBirthdatePetException;
 import br.edu.ufape.screenpet.business.register.exception.PetNotExistsException;
 import br.edu.ufape.screenpet.business.register.exception.PetDuplicateException;
-import br.edu.ufape.screenpet.business.register.exception.PetNotExistsException;
 
 @Service
 public class RegisterPet implements InterfaceRegisterPet {
@@ -65,6 +59,7 @@ public class RegisterPet implements InterfaceRegisterPet {
 		collectionPet.delete(u);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public boolean checkExistencePetId(Long id) {
 		// TODO Auto-generated method stub
@@ -89,3 +84,10 @@ public class RegisterPet implements InterfaceRegisterPet {
 		return null;
 	}
 }
+=======
+	public void removePetName(String name) throws PetNotExistsException {
+		Pet p = findPetName(name);
+		collectionPet.delete(p);
+	}
+}
+>>>>>>> b392f2a093b88cd011508c9d62a8018a0aad363e

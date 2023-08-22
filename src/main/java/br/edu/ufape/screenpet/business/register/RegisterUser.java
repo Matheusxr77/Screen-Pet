@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import br.edu.ufape.screenpet.data.InterfaceCollectionUser;
 import br.edu.ufape.screenpet.business.basic.User;
 import br.edu.ufape.screenpet.business.register.exception.UserNotExistsException;
-import br.edu.ufape.screenpet.business.register.exception.UserDuplicateException;
+import br.edu.ufape.screenpet.business.register.exception.DuplicateUserException;
 
 @Service
 public class RegisterUser implements InterfaceRegisterUser {
@@ -22,10 +22,10 @@ public class RegisterUser implements InterfaceRegisterUser {
 		return u;
 	}
 	
-	public User saveUser(User entity) throws UserDuplicateException {
+	public User saveUser(User entity) throws DuplicateUserException {
 		try {
 			findUserEmail(entity.getEmail());
-			throw new UserDuplicateException(entity.getEmail());
+			throw new DuplicateUserException(entity.getEmail());
 		} catch(UserNotExistsException err) {
 			return collectionUser.save(entity);
 		}
