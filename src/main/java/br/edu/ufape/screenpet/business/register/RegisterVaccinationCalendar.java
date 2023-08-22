@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.ufape.screenpet.business.basic.VaccinationCalendar;
+import br.edu.ufape.screenpet.business.register.exception.VaccinationCalendarDuplicateException;
 import br.edu.ufape.screenpet.business.register.exception.VaccinationCalendarNotExistsException;
 import br.edu.ufape.screenpet.data.InterfaceCollectionVaccinationCalendar;
 
@@ -17,7 +18,7 @@ private InterfaceCollectionVaccinationCalendar collectionVaccinationCalendar;
 
 	
 	public VaccinationCalendar findVaccinationCalendar(Date date) throws VaccinationCalendarNotExistsException {
-		VaccinationCalendar vc = collectionVaccinationCalendar.findVaccinationCalendar(date); 
+		VaccinationCalendar vc = collectionVaccinationCalendar.findByVaccinationCalendar(date); 
 		if(vc == null) {
 			throw new VaccinationCalendarNotExistsException(date);
 		}
@@ -45,11 +46,8 @@ private InterfaceCollectionVaccinationCalendar collectionVaccinationCalendar;
 		return collectionVaccinationCalendar.findById(id).orElse(null);
 	}
 
-	public void removeSchedule(Date date) throws VaccinationCalendarNotExistsException {
+	public void removeVaccinationCalendar(Date date) throws VaccinationCalendarNotExistsException {
 		VaccinationCalendar vc = findVaccinationCalendar(date);
 		collectionVaccinationCalendar.delete(vc);
 	}
-
-
-
 }

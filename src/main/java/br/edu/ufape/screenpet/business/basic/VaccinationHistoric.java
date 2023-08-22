@@ -16,7 +16,7 @@ import jakarta.persistence.ManyToMany;
 public class VaccinationHistoric {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 	private String comments;
 
 	@ManyToMany

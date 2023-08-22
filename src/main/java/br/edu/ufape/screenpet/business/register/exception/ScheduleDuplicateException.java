@@ -2,7 +2,7 @@ package br.edu.ufape.screenpet.business.register.exception;
 
 import java.util.Date;
 
-public class ScheduleDuplicateExcpetion extends Exception{
+public class ScheduleDuplicateException extends Exception{
 	private static final long serialVersionUID = 1L;
 	private Date date;
 	
