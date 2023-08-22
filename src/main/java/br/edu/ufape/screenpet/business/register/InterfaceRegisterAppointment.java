@@ -9,7 +9,7 @@ import br.edu.ufape.screenpet.business.register.exception.DoesNotExistAppointmen
 
 public interface InterfaceRegisterAppointment {
 	Appointment findAppointment(Date date) throws DoesNotExistAppointmentException;
-	Appointment saveMedicament(Appointment entity) throws DuplicateAppointmentException, DoesNotExistAppointmentException;
+	Appointment saveAppointment(Appointment entity) throws DuplicateAppointmentException, DoesNotExistAppointmentException;
 	List<Appointment> listAppointments();
 	boolean checkExistenceAppointmentId(Long id);
 	Appointment findAppointmentId(Long id);

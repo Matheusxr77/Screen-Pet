@@ -54,13 +54,8 @@ public class RegisterPet implements InterfaceRegisterPet {
 		return collectionPet.findById(id).orElse(null);
 	}
 	
-	public void removePetId(Long id) throws DoesNotExistPetException {
+	public void deactivatePet(Long id) throws DoesNotExistPetException, DisabledPetException {
 		Pet u = findPetId(id);
-		collectionPet.delete(u);
-	}
-	
-	public void deactivatePet(String name) throws DoesNotExistPetException, DisabledPetException {
-		Pet u = findPetName(name);
 		u.setActive(false);
 	}
 }

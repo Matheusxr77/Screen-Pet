@@ -12,5 +12,5 @@ public interface InterfaceRegisterMedicament {
 	List<Medicament> listMedicaments();
 	boolean checkExistenceMedicamentId(Long id);
 	Medicament findMedicamentId(Long id);
-	void removeMedicament(String activeCompound) throws DoesNotExistMedicamentException;
+	void removeMedicament(Long id) throws DoesNotExistMedicamentException;
 }
