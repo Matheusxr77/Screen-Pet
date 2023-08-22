@@ -14,7 +14,6 @@ public class RegisterMedicament implements InterfaceRegisterMedicament {
 	@Autowired
 	private InterfaceCollectionMedicament collectionMedicament;
 
-	
 	public Medicament findMedicament(String activeCompound) throws MedicamentDoesNotExistException {
 		Medicament med = collectionMedicament.findByActiveCompound(activeCompound); 
 		if(med == null) {

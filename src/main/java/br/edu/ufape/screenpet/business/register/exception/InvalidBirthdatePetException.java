@@ -1,8 +1,8 @@
 package br.edu.ufape.screenpet.business.register.exception;
 
-import java.sql.Date;
+import java.util.Date;
 
-public class InvalidBirthdatePetException extends Exception{
+public class InvalidBirthdatePetException extends Exception {
 	private static final long serialVersionUID = 1L;
 	private Date dateBirth;
 	
