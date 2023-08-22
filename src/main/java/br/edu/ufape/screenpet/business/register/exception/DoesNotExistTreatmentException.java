@@ -7,7 +7,7 @@ public class DoesNotExistTreatmentException extends Exception {
 	private Diagnosis diagnosis;
 	
 	public DoesNotExistTreatmentException(Diagnosis diagnosis) {
-		super("Não existe Pet no sistema que possua esse registro de vacina em seu calendário");
+		super("Não existe um Pet no sistema que possua esse registro de vacina em seu calendário!");
 		this.diagnosis = diagnosis;
 	}
 	

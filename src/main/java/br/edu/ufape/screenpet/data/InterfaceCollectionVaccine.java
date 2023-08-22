@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.edu.ufape.screenpet.business.basic.Vaccine;
 
 @Repository
-public interface InterfaceCollectionVaccine extends JpaRepository<Vaccine, Long>{
+public interface InterfaceCollectionVaccine extends JpaRepository<Vaccine, Long> {
 	Vaccine findByName(String name);
 }

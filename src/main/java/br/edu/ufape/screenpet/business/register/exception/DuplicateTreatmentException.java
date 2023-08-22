@@ -7,7 +7,7 @@ public class DuplicateTreatmentException extends Exception {
 	private Diagnosis diagnosis;
 	
 	public DuplicateTreatmentException(Diagnosis diagnosis) {
-		super("Não é possível cadastrar dois tratamentos iguais para o mesmo diagnóstico");
+		super("Não é possível cadastrar dois tratamentos iguais para o mesmo diagnóstico!");
 		this.diagnosis = diagnosis;
 	}
 	

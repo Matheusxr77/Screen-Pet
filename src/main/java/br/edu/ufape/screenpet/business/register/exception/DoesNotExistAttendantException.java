@@ -5,7 +5,7 @@ public class DoesNotExistAttendantException extends Exception {
 	private String cpf;
 	
 	public DoesNotExistAttendantException(String cpf) {
-		super("Não existe no sistema um atendente com esse CPF!");
+		super("Não existe no sistema um atendente com o CPF informado!");
 		this.cpf = cpf;
 	}
 	

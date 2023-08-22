@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.edu.ufape.screenpet.business.basic.Attendant;
 
 @Repository
-public interface InterfaceCollectionAttendant extends JpaRepository<Attendant, Long>{
+public interface InterfaceCollectionAttendant extends JpaRepository<Attendant, Long> {
 	Attendant findByCpf(String cpf);
 }

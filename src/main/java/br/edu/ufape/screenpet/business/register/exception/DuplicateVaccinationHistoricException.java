@@ -7,7 +7,7 @@ public class DuplicateVaccinationHistoricException extends Exception {
 	private VaccinationCalendar vaccinationCalendar;
 	
 	public DuplicateVaccinationHistoricException(VaccinationCalendar vaccinationCalendar) {
-		super("Não é possível cadastrar dois históricos de vacina iguais para o mesmo calendário");
+		super("Não é possível cadastrar dois históricos de vacina iguais para o mesmo calendário!");
 		this.vaccinationCalendar = vaccinationCalendar;
 	}
 	

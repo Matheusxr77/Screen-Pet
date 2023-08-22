@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.edu.ufape.screenpet.business.basic.Administrator;
 
 @Repository
-public interface InterfaceCollectionAdministrator extends JpaRepository<Administrator, Long>{
+public interface InterfaceCollectionAdministrator extends JpaRepository<Administrator, Long> {
 
 }
