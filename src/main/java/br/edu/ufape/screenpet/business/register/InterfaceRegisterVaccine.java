@@ -12,5 +12,5 @@ public interface InterfaceRegisterVaccine {
 	List<Vaccine> listVaccines();
 	boolean checkExistenceVaccineId(Long id);
 	Vaccine findVaccineId(Long id);
-	void removeVaccine(String name) throws DoesNotExistVaccineException;
+	void removeVaccine(Long id) throws DoesNotExistVaccineException;
 }

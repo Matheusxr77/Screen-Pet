@@ -59,11 +59,6 @@ public class RegisterVeterinarian implements InterfaceRegisterVeterinarian {
 		collectionVeterinarian.delete(v);
 	}
 	
-	public void removeVeterinarianId(Long id) throws DoesNotExistVeterinarianException {
-		Veterinarian v = findVeterinarianId(id);
-		collectionVeterinarian.delete(v);
-	}
-	
 	public void deactivateVeterinarian(int crmv) throws DoesNotExistVeterinarianException, DisabledVeterinarianException {
 		Veterinarian veterinarian = findByCrmv(crmv);
 		veterinarian.setActive(false);

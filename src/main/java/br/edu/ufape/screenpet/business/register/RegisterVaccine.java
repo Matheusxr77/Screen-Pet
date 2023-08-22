@@ -43,8 +43,8 @@ public class RegisterVaccine implements InterfaceRegisterVaccine {
 		return collectionVaccine.findById(id).orElse(null);
 	}
 
-	public void removeVaccine(String name) throws DoesNotExistVaccineException {
-		Vaccine vac = findVaccine(name);
+	public void removeVaccine(Long id) throws DoesNotExistVaccineException {
+		Vaccine vac = findVaccineId(id);
 		collectionVaccine.delete(vac);
 	}
 }
