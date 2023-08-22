@@ -14,6 +14,5 @@ public interface InterfaceRegisterVeterinarian {
 	List<Veterinarian> listVeterinarian();
 	boolean checkVeterinarianExistence(Long id);
 	Veterinarian findVeterinarianId(Long id);
-	void removeVeterinarianId(Long id) throws DoesNotExistVeterinarianException;
 	void deactivateVeterinarian(int crmv) throws DoesNotExistVeterinarianException, DisabledVeterinarianException;
 }

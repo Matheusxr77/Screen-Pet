@@ -32,15 +32,6 @@ public class RegisterUser implements InterfaceRegisterUser {
 		}
 	}
 	
-	public User updateUser(User entity) throws DoesNotExistUserException {
-		try {
-			findUserEmail(entity.getEmail());
-			return collectionUser.save(entity);
-		} catch(DoesNotExistUserException err) {
-			throw new DoesNotExistUserException(entity.getEmail());
-		}
-	}
-	
 	public List<User> listUsers() {
 		return collectionUser.findAll();
 	}
@@ -53,18 +44,8 @@ public class RegisterUser implements InterfaceRegisterUser {
 		return collectionUser.findById(id).orElse(null);
 	}
 	
-	public void removeUserEmail(String email) throws DoesNotExistUserException {
-		User u = findUserEmail(email);
-		collectionUser.delete(u);
-	}
-	
-	public void removeUserId(Long id) throws DoesNotExistUserException {
+	public void deactivateUser(Long id) throws DoesNotExistUserException, DisabledUserException {
 		User u = findUserId(id);
-		collectionUser.delete(u);
-	}
-	
-	public void deactivateUser(String email) throws DoesNotExistUserException, DisabledUserException {
-		User u = findUserEmail(email);
 		u.setActive(false);
 	}
 }

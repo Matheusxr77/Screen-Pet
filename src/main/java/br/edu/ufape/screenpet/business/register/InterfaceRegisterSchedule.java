@@ -13,5 +13,5 @@ public interface InterfaceRegisterSchedule {
 	List<Schedule> listSchedules();
 	boolean checkExistenceScheduleId(Long id);
 	Schedule findScheduleId(Long id);
-	void removeSchedule(Date date) throws DoesNotExistScheduleException;
+	void removeSchedule(Long id) throws DoesNotExistScheduleException;
 }

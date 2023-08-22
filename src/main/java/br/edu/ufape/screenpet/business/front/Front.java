@@ -33,6 +33,9 @@ import br.edu.ufape.screenpet.business.register.InterfaceRegisterVaccine;
 import br.edu.ufape.screenpet.business.register.InterfaceRegisterVeterinarian;
 import br.edu.ufape.screenpet.business.register.exception.DisabledAttendantException;
 import br.edu.ufape.screenpet.business.register.exception.DisabledPetException;
+import br.edu.ufape.screenpet.business.register.exception.DisabledTutorException;
+import br.edu.ufape.screenpet.business.register.exception.DisabledUserException;
+import br.edu.ufape.screenpet.business.register.exception.DisabledVeterinarianException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistAppointmentException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistAttendantException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistMedicamentException;
@@ -49,6 +52,14 @@ import br.edu.ufape.screenpet.business.register.exception.DuplicateAppointmentEx
 import br.edu.ufape.screenpet.business.register.exception.DuplicateAttendantException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateMedicamentException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicatePetException;
+import br.edu.ufape.screenpet.business.register.exception.DuplicateScheduleException;
+import br.edu.ufape.screenpet.business.register.exception.DuplicateTreatmentException;
+import br.edu.ufape.screenpet.business.register.exception.DuplicateTutorException;
+import br.edu.ufape.screenpet.business.register.exception.DuplicateUserException;
+import br.edu.ufape.screenpet.business.register.exception.DuplicateVaccinationCalendarException;
+import br.edu.ufape.screenpet.business.register.exception.DuplicateVaccinationHistoricException;
+import br.edu.ufape.screenpet.business.register.exception.DuplicateVaccineException;
+import br.edu.ufape.screenpet.business.register.exception.DuplicateVeterinarianException;
 
 @Service
 public class Front {
@@ -192,33 +203,187 @@ public class Front {
 		return registerSchedule.findSchedule(date);
 	}
 	
+	public Schedule saveSchedule(Schedule entity)throws DoesNotExistScheduleException, DuplicateScheduleException {
+		return registerSchedule.saveSchedule(entity);
+	}
+	
+	public List<Schedule> listSchedules() {
+		return registerSchedule.listSchedules();
+	}
+	
+	public boolean checkExistenceScheduleId(Long id) {
+		return registerSchedule.checkExistenceScheduleId(id);
+	}
+	
+	public Schedule findScheduleId(Long id) {
+		return registerSchedule.findScheduleId(id);
+	}
+	
+	public void removeSchedule(Long id) throws DoesNotExistScheduleException {
+		registerSchedule.removeSchedule(id);
+	}
+
 	public Treatment findTreatment(Diagnosis diagnosis) throws DoesNotExistTreatmentException {
 		return registerTreatment.findTreatment(diagnosis);
 	}
 	
+	public Treatment saveTreatment(Treatment entity) throws DoesNotExistTreatmentException, DuplicateTreatmentException {
+		return registerTreatment.saveTreatment(entity);
+	}
+	
+	public List<Treatment> listTreatments() {
+		return registerTreatment.listTreatments();
+	}
+	
+	public boolean checkExistenceTreatmentId(Long id) {
+		return registerTreatment.checkExistenceTreatmentId(id);
+	}
+	
+	public Treatment findTreatmenId(Long id) {
+		return registerTreatment.findTreatmenId(id);
+	}
+
 	public Tutor findTutorCpf(String cpf) throws DoesNotExistTutorException {
 		return registerTutor.findTutorCpf(cpf);
 	}
 	
+	public Tutor saveTutor(Tutor entity) throws DuplicateTutorException {
+		return registerTutor.saveTutor(entity);
+	}
+	
+	public Tutor updateTutor(Tutor entity) throws DoesNotExistTutorException {
+		return registerTutor.updateTutor(entity);
+	}
+	
+	public List<Tutor> listTutor() {
+		return registerTutor.listTutor();
+	}
+	
+	public boolean checkTutorExistence(Long id) {
+		return registerTutor.checkTutorExistence(id);
+	}
+	
+	public Tutor findTutorId(Long id) {
+		return registerTutor.findTutorId(id);
+	}
+	
+	public void deactivateTutor(String cpf) throws DoesNotExistTutorException, DisabledTutorException {
+		registerTutor.deactivateTutor(cpf);
+	}
+
 	public User findUserEmail(String email) throws DoesNotExistUserException {
 		return registerUser.findUserEmail(email);
 	}
 	
+	public User saveUser(User entity) throws DuplicateUserException {
+		return registerUser.saveUser(entity);
+	}
+	
+	public List<User> listUsers() {
+		return registerUser.listUsers();
+	}
+	
+	public boolean checkUserExistence(Long id) {
+		return registerUser.checkUserExistence(id);
+	}
+	
+	public User findUserId(Long id) {
+		return registerUser.findUserId(id);
+	}
+	
+	public void deactivateUser(Long id) throws DoesNotExistUserException, DisabledUserException {
+		registerUser.deactivateUser(id);
+	}
+
 	public VaccinationCalendar findVaccinationCalendar(Date date) throws DoesNotExistVaccinationCalendarException {
 		return registerVaccinationCalendar.findVaccinationCalendar(date);
+	}
+	
+	public VaccinationCalendar saveVaccinationCalendar(VaccinationCalendar entity) throws DuplicateVaccinationCalendarException, DoesNotExistVaccinationCalendarException {
+		return registerVaccinationCalendar.saveVaccinationCalendar(entity);
+	}
+	
+	public List<VaccinationCalendar> listVaccinationCalendar() {
+		return registerVaccinationCalendar.listVaccinationCalendar();
+	}
+	
+	public boolean checkExistenceVaccinationCalendarId(Long id){
+		return registerVaccinationCalendar.checkExistenceVaccinationCalendarId(id);
+	}
+	
+	public VaccinationCalendar findVaccinationCalendarId(Long id) {
+		return registerVaccinationCalendar.findVaccinationCalendarId(id);
 	}
 	
 	public VaccinationHistoric findVaccinationHistoric(VaccinationCalendar vaccinationCalendar) throws DoesNotExistVaccinationHistoricException {
 		return registerVaccinationHistoric.findVaccinationHistoric(vaccinationCalendar);
 	}
 	
+	public VaccinationHistoric saveVaccinationHistoric(VaccinationHistoric entity)throws DoesNotExistVaccinationHistoricException, DuplicateVaccinationHistoricException {
+		return registerVaccinationHistoric.saveVaccinationHistoric(entity);
+	}
+	
+	public List<VaccinationHistoric> listVaccinationHistorics() {
+		return registerVaccinationHistoric.listVaccinationHistorics();
+	}
+	
+	public boolean checkExistenceVaccinationHistoricId(Long id) {
+		return registerVaccinationHistoric.checkExistenceVaccinationHistoricId(id);
+	}
+	
+	public VaccinationHistoric findVaccinationHistoricId(Long id) {
+		return registerVaccinationHistoric.findVaccinationHistoricId(id);
+	}
+	
 	public Vaccine findVaccine(String name) throws DoesNotExistVaccineException {
 		return registerVaccine.findVaccine(name);
 	}
 	
+	public Vaccine saveVaccine(Vaccine entity) throws DuplicateVaccineException, DoesNotExistVaccineException {
+		return registerVaccine.saveVaccine(entity);
+	}
+	
+	public List<Vaccine> listVaccines() {
+		return registerVaccine.listVaccines();
+	}
+	
+	public boolean checkExistenceVaccineId(Long id) {
+		return registerVaccine.checkExistenceVaccineId(id);
+	}
+
+	public Vaccine findVaccineId(Long id) {
+		return registerVaccine.findVaccineId(id);
+	}
+	
+	public void removeVaccine(Long id) throws DoesNotExistVaccineException {
+		registerVaccine.removeVaccine(id);
+	}
+
 	public Veterinarian findByCrmv(int crmv) throws DoesNotExistVeterinarianException {
 		return registerVeterinarian.findByCrmv(crmv);
 	}
 	
+	public Veterinarian saveVeterinarian(Veterinarian entity) throws DuplicateVeterinarianException {
+		return registerVeterinarian.saveVeterinarian(entity);
+	}
 	
+	public Veterinarian updateVeterinarian(Veterinarian entity) throws DoesNotExistVeterinarianException {
+		return registerVeterinarian.updateVeterinarian(entity);
+	}
+	
+	public List<Veterinarian> listVeterinarian() {
+		return registerVeterinarian.listVeterinarian();
+	}
+	
+	public boolean checkVeterinarianExistence(Long id) {
+		return registerVeterinarian.checkVeterinarianExistence(id);
+	}
+	
+	public Veterinarian findVeterinarianId(Long id) {
+		return registerVeterinarian.findVeterinarianId(id);
+	}
+	
+	public void deactivateVeterinarian(int crmv) throws DoesNotExistVeterinarianException, DisabledVeterinarianException {
+		registerVeterinarian.deactivateVeterinarian(crmv);
+	}
 }
