@@ -1,7 +1,6 @@
 package br.edu.ufape.screenpet.business.register.exception;
 
 public class DuplicateMedicamentException extends Exception {
-	
 	private static final long serialVersionUID = 1L;
 	private String activeCompound;
 	
@@ -13,5 +12,4 @@ public class DuplicateMedicamentException extends Exception {
 	public String getActiveCompound() {
 		return this.activeCompound;
 	}
-
 }
