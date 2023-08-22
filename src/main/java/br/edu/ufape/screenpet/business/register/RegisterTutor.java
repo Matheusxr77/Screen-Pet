@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import br.edu.ufape.screenpet.business.basic.Tutor;
+import br.edu.ufape.screenpet.business.register.exception.DisabledTutorException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateTutorException;
 import br.edu.ufape.screenpet.business.register.exception.TutorDoesNotExistException;
 import br.edu.ufape.screenpet.data.InterfaceCollectionTutor;
@@ -51,7 +52,7 @@ public class RegisterTutor {
 		return collectionTutor.findById(id).orElse(null);
 	}
 	
-	public void deactivateTutor(String cpf) throws TutorDoesNotExistException {
+	public void deactivateTutor(String cpf) throws TutorDoesNotExistException, DisabledTutorException {
 		Tutor tutor = findTutorCpf(cpf);
 		tutor.setActive(false);
 	}
