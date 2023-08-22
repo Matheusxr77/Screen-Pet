@@ -1,6 +1,7 @@
 package br.edu.ufape.screenpet.business.front;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,8 @@ import br.edu.ufape.screenpet.business.register.InterfaceRegisterVaccinationCale
 import br.edu.ufape.screenpet.business.register.InterfaceRegisterVaccinationHistoric;
 import br.edu.ufape.screenpet.business.register.InterfaceRegisterVaccine;
 import br.edu.ufape.screenpet.business.register.InterfaceRegisterVeterinarian;
+import br.edu.ufape.screenpet.business.register.exception.DisabledAttendantException;
+import br.edu.ufape.screenpet.business.register.exception.DisabledPetException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistAppointmentException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistAttendantException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistMedicamentException;
@@ -42,6 +45,10 @@ import br.edu.ufape.screenpet.business.register.exception.DoesNotExistVaccinatio
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistVaccinationHistoricException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistVaccineException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistVeterinarianException;
+import br.edu.ufape.screenpet.business.register.exception.DuplicateAppointmentException;
+import br.edu.ufape.screenpet.business.register.exception.DuplicateAttendantException;
+import br.edu.ufape.screenpet.business.register.exception.DuplicateMedicamentException;
+import br.edu.ufape.screenpet.business.register.exception.DuplicatePetException;
 
 @Service
 public class Front {
@@ -86,18 +93,101 @@ public class Front {
 		return registerAppointment.findAppointment(date);
 	}
 	
+	public Appointment saveAppointment(Appointment entity) throws DuplicateAppointmentException, DoesNotExistAppointmentException {
+		return registerAppointment.saveAppointment(entity);
+	}
+	
+	public List<Appointment> listAppointments() {
+		return registerAppointment.listAppointments();
+	}
+	
+	public boolean checkExistenceAppointmentId(Long id) {
+		return registerAppointment.checkExistenceAppointmentId(id);
+	}
+	
+	public Appointment findAppointmentId(Long id) {
+		return registerAppointment.findAppointmentId(id);
+	}
+	
 	public Attendant findAttendantCpf(String cpf) throws DoesNotExistAttendantException {
 		return registerAttendant.findAttendantCpf(cpf);
+	}
+	
+	public 	Attendant saveAttendant(Attendant entity) throws DuplicateAttendantException {
+		return registerAttendant.saveAttendant(entity);
+	}
+	
+	public 	Attendant updateAttendant(Attendant entity) throws DoesNotExistAttendantException {
+		return registerAttendant.updateAttendant(entity);
+	}
+	
+	public List<Attendant> listAttendant(){
+		return registerAttendant.listAttendant();
+	}
+	
+	public boolean checkAttendantExistence(Long id) {
+		return registerAttendant.checkAttendantExistence(id);
+	}
+	
+	public Attendant findAttendantId(Long id) {
+		return registerAttendant.findAttendantId(id);
+	}
+	
+	public void deactivateAttendant(String cpf) throws DoesNotExistAttendantException, DisabledAttendantException {
+		registerAttendant.deactivateAttendant(cpf);
 	}
 	
 	public Medicament findMedicament(String activeCompound) throws DoesNotExistMedicamentException {
 		return registerMedicament.findMedicament(activeCompound);
 	}
 	
+	public Medicament saveMedicament(Medicament entity) throws DuplicateMedicamentException, DoesNotExistMedicamentException {
+		return registerMedicament.saveMedicament(entity);
+	}
+	
+	public List<Medicament> listMedicaments() {
+		return registerMedicament.listMedicaments();
+	}
+	
+	public boolean checkExistenceMedicamentId(Long id) {
+		return registerMedicament.checkExistenceMedicamentId(id);
+	}
+	
+	public Medicament findMedicamentId(Long id) {
+		return registerMedicament.findMedicamentId(id);
+	}
+	
+	void removeMedicament(Long id) throws DoesNotExistMedicamentException {
+		registerMedicament.removeMedicament(id);
+	}
 	public Pet findPetName(String name) throws DoesNotExistPetException {
 		return registerPet.findPetName(name);
 	}
 	
+	public Pet savePet(Pet entity) throws DuplicatePetException {
+		return registerPet.savePet(entity);
+	}
+	
+	public Pet updatePet(Pet entity) throws DoesNotExistPetException {
+		return registerPet.updatePet(entity);
+	}
+	
+	public List<Pet> listPets() {
+		return registerPet.listPets();
+	}
+	
+	public boolean checkPetExistence(Long id) {
+		return registerPet.checkPetExistence(id);
+	}
+	
+	public Pet findPetId(Long id) {
+		return registerPet.findPetId(id);
+	}
+	
+	public void deactivatePet(Long id) throws DoesNotExistPetException, DisabledPetException {
+		registerPet.deactivatePet(id);
+	}
+
 	public Schedule findSchedule(Date date) throws DoesNotExistScheduleException {
 		return registerSchedule.findSchedule(date);
 	}
@@ -129,4 +219,6 @@ public class Front {
 	public Veterinarian findByCrmv(int crmv) throws DoesNotExistVeterinarianException {
 		return registerVeterinarian.findByCrmv(crmv);
 	}
+	
+	
 }

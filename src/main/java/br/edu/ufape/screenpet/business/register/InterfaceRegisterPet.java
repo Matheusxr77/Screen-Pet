@@ -13,6 +13,5 @@ public interface InterfaceRegisterPet {
 	List<Pet> listPets();
 	boolean checkPetExistence(Long id);
 	Pet findPetId(Long id);
-	void removePetId(Long id) throws DoesNotExistPetException;
-	void deactivatePet(String name) throws DoesNotExistPetException, DisabledPetException;
+	void deactivatePet(Long id) throws DoesNotExistPetException, DisabledPetException;
 }
