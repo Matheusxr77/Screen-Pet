@@ -43,8 +43,8 @@ public class RegisterMedicament implements InterfaceRegisterMedicament {
 		return collectionMedicament.findById(id).orElse(null);
 	}
 
-	public void removeMedicament(String activeCompound) throws DoesNotExistMedicamentException {
-		Medicament med = findMedicament(activeCompound);
+	public void removeMedicament(Long id) throws DoesNotExistMedicamentException {
+		Medicament med = findMedicamentId(id);
 		collectionMedicament.delete(med);
 	}
 }

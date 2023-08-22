@@ -23,7 +23,7 @@ public class RegisterAppointment {
 		return appointment;
 	}
 	
-	public Appointment saveAppointment(Appointment entity)throws DoesNotExistAppointmentException, DuplicateAppointmentException {
+	public Appointment saveAppointment(Appointment entity) throws DoesNotExistAppointmentException, DuplicateAppointmentException {
 		try {
 			findAppointment(entity.getDate());
 			throw new DuplicateAppointmentException(entity.getDate());
