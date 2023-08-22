@@ -6,7 +6,7 @@ public class MedicamentDoesNotExistException extends Exception {
 	private String activeCompound;
 	
 	public MedicamentDoesNotExistException(String activeCompound) {
-		super("Não existe no sistema um medicamento com o composto ativo informado");
+		super("Não existe no sistema um medicamento com o composto ativo informado!");
 		this.activeCompound = activeCompound;
 	}
 	

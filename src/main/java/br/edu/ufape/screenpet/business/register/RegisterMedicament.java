@@ -48,5 +48,4 @@ public class RegisterMedicament implements InterfaceRegisterMedicament {
 		Medicament med = findMedicament(activeCompound);
 		collectionMedicament.delete(med);
 	}
-
 }
