@@ -11,7 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class VaccinationHistoric {
@@ -20,7 +20,7 @@ public class VaccinationHistoric {
 	private long id;
 	private String comments;
 	
-	@OneToMany
+	@ManyToOne
 	@Cascade(CascadeType.ALL)
 	private VaccinationCalendar vaccinationCalendar;
 
