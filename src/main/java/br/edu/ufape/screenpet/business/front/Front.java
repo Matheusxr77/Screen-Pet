@@ -63,7 +63,6 @@ import br.edu.ufape.screenpet.business.register.exception.DuplicateVeterinarianE
 
 @Service
 public class Front {
-	
 	@Autowired
 	private InterfaceRegisterAppointment registerAppointment;
 	
@@ -132,7 +131,7 @@ public class Front {
 		return registerAttendant.updateAttendant(entity);
 	}
 	
-	public List<Attendant> listAttendant(){
+	public List<Attendant> listAttendant() {
 		return registerAttendant.listAttendant();
 	}
 	
@@ -239,8 +238,8 @@ public class Front {
 		return registerTreatment.checkExistenceTreatmentId(id);
 	}
 	
-	public Treatment findTreatmenId(Long id) {
-		return registerTreatment.findTreatmenId(id);
+	public Treatment findTreatmentId(Long id) {
+		return registerTreatment.findTreatmentId(id);
 	}
 
 	public Tutor findTutorCpf(String cpf) throws DoesNotExistTutorException {
@@ -307,7 +306,7 @@ public class Front {
 		return registerVaccinationCalendar.listVaccinationCalendar();
 	}
 	
-	public boolean checkExistenceVaccinationCalendarId(Long id){
+	public boolean checkExistenceVaccinationCalendarId(Long id) {
 		return registerVaccinationCalendar.checkExistenceVaccinationCalendarId(id);
 	}
 	

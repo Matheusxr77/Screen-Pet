@@ -5,11 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.edu.ufape.screenpet.data.InterfaceCollectionAttendant;
 import br.edu.ufape.screenpet.business.basic.Attendant;
 import br.edu.ufape.screenpet.business.register.exception.DisabledAttendantException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateAttendantException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistAttendantException;
-import br.edu.ufape.screenpet.data.InterfaceCollectionAttendant;
 
 @Service
 public class RegisterAttendant {

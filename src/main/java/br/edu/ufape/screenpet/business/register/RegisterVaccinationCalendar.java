@@ -6,13 +6,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.edu.ufape.screenpet.data.InterfaceCollectionVaccinationCalendar;
 import br.edu.ufape.screenpet.business.basic.VaccinationCalendar;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateVaccinationCalendarException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistVaccinationCalendarException;
-import br.edu.ufape.screenpet.data.InterfaceCollectionVaccinationCalendar;
 
 @Service
-public class RegisterVaccinationCalendar implements InterfaceRegisterVaccinationCalendar{
+public class RegisterVaccinationCalendar implements InterfaceRegisterVaccinationCalendar {
 	@Autowired
 	private InterfaceCollectionVaccinationCalendar collectionVaccinationCalendar;
 	

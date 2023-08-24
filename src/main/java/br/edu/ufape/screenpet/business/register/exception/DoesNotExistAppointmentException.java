@@ -7,7 +7,7 @@ public class DoesNotExistAppointmentException extends Exception {
 	private Date date;
 	
 	public DoesNotExistAppointmentException(Date date) {
-		super("Não existe no sistema uma consulta com o composto ativo informado");
+		super("Não existe no sistema uma consulta com a data informada!");
 		this.date = date;
 	}
 	

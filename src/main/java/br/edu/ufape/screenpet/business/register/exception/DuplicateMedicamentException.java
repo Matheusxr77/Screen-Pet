@@ -5,7 +5,7 @@ public class DuplicateMedicamentException extends Exception {
 	private String activeCompound;
 	
 	public DuplicateMedicamentException(String activeCompound) {
-		super("Não é possível cadastrar dois medicamentos com o mesmo composto ativo");
+		super("Não é possível cadastrar dois medicamentos com o mesmo composto ativo!");
 		this.activeCompound = activeCompound;
 	}
 	

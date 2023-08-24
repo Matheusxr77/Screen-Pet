@@ -5,7 +5,7 @@ public class DuplicateAttendantException extends Exception {
 	private String cpf;
 	
 	public DuplicateAttendantException(String cpf) {
-		super("Não é possível cadastrar dois atendentes com o mesmo CPF.");
+		super("Não é possível cadastrar dois atendentes com o mesmo CPF!");
 		this.cpf = cpf;
 	}
 	

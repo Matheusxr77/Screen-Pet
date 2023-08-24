@@ -1,6 +1,7 @@
 package br.edu.ufape.screenpet.business.register;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,7 +41,7 @@ public class RegisterTreatment {
 		return collectionTreatment.existsById(id);
 	}
 
-	public Treatment findTreatmenId(Long id) {
+	public Treatment findTreatmentId(Long id) {
 		return collectionTreatment.findById(id).orElse(null);
 	}
 }

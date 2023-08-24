@@ -1,13 +1,14 @@
 package br.edu.ufape.screenpet.business.register;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.edu.ufape.screenpet.data.InterfaceCollectionVaccine;
 import br.edu.ufape.screenpet.business.basic.Vaccine;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateVaccineException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistVaccineException;
-import br.edu.ufape.screenpet.data.InterfaceCollectionVaccine;
 
 @Service
 public class RegisterVaccine implements InterfaceRegisterVaccine {

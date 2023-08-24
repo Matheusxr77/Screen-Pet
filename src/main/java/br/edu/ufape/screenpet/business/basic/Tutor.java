@@ -3,15 +3,14 @@ package br.edu.ufape.screenpet.business.basic;
 import java.util.Date;
 import java.util.List;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+
 @Entity
 public class Tutor extends Person {
-
 	@OneToMany
 	@Cascade(CascadeType.ALL)
 	private List<Pet> pets;

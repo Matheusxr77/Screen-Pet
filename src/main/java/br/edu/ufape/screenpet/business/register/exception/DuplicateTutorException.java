@@ -5,7 +5,7 @@ public class DuplicateTutorException extends Exception {
 	private String cpf;
 	
 	public DuplicateTutorException(String cpf) {
-		super("Não é possível cadastrar dois tutores com o mesmo CPF.");
+		super("Não é possível cadastrar dois tutores com o mesmo CPF!");
 		this.cpf = cpf;
 	}
 	

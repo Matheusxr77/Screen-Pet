@@ -7,7 +7,7 @@ public class DoesNotExistVaccinationHistoricException extends Exception {
 	private VaccinationCalendar vaccinationCalendar;
 	
 	public DoesNotExistVaccinationHistoricException(VaccinationCalendar vaccinationCalendar) {
-		super("Não existe Pet no sistema que possua esse registro de vacina em seu calendário!");
+		super("Não existe um Pet no sistema que possua esse registro de vacina em seu calendário!");
 		this.vaccinationCalendar = vaccinationCalendar;
 	}
 	

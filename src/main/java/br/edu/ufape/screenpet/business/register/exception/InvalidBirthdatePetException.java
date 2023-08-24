@@ -7,7 +7,7 @@ public class InvalidBirthdatePetException extends Exception {
 	private Date dateBirth;
 	
 	public InvalidBirthdatePetException(Date dateBirth) {
-		super("A data de nascimento informada é inválida");
+		super("A data de nascimento informada é inválida!");
 		this.dateBirth = dateBirth;
 	}
 	

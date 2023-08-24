@@ -1,0 +1,46 @@
+package br.edu.ufape.screenpet.comunication;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.edu.ufape.screenpet.business.basic.Tutor;
+import br.edu.ufape.screenpet.business.front.Front;
+import br.edu.ufape.screenpet.business.register.exception.DisabledTutorException;
+import br.edu.ufape.screenpet.business.register.exception.DoesNotExistTutorException;
+import br.edu.ufape.screenpet.business.register.exception.DuplicateTutorException;
+
+@RestController
+@RequestMapping("/api/v7")
+public class TutorController {
+	@Autowired
+	public Front front;
+	
+	@GetMapping("/tutor")
+	public List<Tutor> listTutor() {
+		return front.listTutor();
+	}
+	
+	@PostMapping("/tutor")
+	public Tutor registerTutor(@RequestBody Tutor tutor) throws DuplicateTutorException, DoesNotExistTutorException, DisabledTutorException {
+		return front.saveTutor(tutor);
+	}
+	
+	@GetMapping("/tutor/{id}")
+	public Tutor printTutor(@PathVariable long id) {
+		return front.findTutorId(id);
+	}
+	
+	@PatchMapping("/tutor/{id}")
+	public Tutor updateTutor(@PathVariable String cpf, @RequestBody Tutor tutor) throws DuplicateTutorException, DisabledTutorException {
+		tutor.setCpf(cpf);
+		return front.saveTutor(tutor);
+	}
+}

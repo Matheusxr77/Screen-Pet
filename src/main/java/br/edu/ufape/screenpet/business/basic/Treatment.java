@@ -27,14 +27,6 @@ public class Treatment {
     @OneToMany
     @Cascade(CascadeType.ALL)
     private Diagnosis diagnosis;
-    
-    public Diagnosis getDiagnosis() {
-		return diagnosis;
-	}
-
-	public void setDiagnosis(Diagnosis diagnosis) {
-		this.diagnosis = diagnosis;
-	}
 
 	@ManyToMany
     @Cascade(CascadeType.ALL)
@@ -43,6 +35,14 @@ public class Treatment {
     @OneToOne
     @Cascade(CascadeType.ALL)
     private Deworming deworming;
+    
+    public Diagnosis getDiagnosis() {
+		return diagnosis;
+	}
+
+	public void setDiagnosis(Diagnosis diagnosis) {
+		this.diagnosis = diagnosis;
+	}
 
 	public List<Medicament> getMedicaments() {
 		return medicaments;
