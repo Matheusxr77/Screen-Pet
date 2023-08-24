@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.screenpet.business.basic.Attendant;
+import br.edu.ufape.screenpet.business.register.exception.DisabledAttendantException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistAttendantException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateAttendantException;
 import br.edu.ufape.screenpet.business.front.Front;
@@ -38,7 +39,7 @@ public class AttendantController {
 	}
 	
 	@PatchMapping("/atendente/{id}")
-	public Attendant updateAttendant(@PathVariable String cpf, @RequestBody Attendant attendant) throws DuplicateAttendantException {
+	public Attendant updateAttendant(@PathVariable String cpf, @RequestBody Attendant attendant) throws DuplicateAttendantException, DisabledAttendantException {
 		attendant.setCpf(cpf);
 		return front.saveAttendant(attendant);
 	}

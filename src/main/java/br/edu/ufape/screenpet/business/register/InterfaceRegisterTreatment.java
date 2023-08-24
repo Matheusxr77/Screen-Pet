@@ -12,5 +12,5 @@ public interface InterfaceRegisterTreatment {
 	Treatment saveTreatment(Treatment entity) throws DoesNotExistTreatmentException, DuplicateTreatmentException;
 	List<Treatment> listTreatments();
 	boolean checkExistenceTreatmentId(Long id);
-	Treatment findTreatmenId(Long id);
+	Treatment findTreatmentId(Long id);
 }

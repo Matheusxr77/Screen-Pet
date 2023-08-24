@@ -41,7 +41,7 @@ public class RegisterTreatment {
 		return collectionTreatment.existsById(id);
 	}
 
-	public Treatment findTreatmenId(Long id) {
+	public Treatment findTreatmentId(Long id) {
 		return collectionTreatment.findById(id).orElse(null);
 	}
 }

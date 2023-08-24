@@ -238,8 +238,8 @@ public class Front {
 		return registerTreatment.checkExistenceTreatmentId(id);
 	}
 	
-	public Treatment findTreatmenId(Long id) {
-		return registerTreatment.findTreatmenId(id);
+	public Treatment findTreatmentId(Long id) {
+		return registerTreatment.findTreatmentId(id);
 	}
 
 	public Tutor findTutorCpf(String cpf) throws DoesNotExistTutorException {
