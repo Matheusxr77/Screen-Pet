@@ -12,7 +12,7 @@ import br.edu.ufape.screenpet.business.register.exception.DuplicateAppointmentEx
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistAppointmentException;
 
 @Service
-public class RegisterAppointment {
+public class RegisterAppointment implements InterfaceRegisterAppointment {
 	@Autowired
 	private InterfaceCollectionAppointment collectionAppointment;
 	

@@ -29,9 +29,15 @@ public class NumberPhone {
 		this.number = number;
 	}
 
-	public NumberPhone(long id, int ddd, int number) {
-		super();
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
 		this.id = id;
+	}
+
+	public NumberPhone(int ddd, int number) {
 		this.ddd = ddd;
 		this.number = number;
 	}

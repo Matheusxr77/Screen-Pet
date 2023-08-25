@@ -10,10 +10,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Person {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,14 +37,14 @@ public abstract class Person {
 	
 	@OneToOne
 	@Cascade(CascadeType.ALL)
-	private User user;
+	private Usuario usuario;
 	
-	public User getUser() {
-		return user;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	public List<Address> getAddress() {
@@ -100,9 +103,16 @@ public abstract class Person {
 		this.active = active;
 	}
 
-	public Person(long id, String name, String cpf, String gender, Date dateBirth, boolean active, List<Address> address, List<NumberPhone> numberPhone, User user) {
-		super();
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
 		this.id = id;
+	}
+
+	public Person(String name, String cpf, String gender, Date dateBirth, boolean active, List<Address> address, List<NumberPhone> numberPhone, Usuario usuario) {
+		super();
 		this.name = name;
 		this.cpf = cpf;
 		this.gender = gender;
@@ -110,6 +120,6 @@ public abstract class Person {
 		this.active = active;
 		this.address = address;
 		this.numberPhone = numberPhone;
-		this.user = user;
+		this.usuario = usuario;
 	}
 }

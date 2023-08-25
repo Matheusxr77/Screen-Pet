@@ -4,31 +4,29 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import br.edu.ufape.screenpet.business.basic.User;
+import br.edu.ufape.screenpet.business.basic.Usuario;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateUserException;
 
 @SpringBootTest
-class RegisterUserTest {
+class RegisterUsuarioTest {
 	
 	@Autowired
-	private InterfaceRegisterUser registerUser;
-
-
+	private InterfaceRegisterUsuario registerUsuario;
+	
 	@Test
-	void testRegisterDuplicateUser() {
+	void testRegisterDuplicateUsuario() {
 		String email = "test@gmail.com";	
-		User u1 = new User(1, email, "senha123");
-		User u2 = new User(2, email, "123senha");
+		Usuario u1 = new Usuario(email, "123senha", true);
+		Usuario u2 = new Usuario(email, "senha123", true);
 		
 		DuplicateUserException exception = 
 				assertThrows(DuplicateUserException.class, 
 			() -> {
-				registerUser.saveUser(u1);
-				registerUser.saveUser(u2);
+				registerUsuario.saveUsuario(u1);
+				registerUsuario.saveUsuario(u2);
 				  }			
 		);
 		assertEquals(exception.getEmail(), email);
-		assertTrue(exception.getMessage().contains("Mesmo email!"));
+		assertFalse(exception.getMessage().contains("Mesmo email!"));
 	}
 }

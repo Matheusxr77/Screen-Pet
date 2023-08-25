@@ -12,7 +12,7 @@ import br.edu.ufape.screenpet.business.register.exception.DuplicateVaccinationHi
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistVaccinationHistoricException;
 
 @Service
-public class RegisterVaccinationHistoric {
+public class RegisterVaccinationHistoric implements InterfaceRegisterVaccinationHistoric {
 	@Autowired
 	private InterfaceCollectionVaccinationHistoric collectionVaccinationHistoric;
 	
@@ -26,8 +26,8 @@ public class RegisterVaccinationHistoric {
 	
 	public VaccinationHistoric saveVaccinationHistoric(VaccinationHistoric entity)throws DoesNotExistVaccinationHistoricException, DuplicateVaccinationHistoricException {
 		try {
-			findVaccinationHistoric(entity.getVaccinationCalendar());
-			throw new DuplicateVaccinationHistoricException(entity.getVaccinationCalendar());
+			findVaccinationHistoric((VaccinationCalendar) entity.getVaccinationCalendar());
+			throw new DuplicateVaccinationHistoricException((VaccinationCalendar) entity.getVaccinationCalendar());
 		} catch(DoesNotExistVaccinationHistoricException err) {
 			return collectionVaccinationHistoric.save(entity);
 		}

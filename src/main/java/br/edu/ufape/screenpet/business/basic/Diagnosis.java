@@ -2,14 +2,10 @@ package br.edu.ufape.screenpet.business.basic;
 
 import java.util.List;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 
 @Entity
 public class Diagnosis {
@@ -21,18 +17,6 @@ public class Diagnosis {
     private String prescription;
     private String comments;
     
-    @OneToMany
-    @Cascade(CascadeType.ALL)
-    private List<Treatment> treatments;
-    
-    public List<Treatment> getTreatments() {
-		return treatments;
-	}
-
-	public void setTreatments(List<Treatment> treatments) {
-		this.treatments = treatments;
-	}
-
 	public String getSymptoms() {
 		return symptoms;
 	}
@@ -64,6 +48,14 @@ public class Diagnosis {
 	public void setComments(String comments) {
 		this.comments = comments;
 	}
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public Diagnosis(long id, String symptoms, String patology, String prescription, String comments, List<Treatment> treatments) {
 		super();
@@ -72,6 +64,5 @@ public class Diagnosis {
 		this.patology = patology;
 		this.prescription = prescription;
 		this.comments = comments;
-		this.treatments = treatments;
 	}
 }

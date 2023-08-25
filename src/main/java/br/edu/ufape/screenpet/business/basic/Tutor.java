@@ -23,8 +23,8 @@ public class Tutor extends Person {
 		this.pets = pets;
 	}
 
-	public Tutor(long id, String name, String cpf, String gender, Date dateBirth, boolean active, List<Address> address, List<NumberPhone> numberPhone, User user, List<Pet> pets) {
-		super(id, name, cpf, gender, dateBirth, active, address, numberPhone, user);
+	public Tutor(String name, String cpf, String gender, Date dateBirth, boolean active, List<Address> address, List<NumberPhone> numberPhone, Usuario usuario, List<Pet> pets) {
+		super(name, cpf, gender, dateBirth, active, address, numberPhone, usuario);
 		this.pets = pets;
 	}
 }

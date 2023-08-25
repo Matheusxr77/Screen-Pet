@@ -91,9 +91,16 @@ public class Pet {
 		this.active = active;
 	}
 	
-	public Pet(long id, String name, String gender, Date dateBirth, List<Schedule> schedules, VaccinationCalendar vaccinationCalendar, List<Appointment> appointment){
-		super();
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
 		this.id = id;
+	}
+
+	public Pet(String name, String gender, Date dateBirth, List<Schedule> schedules, VaccinationCalendar vaccinationCalendar, List<Appointment> appointment){
+		super();
 		this.name = name;
 		this.gender = gender;
 		this.dateBirth = dateBirth;

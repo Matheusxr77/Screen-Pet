@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import br.edu.ufape.screenpet.business.basic.User;
+import br.edu.ufape.screenpet.business.basic.Usuario;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistUserException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateUserException;
 import br.edu.ufape.screenpet.business.register.exception.DisabledUserException;
@@ -19,28 +18,28 @@ import br.edu.ufape.screenpet.business.front.Front;
 
 @RestController
 @RequestMapping("/api/v8")
-public class UserController {
+public class UsuarioController {
 	@Autowired
 	public Front front;
 	
 	@GetMapping("/usuario")
-	public List<User> listUser() {
-		return front.listUsers();
+	public List<Usuario> listUsuarios() {
+		return front.listUsuarios();
 	}
 	
 	@PostMapping("/usuario")
-	public User registerUser(@RequestBody User user) throws DuplicateUserException, DoesNotExistUserException, DisabledUserException {
-		return front.saveUser(user);
+	public Usuario registerUsuario(@RequestBody Usuario usuario) throws DuplicateUserException, DoesNotExistUserException, DisabledUserException {
+		return front.saveUsuario(usuario);
 	}
 	
 	@GetMapping("/usuario/{id}")
-	public User printUser(@PathVariable long id) {
-		return front.findUserId(id);
+	public Usuario printUsuario(@PathVariable long id) {
+		return front.findUsuarioId(id);
 	}
 	
 	@PatchMapping("/usuario/{id}")
-	public User updateUser(@PathVariable String email, @RequestBody User user) throws DuplicateUserException, DisabledUserException {
-		user.setEmail(email);
-		return front.saveUser(user);
+	public Usuario updateUsuario(@PathVariable String email, @RequestBody Usuario usuario) throws DuplicateUserException, DisabledUserException {
+		usuario.setEmail(email);
+		return front.saveUsuario(usuario);
 	}
 }

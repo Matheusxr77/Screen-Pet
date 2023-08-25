@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 
 @Entity
-public class User {
+public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -46,11 +46,12 @@ public class User {
 		this.password = password;
 	}
 
-	public User(long id, String email, String password) {
-		super();
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
 		this.id = id;
-		this.email = email;
-		this.password = password;
 	}
 
 	public boolean getActive() {
@@ -59,5 +60,15 @@ public class User {
 
 	public void setActive(boolean active) {
 		this.active = active;
+	}
+	
+	public Usuario(String email, String password, boolean active) {
+		this.email = email;
+		this.password = password;
+		this.active = active;
+	}
+	
+	public Usuario() {
+	
 	}
 }

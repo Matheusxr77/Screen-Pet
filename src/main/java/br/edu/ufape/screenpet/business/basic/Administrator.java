@@ -13,18 +13,18 @@ import jakarta.persistence.OneToMany;
 public class Administrator extends Person {
 	@OneToMany
 	@Cascade(CascadeType.ALL)
-	private List<User> users;
+	private List<Usuario> usuarios;
 
-	public List<User> getUsers() {
-		return users;
+	public List<Usuario> getUsuarios() {
+		return usuarios;
 	}
 
-	public void setUsers(List<User> users) {
-		this.users = users;
+	public void setUsuarios(List<Usuario> usuarios) {
+		this.usuarios = usuarios;
 	}
 
-	public Administrator(long id, String name, String cpf, String gender, Date dateBirth, boolean active, List<Address> address, List<NumberPhone> numberPhone, User user, List<User> users) {
-		super(id, name, cpf, gender, dateBirth, active, address, numberPhone, user);
-		this.users = users;
+	public Administrator(String name, String cpf, String gender, Date dateBirth, boolean active, List<Address> address, List<NumberPhone> numberPhone, Usuario usuario, List<Usuario> usuarios) {
+		super(name, cpf, gender, dateBirth, active, address, numberPhone, usuario);
+		this.usuarios = usuarios;
 	}
 }

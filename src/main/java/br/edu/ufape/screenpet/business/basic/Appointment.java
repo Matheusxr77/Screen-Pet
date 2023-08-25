@@ -79,22 +79,28 @@ public class Appointment {
         this.anamnesis = anamnesis;
     }
 
-	public Appointment(long id, String anamnesis, List<VaccinationHistoric> vaccinationHistoric, List<Exam> exams,
-			Schedule schedule, Diagnosis diagnosis) {
-		super();
-		this.id = id;
-		this.anamnesis = anamnesis;
-		this.exams = exams;
-		this.schedule = schedule;
-		this.diagnosis = diagnosis;
-		this.vaccinationHistoric = new ArrayList<>();
-	}
-
 	public Date getDate() {
 		return date;
 	}
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public Appointment(String anamnesis, List<VaccinationHistoric> vaccinationHistoric, List<Exam> exams,
+			Schedule schedule, Diagnosis diagnosis) {
+		this.anamnesis = anamnesis;
+		this.exams = exams;
+		this.schedule = schedule;
+		this.diagnosis = diagnosis;
+		this.vaccinationHistoric = new ArrayList<>();
 	}
 }

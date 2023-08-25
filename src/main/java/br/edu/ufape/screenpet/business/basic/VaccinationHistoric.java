@@ -11,7 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class VaccinationHistoric {
@@ -20,9 +20,9 @@ public class VaccinationHistoric {
 	private long id;
 	private String comments;
 	
-	@ManyToOne
+	@OneToMany
 	@Cascade(CascadeType.ALL)
-	private VaccinationCalendar vaccinationCalendar;
+	private List<VaccinationCalendar> vaccinationCalendar;
 
 	@ManyToMany
 	@Cascade(CascadeType.ALL)
@@ -43,15 +43,25 @@ public class VaccinationHistoric {
 	public void setComments(String comments) {
 		this.comments = comments;
 	}
-
-	public VaccinationHistoric(int id, String comments, List<Appointment> appointment) {
-		super();
-		this.id = id;
-		this.comments = comments;
-		this.appointment = new ArrayList<>();
+	
+	public long getId() {
+		return id;
 	}
 
-	public VaccinationCalendar getVaccinationCalendar() {
+	public void setId(long id) {
+		this.id = id;
+	}
+	
+	public List<VaccinationCalendar> getVaccinationCalendar () {
 		return vaccinationCalendar;
+	}
+	
+	public void setVaccinationCalendar (List<VaccinationCalendar> vaccinationCalendar) {
+		this.vaccinationCalendar = vaccinationCalendar;
+	}
+
+	public VaccinationHistoric(String comments, List<Appointment> appointment) {
+		this.comments = comments;
+		this.appointment = new ArrayList<>();
 	}
 }
