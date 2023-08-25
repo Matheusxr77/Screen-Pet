@@ -38,9 +38,15 @@ public class Breed {
 		this.type = type;
 	}
 
-	public Breed(long id, String type, List<Pet> pets) {
-		super();
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
 		this.id = id;
+	}
+
+	public Breed(String type, List<Pet> pets) {
 		this.type = type;
 		this.pets = pets;
 	}

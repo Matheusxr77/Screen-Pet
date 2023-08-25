@@ -37,10 +37,17 @@ public class Species {
 	public void setType(String type) {
 		this.type = type;
 	}
+	
+	public long getId() {
+		return id;
+	}
 
-	public Species(long id, String type, List<Breed> breeds) {
-		super();
+	public void setId(long id) {
 		this.id = id;
+	}
+
+	public Species(String type, List<Breed> breeds) {
+		super();
 		this.type = type;
 		this.breeds = breeds;
 	}

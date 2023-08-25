@@ -12,7 +12,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -24,7 +24,7 @@ public class Treatment {
     private String posology;
     private String comments;
     
-    @OneToMany
+    @ManyToOne
     @Cascade(CascadeType.ALL)
     private Diagnosis diagnosis;
 
@@ -36,14 +36,6 @@ public class Treatment {
     @Cascade(CascadeType.ALL)
     private Deworming deworming;
     
-    public Diagnosis getDiagnosis() {
-		return diagnosis;
-	}
-
-	public void setDiagnosis(Diagnosis diagnosis) {
-		this.diagnosis = diagnosis;
-	}
-
 	public List<Medicament> getMedicaments() {
 		return medicaments;
 	}
@@ -83,10 +75,25 @@ public class Treatment {
 	public void setComments(String comments) {
 		this.comments = comments;
 	}
+	
+	public long getId() {
+		return id;
+	}
 
-	public Treatment(long id, Date date, String posology, String comments, List<Medicament> medicaments, Deworming deworming) {
-		super();
+	public void setId(long id) {
 		this.id = id;
+	}
+
+	public Diagnosis getDiagnosis() {
+		return diagnosis;
+	}
+
+	public void setDiagnosis(Diagnosis diagnosis) {
+		this.diagnosis = diagnosis;
+	}
+
+	public Treatment(Date date, String posology, String comments, List<Medicament> medicaments, Deworming deworming) {
+		super();
 		this.date = date;
 		this.posology = posology;
 		this.comments = comments;

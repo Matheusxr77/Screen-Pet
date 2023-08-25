@@ -12,7 +12,7 @@ import br.edu.ufape.screenpet.business.register.exception.DuplicateAttendantExce
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistAttendantException;
 
 @Service
-public class RegisterAttendant {
+public class RegisterAttendant implements InterfaceRegisterAttendant {
 	@Autowired
 	private InterfaceCollectionAttendant collectionAttendant;
 	

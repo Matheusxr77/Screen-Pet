@@ -12,7 +12,7 @@ import br.edu.ufape.screenpet.business.register.exception.DuplicateTutorExceptio
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistTutorException;
 
 @Service
-public class RegisterTutor {
+public class RegisterTutor implements InterfaceRegisterTutor {
 	@Autowired
 	private InterfaceCollectionTutor collectionTutor;
 	

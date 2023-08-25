@@ -71,10 +71,17 @@ public class Schedule {
         this.date = date;
     }
 
-	public Schedule(long id, int time, String type, Date date, List<Deworming> dewormings,
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public Schedule(int time, String type, Date date, List<Deworming> dewormings,
 			List<Veterinarian> veterinarians) {
 		super();
-		this.id = id;
 		this.time = time;
 		this.type = type;
 		this.date = date;

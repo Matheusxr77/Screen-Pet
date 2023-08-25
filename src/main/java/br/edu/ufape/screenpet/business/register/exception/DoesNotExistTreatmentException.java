@@ -1,17 +1,17 @@
 package br.edu.ufape.screenpet.business.register.exception;
 
-import br.edu.ufape.screenpet.business.basic.Diagnosis;
+import java.util.Date;
 
 public class DoesNotExistTreatmentException extends Exception {
 	private static final long serialVersionUID = 1L;
-	private Diagnosis diagnosis;
+	private Date date;
 	
-	public DoesNotExistTreatmentException(Diagnosis diagnosis) {
+	public DoesNotExistTreatmentException(Date date) {
 		super("Não existe um Pet no sistema que possua esse registro de vacina em seu calendário!");
-		this.diagnosis = diagnosis;
+		this.date = date;
 	}
 	
-	public Diagnosis getDiagnosis() {
-		return this.diagnosis;
+	public Date getDate() {
+		return this.date;
 	}
 }

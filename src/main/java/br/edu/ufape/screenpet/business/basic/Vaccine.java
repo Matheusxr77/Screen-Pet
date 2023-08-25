@@ -15,7 +15,7 @@ import jakarta.persistence.OneToMany;
 public class Vaccine {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 	private String name;
 	private String type;
 	private int frequency;
@@ -66,9 +66,16 @@ public class Vaccine {
 		this.comments = comments;
 	}
 
-	public Vaccine(int id, String name, String type, int frequency, String comments, List<VaccinationHistoric> vaccinationHistoric) {
-		super();
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
 		this.id = id;
+	}
+	
+	public Vaccine(String name, String type, int frequency, String comments, List<VaccinationHistoric> vaccinationHistoric) {
+		super();
 		this.name = name;
 		this.type = type;
 		this.frequency = frequency;
