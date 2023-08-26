@@ -68,7 +68,6 @@ public class Medicament {
 	}
 
 	public Medicament(String name, String type, String activeCompound, int dosage, String comments) {
-		super();
 		this.name = name;
 		this.type = type;
 		this.activeCompound = activeCompound;
