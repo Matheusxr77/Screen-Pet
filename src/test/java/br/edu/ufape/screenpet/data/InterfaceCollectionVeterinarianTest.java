@@ -25,14 +25,16 @@ class InterfaceCollectionVeterinarianTest {
     void test() {
         long qtdVeterinarian = collectionVeterinarian.count();
         Date data = new Date();
-        Veterinarian a = new Veterinarian("igor", "12345678910", "masculino", data, true, 123);
+        Veterinarian vet = new Veterinarian("igor", "12345678910", "masculino", data, true, 123);
         Address add = new Address(55299497, "rua de teste", 666, "bairro", "garanhuns", "pe");
         Usuario u = new Usuario("veterinario@gmail.com", "password", true);
         NumberPhone tel = new NumberPhone(87, 912345678);
-        a.setAddress(add);
-        a.setUsuario(u);
-        a.setNumberPhone(tel);
-        collectionVeterinarian.save(a);
+        u.setAddress(add);
+        u.setNumberPhone(tel);
+        vet.setAddress(add);
+        vet.setUsuario(u);
+        vet.setNumberPhone(tel);
+        collectionVeterinarian.save(vet);
         long qtdVeterinarian2 = collectionVeterinarian.count();
         assertEquals(qtdVeterinarian + 1, qtdVeterinarian2);
     }

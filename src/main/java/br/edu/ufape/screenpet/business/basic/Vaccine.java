@@ -74,12 +74,11 @@ public class Vaccine {
 		this.id = id;
 	}
 	
-	public Vaccine(String name, String type, int frequency, String comments, List<VaccinationHistoric> vaccinationHistoric) {
+	public Vaccine(String name, String type, int frequency, String comments) {
 		super();
 		this.name = name;
 		this.type = type;
 		this.frequency = frequency;
 		this.comments = comments;
-		this.vaccinationHistoric = vaccinationHistoric;
 	}
 }
