@@ -2,7 +2,6 @@ package br.edu.ufape.screenpet.business.basic;
 
 import java.util.Date;
 import java.util.List;
-import java.util.ArrayList;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -59,13 +58,8 @@ public class Veterinarian extends Person {
         this.crmv = crmv;
     }
 
-	public Veterinarian(String name, String cpf, String gender, Date dateBirth, boolean active,
-			List<Address> address, List<NumberPhone> numberPhone, Usuario usuario, int crmv, List<Appointment> appointments,
-			List<Diagnosis> diagnosis, List<Schedule> schedules) {
-		super(name, cpf, gender, dateBirth, active, address, numberPhone, usuario);
+	public Veterinarian(String name, String cpf, String gender, Date dateBirth, boolean active, int crmv) {
+		super(name, cpf, gender, dateBirth, active);
 		this.crmv = crmv;
-		this.appointments = appointments;
-		this.diagnosis = diagnosis;
-		this.schedules = new ArrayList<>();
 	}
 }

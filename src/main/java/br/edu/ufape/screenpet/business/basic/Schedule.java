@@ -2,7 +2,6 @@ package br.edu.ufape.screenpet.business.basic;
 
 import java.util.Date;
 import java.util.List;
-import java.util.ArrayList;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -79,13 +78,9 @@ public class Schedule {
 		this.id = id;
 	}
 
-	public Schedule(int time, String type, Date date, List<Deworming> dewormings,
-			List<Veterinarian> veterinarians) {
-		super();
+	public Schedule(int time, String type, Date date) {
 		this.time = time;
 		this.type = type;
 		this.date = date;
-		this.dewormings = dewormings;
-		this.veterinarians = new ArrayList<>();
 	}
 }

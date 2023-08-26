@@ -24,8 +24,7 @@ public class Attendant extends Person {
 		this.schedules = schedules;
 	}
 
-	public Attendant(String name, String cpf, String gender, Date dateBirth, boolean active,List<Address> address, List<NumberPhone> numberPhone, Usuario usuario, List<Schedule> schedules) {
-		super(name, cpf, gender, dateBirth, active, address, numberPhone, usuario);
-		this.schedules = schedules;
+	public Attendant(String name, String cpf, String gender, Date dateBirth, boolean active) {
+		super(name, cpf, gender, dateBirth, active);
 	}
 }
