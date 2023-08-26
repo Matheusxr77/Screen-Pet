@@ -37,7 +37,7 @@ public class VaccinationCalendar {
 	public void setId(long id) {
 		this.id = id;
 	}
-
+	
 	public VaccinationCalendar(Date date, Date frequency) {
 		this.date = date;
 		this.frequency = frequency;
