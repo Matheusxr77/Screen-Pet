@@ -99,10 +99,11 @@ public class Pet {
 		this.id = id;
 	}
 
-	public Pet(String name, String gender, Date dateBirth){
+	public Pet(String name, String gender, Date dateBirth, boolean active) {
 		super();
 		this.name = name;
 		this.gender = gender;
 		this.dateBirth = dateBirth;
+		this.active = active;
 	}
 }
