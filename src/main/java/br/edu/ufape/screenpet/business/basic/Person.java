@@ -1,8 +1,6 @@
 package br.edu.ufape.screenpet.business.basic;
 
 import java.util.Date;
-import java.util.List;
-
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
@@ -12,7 +10,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -27,13 +24,13 @@ public abstract class Person {
 	private Date dateBirth;
 	private boolean active;
 	
-	@OneToMany
+	@OneToOne
 	@Cascade(CascadeType.ALL)
-	private List<Address> address;
+	private Address address;
 
-	@OneToMany
+	@OneToOne
 	@Cascade(CascadeType.ALL)
-	private List<NumberPhone> numberPhone;
+	private NumberPhone numberPhone;
 	
 	@OneToOne
 	@Cascade(CascadeType.ALL)
@@ -47,19 +44,19 @@ public abstract class Person {
 		this.usuario = usuario;
 	}
 
-	public List<Address> getAddress() {
+	public Address getAddress() {
 		return address;
 	}
 	
-	public void setAddress(List<Address> endereco) {
-		this.address = endereco;
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 	
-	public List<NumberPhone> getNumberPhone() {
+	public NumberPhone getNumberPhone() {
 		return numberPhone;
 	}
 	
-	public void setNumberPhone(List<NumberPhone> numberPhone) {
+	public void setNumberPhone(NumberPhone numberPhone) {
 		this.numberPhone = numberPhone;
 	}
 
@@ -111,15 +108,12 @@ public abstract class Person {
 		this.id = id;
 	}
 
-	public Person(String name, String cpf, String gender, Date dateBirth, boolean active, List<Address> address, List<NumberPhone> numberPhone, Usuario usuario) {
+	public Person(String name, String cpf, String gender, Date dateBirth, boolean active) {
 		super();
 		this.name = name;
 		this.cpf = cpf;
 		this.gender = gender;
 		this.dateBirth = dateBirth;
 		this.active = active;
-		this.address = address;
-		this.numberPhone = numberPhone;
-		this.usuario = usuario;
 	}
 }

@@ -1,7 +1,5 @@
 package br.edu.ufape.screenpet.business.basic;
 
-import java.util.List;
-
 import jakarta.persistence.Entity;
 
 @Entity
@@ -17,8 +15,8 @@ public class Deworming extends Medicament {
 		this.frequency = frequency;
 	}
 
-	public Deworming(String name, String type, String activeCompound, int dosage, String comments,	List<Treatment> treatments, int frequency) {
-		super(name, type, activeCompound, dosage, comments, treatments);
+	public Deworming(String name, String type, String activeCompound, int dosage, String comments, int frequency) {
+		super(name, type, activeCompound, dosage, comments);
 		this.frequency = frequency;
 	}
 }

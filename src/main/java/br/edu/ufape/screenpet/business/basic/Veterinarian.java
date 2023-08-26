@@ -59,10 +59,8 @@ public class Veterinarian extends Person {
         this.crmv = crmv;
     }
 
-	public Veterinarian(String name, String cpf, String gender, Date dateBirth, boolean active,
-			List<Address> address, List<NumberPhone> numberPhone, Usuario usuario, int crmv, List<Appointment> appointments,
-			List<Diagnosis> diagnosis, List<Schedule> schedules) {
-		super(name, cpf, gender, dateBirth, active, address, numberPhone, usuario);
+	public Veterinarian(String name, String cpf, String gender, Date dateBirth, boolean active, int crmv, List<Appointment> appointments, List<Diagnosis> diagnosis, List<Schedule> schedules) {
+		super(name, cpf, gender, dateBirth, active);
 		this.crmv = crmv;
 		this.appointments = appointments;
 		this.diagnosis = diagnosis;
