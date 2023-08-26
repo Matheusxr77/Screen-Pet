@@ -57,9 +57,7 @@ public class Exam {
 		this.id = id;
 	}
 
-	public Exam(long id, String laboratory, Date date, String type, String comments) {
-		super();
-		this.id = id;
+	public Exam(String laboratory, Date date, String type, String comments) {
 		this.laboratory = laboratory;
 		this.date = date;
 		this.type = type;
