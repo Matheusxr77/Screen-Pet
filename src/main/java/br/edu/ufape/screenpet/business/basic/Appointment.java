@@ -1,6 +1,5 @@
 package br.edu.ufape.screenpet.business.basic;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -11,7 +10,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
@@ -23,7 +21,7 @@ public class Appointment {
     private String anamnesis;
     private Date date;
 
-    @ManyToMany
+    @OneToMany
     @Cascade(CascadeType.ALL)
     private List<VaccinationHistoric> vaccinationHistoric;
     
@@ -95,12 +93,8 @@ public class Appointment {
 		this.id = id;
 	}
 
-	public Appointment(String anamnesis, List<VaccinationHistoric> vaccinationHistoric, List<Exam> exams,
-			Schedule schedule, Diagnosis diagnosis) {
+	public Appointment(String anamnesis, Date date) {
 		this.anamnesis = anamnesis;
-		this.exams = exams;
-		this.schedule = schedule;
-		this.diagnosis = diagnosis;
-		this.vaccinationHistoric = new ArrayList<>();
+		this.date = date;
 	}
 }

@@ -15,9 +15,9 @@ class RegisterUsuarioTest {
 	
 	@Test
 	void testRegisterDuplicateUsuario() {
-		String email = "test@gmail.com";	
-		Usuario u1 = new Usuario(email, "123senha", true);
-		Usuario u2 = new Usuario(email, "senha123", true);
+		String email = "teste@gmail.com";	
+		Usuario u1 = new Usuario(email, "123senha456", true);
+		Usuario u2 = new Usuario(email, "senha1234", true);
 		
 		DuplicateUserException exception = 
 				assertThrows(DuplicateUserException.class, 
