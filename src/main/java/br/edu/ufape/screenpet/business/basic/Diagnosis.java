@@ -1,7 +1,5 @@
 package br.edu.ufape.screenpet.business.basic;
 
-import java.util.List;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -57,9 +55,7 @@ public class Diagnosis {
 		this.id = id;
 	}
 
-	public Diagnosis(long id, String symptoms, String patology, String prescription, String comments, List<Treatment> treatments) {
-		super();
-		this.id = id;
+	public Diagnosis(String symptoms, String patology, String prescription, String comments) {
 		this.symptoms = symptoms;
 		this.patology = patology;
 		this.prescription = prescription;

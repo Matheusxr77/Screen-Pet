@@ -29,6 +29,8 @@ class InterfaceCollectionAttendantTest {
         Address add = new Address(55299497, "rua de teste", 666, "bairro", "garanhuns", "pe");
         Usuario u = new Usuario("atendente@gmail.com", "password", true);
         NumberPhone tel = new NumberPhone(87, 912345678);
+        u.setAddress(add);
+        u.setNumberPhone(tel);
         a.setAddress(add);
         a.setUsuario(u);
         a.setNumberPhone(tel);

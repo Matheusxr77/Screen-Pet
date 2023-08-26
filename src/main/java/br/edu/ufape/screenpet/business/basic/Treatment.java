@@ -2,7 +2,6 @@ package br.edu.ufape.screenpet.business.basic;
 
 import java.util.Date;
 import java.util.List;
-import java.util.ArrayList;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -11,8 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -24,17 +22,13 @@ public class Treatment {
     private String posology;
     private String comments;
     
-    @ManyToOne
+    @OneToOne
     @Cascade(CascadeType.ALL)
     private Diagnosis diagnosis;
 
-	@ManyToMany
+	@OneToMany
     @Cascade(CascadeType.ALL)
     private List<Medicament> medicaments;
-    
-    @OneToOne
-    @Cascade(CascadeType.ALL)
-    private Deworming deworming;
     
 	public List<Medicament> getMedicaments() {
 		return medicaments;
@@ -42,14 +36,6 @@ public class Treatment {
 
 	public void setMedicaments(List<Medicament> medicaments) {
 		this.medicaments = medicaments;
-	}
-
-	public Deworming getDeworming() {
-		return deworming;
-	}
-
-	public void setDeworming(Deworming deworming) {
-		this.deworming = deworming;
 	}
 
 	public Date getDate() {
@@ -92,12 +78,9 @@ public class Treatment {
 		this.diagnosis = diagnosis;
 	}
 
-	public Treatment(Date date, String posology, String comments, List<Medicament> medicaments, Deworming deworming) {
-		super();
+	public Treatment(Date date, String posology, String comments) {
 		this.date = date;
 		this.posology = posology;
 		this.comments = comments;
-		this.deworming = deworming;
-		this.medicaments = new ArrayList<>();
 	}
 }
