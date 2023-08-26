@@ -20,7 +20,19 @@ public class Usuario {
 	
 	@OneToOne
 	@Cascade(CascadeType.ALL)
+	private NumberPhone numberPhone;
+	
+	@OneToOne
+	@Cascade(CascadeType.ALL)
 	private Address address;
+	
+	public NumberPhone getNumberPhone() {
+		return numberPhone;
+	}
+
+	public void setNumberPhone(NumberPhone numberPhone) {
+		this.numberPhone = numberPhone;
+	}
 	
 	public Address getAddress() {
 		return address;

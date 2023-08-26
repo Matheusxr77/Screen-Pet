@@ -57,7 +57,7 @@ public class Veterinarian extends Person {
     public void setCrmv(int crmv) {
         this.crmv = crmv;
     }
-
+    
 	public Veterinarian(String name, String cpf, String gender, Date dateBirth, boolean active, int crmv) {
 		super(name, cpf, gender, dateBirth, active);
 		this.crmv = crmv;

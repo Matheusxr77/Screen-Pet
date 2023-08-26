@@ -49,8 +49,8 @@ public abstract class Person {
 		return address;
 	}
 	
-	public void setAddress(Address adress) {
-		this.address = adress;
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 	
 	public NumberPhone getNumberPhone() {

@@ -99,13 +99,10 @@ public class Pet {
 		this.id = id;
 	}
 
-	public Pet(String name, String gender, Date dateBirth, List<Schedule> schedules, VaccinationCalendar vaccinationCalendar, List<Appointment> appointment){
+	public Pet(String name, String gender, Date dateBirth){
 		super();
 		this.name = name;
 		this.gender = gender;
 		this.dateBirth = dateBirth;
-		this.schedules = schedules;
-		this.vaccinationCalendar = vaccinationCalendar;
-		this.appointment = appointment;
 	}
 }
