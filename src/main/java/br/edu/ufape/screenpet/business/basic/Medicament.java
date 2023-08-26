@@ -10,9 +10,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import jakarta.persistence.ManyToMany;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Medicament {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -74,10 +77,17 @@ public class Medicament {
 	public void setComments(String comments) {
 		this.comments = comments;
 	}
+	
+	public long getId() {
+		return id;
+	}
 
-	public Medicament(long id, String name, String type, String activeCompound, int dosage, String comments, List<Treatment> treatments) {
-		super();
+	public void setId(long id) {
 		this.id = id;
+	}
+
+	public Medicament(String name, String type, String activeCompound, int dosage, String comments, List<Treatment> treatments) {
+		super();
 		this.name = name;
 		this.type = type;
 		this.activeCompound = activeCompound;

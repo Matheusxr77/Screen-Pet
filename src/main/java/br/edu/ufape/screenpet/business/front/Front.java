@@ -8,13 +8,12 @@ import org.springframework.stereotype.Service;
 
 import br.edu.ufape.screenpet.business.basic.Appointment;
 import br.edu.ufape.screenpet.business.basic.Attendant;
-import br.edu.ufape.screenpet.business.basic.Diagnosis;
 import br.edu.ufape.screenpet.business.basic.Medicament;
 import br.edu.ufape.screenpet.business.basic.Pet;
 import br.edu.ufape.screenpet.business.basic.Schedule;
 import br.edu.ufape.screenpet.business.basic.Treatment;
 import br.edu.ufape.screenpet.business.basic.Tutor;
-import br.edu.ufape.screenpet.business.basic.User;
+import br.edu.ufape.screenpet.business.basic.Usuario;
 import br.edu.ufape.screenpet.business.basic.VaccinationCalendar;
 import br.edu.ufape.screenpet.business.basic.VaccinationHistoric;
 import br.edu.ufape.screenpet.business.basic.Vaccine;
@@ -26,7 +25,7 @@ import br.edu.ufape.screenpet.business.register.InterfaceRegisterPet;
 import br.edu.ufape.screenpet.business.register.InterfaceRegisterSchedule;
 import br.edu.ufape.screenpet.business.register.InterfaceRegisterTreatment;
 import br.edu.ufape.screenpet.business.register.InterfaceRegisterTutor;
-import br.edu.ufape.screenpet.business.register.InterfaceRegisterUser;
+import br.edu.ufape.screenpet.business.register.InterfaceRegisterUsuario;
 import br.edu.ufape.screenpet.business.register.InterfaceRegisterVaccinationCalendar;
 import br.edu.ufape.screenpet.business.register.InterfaceRegisterVaccinationHistoric;
 import br.edu.ufape.screenpet.business.register.InterfaceRegisterVaccine;
@@ -85,7 +84,7 @@ public class Front {
 	private InterfaceRegisterTutor registerTutor;
 	
 	@Autowired
-	private InterfaceRegisterUser registerUser;
+	private InterfaceRegisterUsuario registerUsuario;
 	
 	@Autowired
 	private InterfaceRegisterVaccinationCalendar registerVaccinationCalendar;
@@ -222,8 +221,8 @@ public class Front {
 		registerSchedule.removeSchedule(id);
 	}
 
-	public Treatment findTreatment(Diagnosis diagnosis) throws DoesNotExistTreatmentException {
-		return registerTreatment.findTreatment(diagnosis);
+	public Treatment findTreatment(Date date) throws DoesNotExistTreatmentException {
+		return registerTreatment.findTreatment(date);
 	}
 	
 	public Treatment saveTreatment(Treatment entity) throws DoesNotExistTreatmentException, DuplicateTreatmentException {
@@ -270,28 +269,28 @@ public class Front {
 		registerTutor.deactivateTutor(cpf);
 	}
 
-	public User findUserEmail(String email) throws DoesNotExistUserException {
-		return registerUser.findUserEmail(email);
+	public Usuario findUsuarioEmail(String email) throws DoesNotExistUserException {
+		return registerUsuario.findUsuarioEmail(email);
 	}
 	
-	public User saveUser(User entity) throws DuplicateUserException {
-		return registerUser.saveUser(entity);
+	public Usuario saveUsuario(Usuario entity) throws DuplicateUserException {
+		return registerUsuario.saveUsuario(entity);
 	}
 	
-	public List<User> listUsers() {
-		return registerUser.listUsers();
+	public List<Usuario> listUsuarios() {
+		return registerUsuario.listUsuarios();
 	}
 	
-	public boolean checkUserExistence(Long id) {
-		return registerUser.checkUserExistence(id);
+	public boolean checkUsuarioExistence(Long id) {
+		return registerUsuario.checkUsuarioExistence(id);
 	}
 	
-	public User findUserId(Long id) {
-		return registerUser.findUserId(id);
+	public Usuario findUsuarioId(Long id) {
+		return registerUsuario.findUsuarioId(id);
 	}
 	
-	public void deactivateUser(Long id) throws DoesNotExistUserException, DisabledUserException {
-		registerUser.deactivateUser(id);
+	public void deactivateUsuario(Long id) throws DoesNotExistUserException, DisabledUserException {
+		registerUsuario.deactivateUsuario(id);
 	}
 
 	public VaccinationCalendar findVaccinationCalendar(Date date) throws DoesNotExistVaccinationCalendarException {

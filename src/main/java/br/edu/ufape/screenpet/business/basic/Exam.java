@@ -48,10 +48,16 @@ public class Exam {
     public void setComments(String comments) {
         this.comments = comments;
     }
+    
+	public long getId() {
+		return id;
+	}
 
-	public Exam(long id, String laboratory, Date date, String type, String comments) {
-		super();
+	public void setId(long id) {
 		this.id = id;
+	}
+
+	public Exam(String laboratory, Date date, String type, String comments) {
 		this.laboratory = laboratory;
 		this.date = date;
 		this.type = type;

@@ -1,17 +1,17 @@
 package br.edu.ufape.screenpet.business.register.exception;
 
-import br.edu.ufape.screenpet.business.basic.Diagnosis;
+import java.util.Date;
 
 public class DuplicateTreatmentException extends Exception {
 	private static final long serialVersionUID = 1L;
-	private Diagnosis diagnosis;
+	private Date date;
 	
-	public DuplicateTreatmentException(Diagnosis diagnosis) {
+	public DuplicateTreatmentException(Date date) {
 		super("Não é possível cadastrar dois tratamentos iguais para o mesmo diagnóstico!");
-		this.diagnosis = diagnosis;
+		this.date = date;
 	}
 	
-	public Diagnosis getDiagnosis() {
-		return this.diagnosis;
+	public Date getDate() {
+		return this.date;
 	}
 }

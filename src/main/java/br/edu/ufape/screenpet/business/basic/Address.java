@@ -64,15 +64,24 @@ public class Address {
 	public void setState(String state) {
 		this.state = state;
 	}
+	
+	public long getId() {
+		return id;
+	}
 
-	public Address(long id, int cep, String publicPlace, int number, String district, String city, String state) {
-		super();
+	public void setId(long id) {
 		this.id = id;
+	}
+
+	public Address(int cep, String publicPlace, int number, String district, String city, String state) {
 		this.cep = cep;
 		this.publicPlace = publicPlace;
 		this.number = number;
 		this.district = district;
 		this.city = city;
 		this.state = state;
+	}
+	
+	public Address() {
 	}
 }

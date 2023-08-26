@@ -9,5 +9,5 @@ import br.edu.ufape.screenpet.business.basic.VaccinationCalendar;
 
 @Repository
 public interface InterfaceCollectionVaccinationCalendar extends JpaRepository<VaccinationCalendar, Long> {
-	VaccinationCalendar findByVaccinationCalendar(Date date);
+	VaccinationCalendar findByDate(Date date);
 }

@@ -17,7 +17,7 @@ public class RegisterVaccinationCalendar implements InterfaceRegisterVaccination
 	private InterfaceCollectionVaccinationCalendar collectionVaccinationCalendar;
 	
 	public VaccinationCalendar findVaccinationCalendar(Date date) throws DoesNotExistVaccinationCalendarException {
-		VaccinationCalendar vc = collectionVaccinationCalendar.findByVaccinationCalendar(date); 
+		VaccinationCalendar vc = collectionVaccinationCalendar.findByDate(date); 
 		if(vc == null) {
 			throw new DoesNotExistVaccinationCalendarException(date);
 		}
