@@ -7,31 +7,31 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Veterinarian extends Person {
     private int crmv;
     
-    @OneToMany
+    @OneToOne
     @Cascade(CascadeType.ALL)
-    private List<Appointment> appointments;
+    private Appointment appointment;
     
     @OneToMany
     @Cascade(CascadeType.ALL)
     private List<Diagnosis> diagnosis;
     
-    @ManyToMany
+    @OneToMany
     @Cascade(CascadeType.ALL)
     private List<Schedule> schedules;
     
-    public List<Appointment> getAppointments() {
-		return appointments;
+    public Appointment getAppointment() {
+		return appointment;
 	}
 
-	public void setAppointments(List<Appointment> appointments) {
-		this.appointments = appointments;
+	public void setAppointment(Appointment appointment) {
+		this.appointment = appointment;
 	}
 
 	public List<Diagnosis> getDiagnosis() {

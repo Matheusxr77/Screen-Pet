@@ -22,7 +22,7 @@ class InterfaceCollectionAppointmentTest {
         long qtdAppointment = collectionAppointment.count();
         Date data = new Date();
         Appointment a = new Appointment("anamnese", data);
-        Schedule s = new Schedule(1, "tipo", data);
+        Schedule s = new Schedule(data, "tipo", data);
         a.setSchedule(s);
         collectionAppointment.save(a);
         long qtdAppointment2 = collectionAppointment.count();
