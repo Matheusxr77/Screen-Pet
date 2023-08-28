@@ -19,12 +19,10 @@ class RegisterUsuarioTest {
 		Usuario u1 = new Usuario(email, "123senha456", true);
 		Usuario u2 = new Usuario(email, "senha1234", true);
 		
-		DuplicateUserException exception = 
-				assertThrows(DuplicateUserException.class, 
-			() -> {
-				registerUsuario.saveUsuario(u1);
-				registerUsuario.saveUsuario(u2);
-				  }			
+		DuplicateUserException exception = assertThrows(DuplicateUserException.class, () -> {
+			registerUsuario.saveUsuario(u1);
+			registerUsuario.saveUsuario(u2);
+			}			
 		);
 		assertEquals(exception.getEmail(), email);
 		assertFalse(exception.getMessage().contains("Mesmo email!"));
