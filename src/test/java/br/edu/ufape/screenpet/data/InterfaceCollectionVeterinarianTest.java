@@ -10,10 +10,8 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import br.edu.ufape.screenpet.business.basic.Address;
-import br.edu.ufape.screenpet.business.basic.Appointment;
 import br.edu.ufape.screenpet.business.basic.Veterinarian;
 import br.edu.ufape.screenpet.business.basic.NumberPhone;
-import br.edu.ufape.screenpet.business.basic.Schedule;
 import br.edu.ufape.screenpet.business.basic.Usuario;
 
 @SpringBootTest
@@ -31,15 +29,11 @@ class InterfaceCollectionVeterinarianTest {
         Address add = new Address(55299497, "rua de teste", 666, "bairro", "garanhuns", "pe");
         Usuario u = new Usuario("veterinario@gmail.com", "password", true);
         NumberPhone tel = new NumberPhone(87, 912345678);
-        Schedule schedule = new Schedule(data, "consulta", data);
-        Appointment appointment = new Appointment("anamnese", data);
-        appointment.setSchedule(schedule);
         u.setAddress(add);
         u.setNumberPhone(tel);
         vet.setAddress(add);
         vet.setUsuario(u);
         vet.setNumberPhone(tel);
-        vet.setAppointment(appointment);
         collectionVeterinarian.save(vet);
         long qtdVeterinarian2 = collectionVeterinarian.count();
         assertEquals(qtdVeterinarian + 1, qtdVeterinarian2);

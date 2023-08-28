@@ -20,8 +20,12 @@ public class Appointment {
 	private long id;
     private String anamnesis;
     private Date date;
+    
+    @OneToOne
+    @Cascade(CascadeType.ALL)
+    private Pet pet;
 
-    @OneToMany
+	@OneToMany
     @Cascade(CascadeType.ALL)
     private List<VaccinationHistoric> vaccinationHistoric;
     
@@ -36,6 +40,14 @@ public class Appointment {
     @OneToOne
     @Cascade(CascadeType.ALL)
     private Diagnosis diagnosis;
+    
+    public Pet getPet() {
+		return pet;
+	}
+
+	public void setPet(Pet pet) {
+		this.pet = pet;
+	}
     
 	public List<VaccinationHistoric> getVaccinationHistoric() {
 		return vaccinationHistoric;

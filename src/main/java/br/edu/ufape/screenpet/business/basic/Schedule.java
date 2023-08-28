@@ -1,10 +1,15 @@
 package br.edu.ufape.screenpet.business.basic;
 
 import java.util.Date;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Schedule {
@@ -14,6 +19,18 @@ public class Schedule {
     private Date time;
     private String type;
     private Date date;
+    
+    @OneToOne
+	@Cascade(CascadeType.ALL)
+    private Pet pet;
+
+	public Pet getPet() {
+		return pet;
+	}
+
+	public void setPet(Pet pet) {
+		this.pet = pet;
+	}
 
 	public Date getTime() {
         return time;
