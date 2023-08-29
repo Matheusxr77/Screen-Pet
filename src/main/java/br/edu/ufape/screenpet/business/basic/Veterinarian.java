@@ -8,15 +8,10 @@ import org.hibernate.annotations.CascadeType;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 
 @Entity
 public class Veterinarian extends Person {
     private int crmv;
-    
-    @OneToOne
-    @Cascade(CascadeType.ALL)
-    private Appointment appointment;
     
     @OneToMany
     @Cascade(CascadeType.ALL)
@@ -25,14 +20,6 @@ public class Veterinarian extends Person {
     @OneToMany
     @Cascade(CascadeType.ALL)
     private List<Schedule> schedules;
-    
-    public Appointment getAppointment() {
-		return appointment;
-	}
-
-	public void setAppointment(Appointment appointment) {
-		this.appointment = appointment;
-	}
 
 	public List<Diagnosis> getDiagnosis() {
 		return diagnosis;

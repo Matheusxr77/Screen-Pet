@@ -25,7 +25,7 @@ class InterfaceCollectionVaccinationHistoricTest {
         long qtdVH = collectionVH.count();
         VaccinationCalendar vc = new VaccinationCalendar(new Date(), new Date());
         collectionVC.save(vc);
-        VaccinationHistoric vh = new VaccinationHistoric("socorro");
+        VaccinationHistoric vh = new VaccinationHistoric("help");
         vh.setVaccinationCalendar(vc);
         collectionVH.save(vh);
         long qtdVH2 = collectionVH.count();

@@ -1,5 +1,8 @@
 package br.edu.ufape.screenpet.business.basic;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,6 +17,7 @@ public class VaccinationHistoric {
 	private String comments;
 	
 	@ManyToOne
+	@Cascade(CascadeType.ALL)
 	private VaccinationCalendar vaccinationCalendar;
 
 	public String getComments() {

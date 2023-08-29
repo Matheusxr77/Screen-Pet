@@ -25,9 +25,9 @@ public class Appointment {
     @Cascade(CascadeType.ALL)
     private Pet pet;
 
-	@OneToMany
+	@OneToOne
     @Cascade(CascadeType.ALL)
-    private List<VaccinationHistoric> vaccinationHistoric;
+    private VaccinationHistoric vaccinationHistoric;
     
     @OneToMany
     @Cascade(CascadeType.ALL)
@@ -41,7 +41,19 @@ public class Appointment {
     @Cascade(CascadeType.ALL)
     private Diagnosis diagnosis;
     
-    public Pet getPet() {
+    @OneToOne
+    @Cascade(CascadeType.ALL)
+    private Veterinarian veterinarian;
+    
+    public Veterinarian getVeterinarian() {
+		return veterinarian;
+	}
+
+	public void setVeterinarian(Veterinarian veterinarian) {
+		this.veterinarian = veterinarian;
+	}
+
+	public Pet getPet() {
 		return pet;
 	}
 
@@ -49,11 +61,11 @@ public class Appointment {
 		this.pet = pet;
 	}
     
-	public List<VaccinationHistoric> getVaccinationHistoric() {
+	public VaccinationHistoric getVaccinationHistoric() {
 		return vaccinationHistoric;
 	}
 
-	public void setVaccinationHistoric(List<VaccinationHistoric> vaccinationHistoric) {
+	public void setVaccinationHistoric(VaccinationHistoric vaccinationHistoric) {
 		this.vaccinationHistoric = vaccinationHistoric;
 	}
 
