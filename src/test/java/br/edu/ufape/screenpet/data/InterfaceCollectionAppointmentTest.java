@@ -34,7 +34,7 @@ class InterfaceCollectionAppointmentTest {
     void test() {
         long qtdAppointment = collectionAppointment.count();
         Date data = new Date();
-        Pet pet = new Pet("pet", "indefinido", data, true);
+        Pet pet = new Pet("pet", "indefinido", "labrador", "cachorro", data, true);
         VaccinationCalendar vc = new VaccinationCalendar(new Date(), new Date());
         VaccinationHistoric vh = new VaccinationHistoric("socorro");
         Veterinarian vet = new Veterinarian("matheus", "22345678910", "masculino", data, true, 321);

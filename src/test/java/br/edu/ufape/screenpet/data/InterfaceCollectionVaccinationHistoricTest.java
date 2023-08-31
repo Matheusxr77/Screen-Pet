@@ -13,22 +13,17 @@ import br.edu.ufape.screenpet.business.basic.VaccinationHistoric;
 
 @SpringBootTest
 class InterfaceCollectionVaccinationHistoricTest {
-    
     @Autowired
-    private InterfaceCollectionVaccinationHistoric collectionVH;
+    private InterfaceCollectionVaccinationHistoric collectionVaccinationHistoric;
     
-    @Autowired
-    private InterfaceCollectionVaccinationCalendar collectionVC;
-
     @Test
     void test() {
-        long qtdVH = collectionVH.count();
-        VaccinationCalendar vc = new VaccinationCalendar(new Date(), new Date());
-        collectionVC.save(vc);
-        VaccinationHistoric vh = new VaccinationHistoric("help");
-        vh.setVaccinationCalendar(vc);
-        collectionVH.save(vh);
-        long qtdVH2 = collectionVH.count();
-        assertEquals(qtdVH + 1, qtdVH2);
+        long qtdVaccinationHistoric = collectionVaccinationHistoric.count();
+        VaccinationCalendar vaccinationCalendar = new VaccinationCalendar(new Date(), new Date());
+        VaccinationHistoric vaccinationHistoric = new VaccinationHistoric("ajuda-me");
+        vaccinationHistoric.setVaccinationCalendar(vaccinationCalendar);
+        collectionVaccinationHistoric.save(vaccinationHistoric);
+        long qtdVaccinationHistoric2 = collectionVaccinationHistoric.count();
+        assertEquals(qtdVaccinationHistoric + 1, qtdVaccinationHistoric2);
     }
 }

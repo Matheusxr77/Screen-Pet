@@ -18,6 +18,8 @@ public class Pet {
 	private long id;
 	private String name;
 	private String gender;
+	private String breed;
+	private String specie;
 	private Date dateBirth;
 	private boolean active;
 	
@@ -48,7 +50,23 @@ public class Pet {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+	
+	public String getBreed() {
+		return breed;
+	}
 
+	public void setBreed(String breed) {
+		this.breed = breed;
+	}
+
+	public String getSpecies() {
+		return specie;
+	}
+
+	public void setSpecie(String specie) {
+		this.specie = specie;
+	}
+	
 	public Date getDateBirth() {
 		return dateBirth;
 	}
@@ -73,10 +91,12 @@ public class Pet {
 		this.id = id;
 	}
 
-	public Pet(String name, String gender, Date dateBirth, boolean active) {
+	public Pet(String name, String gender, String breed, String specie, Date dateBirth, boolean active) {
 		super();
 		this.name = name;
 		this.gender = gender;
+		this.breed = breed;
+		this.specie = specie;
 		this.dateBirth = dateBirth;
 		this.active = active;
 	}

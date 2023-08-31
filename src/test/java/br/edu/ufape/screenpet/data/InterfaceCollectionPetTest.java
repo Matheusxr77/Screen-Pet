@@ -22,7 +22,7 @@ class InterfaceCollectionPetTest {
     void test() {
         long qtdPet = collectionPet.count();
         Date data = new Date();
-        Pet pet = new Pet("Jefferson", "masculino", data, true);
+        Pet pet = new Pet("Jefferson", "masculino", "pinscher", "cachorro", data, true);
         collectionPet.save(pet);
         long qtdPet2 = collectionPet.count();
         assertEquals(qtdPet + 1, qtdPet2);

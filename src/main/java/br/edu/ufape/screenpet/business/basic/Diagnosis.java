@@ -1,9 +1,13 @@
 package br.edu.ufape.screenpet.business.basic;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Diagnosis {
@@ -14,6 +18,10 @@ public class Diagnosis {
     private String patology;
     private String prescription;
     private String comments;
+    
+    @ManyToOne
+	@Cascade(CascadeType.ALL)
+    private Pet pet;
     
 	public String getSymptoms() {
 		return symptoms;
@@ -53,6 +61,14 @@ public class Diagnosis {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+	
+	public Pet getPet() {
+		return pet;
+	}
+
+	public void setPet(Pet pet) {
+		this.pet = pet;
 	}
 
 	public Diagnosis(String symptoms, String patology, String prescription, String comments) {

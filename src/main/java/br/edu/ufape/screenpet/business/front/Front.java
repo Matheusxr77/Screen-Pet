@@ -10,6 +10,8 @@ import br.edu.ufape.screenpet.business.basic.Appointment;
 import br.edu.ufape.screenpet.business.basic.Attendant;
 import br.edu.ufape.screenpet.business.basic.Medicament;
 import br.edu.ufape.screenpet.business.basic.Pet;
+import br.edu.ufape.screenpet.business.basic.Exam;
+import br.edu.ufape.screenpet.business.basic.Diagnosis;
 import br.edu.ufape.screenpet.business.basic.Schedule;
 import br.edu.ufape.screenpet.business.basic.Treatment;
 import br.edu.ufape.screenpet.business.basic.Tutor;
@@ -22,6 +24,8 @@ import br.edu.ufape.screenpet.business.register.InterfaceRegisterAppointment;
 import br.edu.ufape.screenpet.business.register.InterfaceRegisterAttendant;
 import br.edu.ufape.screenpet.business.register.InterfaceRegisterMedicament;
 import br.edu.ufape.screenpet.business.register.InterfaceRegisterPet;
+import br.edu.ufape.screenpet.business.register.InterfaceRegisterExam;
+import br.edu.ufape.screenpet.business.register.InterfaceRegisterDiagnosis;
 import br.edu.ufape.screenpet.business.register.InterfaceRegisterSchedule;
 import br.edu.ufape.screenpet.business.register.InterfaceRegisterTreatment;
 import br.edu.ufape.screenpet.business.register.InterfaceRegisterTutor;
@@ -39,6 +43,8 @@ import br.edu.ufape.screenpet.business.register.exception.DoesNotExistAppointmen
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistAttendantException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistMedicamentException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistPetException;
+import br.edu.ufape.screenpet.business.register.exception.DoesNotExistExamException;
+import br.edu.ufape.screenpet.business.register.exception.DoesNotExistDiagnosisException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistScheduleException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistTreatmentException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistTutorException;
@@ -51,6 +57,8 @@ import br.edu.ufape.screenpet.business.register.exception.DuplicateAppointmentEx
 import br.edu.ufape.screenpet.business.register.exception.DuplicateAttendantException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateMedicamentException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicatePetException;
+import br.edu.ufape.screenpet.business.register.exception.DuplicateExamException;
+import br.edu.ufape.screenpet.business.register.exception.DuplicateDiagnosisException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateScheduleException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateTreatmentException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateTutorException;
@@ -73,6 +81,12 @@ public class Front {
 	
 	@Autowired
 	private InterfaceRegisterPet registerPet;
+	
+	@Autowired
+	private InterfaceRegisterExam registerExam;
+	
+	@Autowired
+	private InterfaceRegisterDiagnosis registerDiagnosis;
 	
 	@Autowired
 	private InterfaceRegisterSchedule registerSchedule;
@@ -195,6 +209,46 @@ public class Front {
 	
 	public void deactivatePet(Long id) throws DoesNotExistPetException, DisabledPetException {
 		registerPet.deactivatePet(id);
+	}
+	
+	public Exam findExam(Pet pet) throws DoesNotExistExamException {
+		return registerExam.findExam(pet);
+	}
+	
+	public Exam saveExam(Exam entity) throws DoesNotExistExamException, DuplicateExamException {
+		return registerExam.saveExam(entity);
+	}
+	
+	public List<Exam> listExams() {
+		return registerExam.listExams();
+	}
+	
+	public boolean checkExistenceExamId(Long id) {
+		return registerExam.checkExistenceExamId(id);
+	}
+	
+	public Exam findExamId(Long id) {
+		return registerExam.findExamId(id);
+	}
+	
+	public Diagnosis findDiagnosis(Pet pet) throws DoesNotExistDiagnosisException {
+		return registerDiagnosis.findDiagnosis(pet);
+	}
+	
+	public Diagnosis saveDiagnosis(Diagnosis entity) throws DoesNotExistDiagnosisException, DuplicateDiagnosisException {
+		return registerDiagnosis.saveDiagnosis(entity);
+	}
+	
+	public List<Diagnosis> listDiagnosis() {
+		return registerDiagnosis.listDiagnosis();
+	}
+	
+	public boolean checkExistenceDiagnosisId(Long id) {
+		return registerDiagnosis.checkExistenceDiagnosisId(id);
+	}
+	
+	public Diagnosis findDiagnosisId(Long id) {
+		return registerDiagnosis.findDiagnosisId(id);
 	}
 
 	public Schedule findSchedule(Date date) throws DoesNotExistScheduleException {
