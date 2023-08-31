@@ -1,15 +1,17 @@
 package br.edu.ufape.screenpet.business.register.exception;
 
+import br.edu.ufape.screenpet.business.basic.Treatment;
+
 public class DoesNotExistMedicamentException extends Exception {
 	private static final long serialVersionUID = 1L;
-	private String activeCompound;
+	private Treatment treatment;
 	
-	public DoesNotExistMedicamentException(String activeCompound) {
-		super("Não existe no sistema um medicamento com o composto ativo informado!");
-		this.activeCompound = activeCompound;
+	public DoesNotExistMedicamentException(Treatment treatment) {
+		super("Não existe no sistema um medicamento nesse tratamento!");
+		this.treatment = treatment;
 	}
 	
-	public String getActiveCompound() {
-		return this.activeCompound;
+	public Treatment getTreatment() {
+		return this.treatment;
 	}
 }

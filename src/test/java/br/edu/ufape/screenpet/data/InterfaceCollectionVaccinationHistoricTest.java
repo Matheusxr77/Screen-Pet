@@ -13,7 +13,8 @@ import br.edu.ufape.screenpet.business.basic.VaccinationHistoric;
 
 @SpringBootTest
 class InterfaceCollectionVaccinationHistoricTest {
-    @Autowired
+    
+	@Autowired
     private InterfaceCollectionVaccinationHistoric collectionVaccinationHistoric;
     
     @Test

@@ -1,15 +1,17 @@
 package br.edu.ufape.screenpet.business.register.exception;
 
+import br.edu.ufape.screenpet.business.basic.Tutor;
+
 public class DoesNotExistPetException extends Exception {
 	private static final long serialVersionUID = 1L;
-	private String name;
+	private Tutor tutor;
 	
-	public DoesNotExistPetException(String name) {
-		super("Não existe no sistema um pet com o nome informado!");
-		this.name = name;
+	public DoesNotExistPetException(Tutor tutor) {
+		super("Não existe no sistema um pet do tutor informado!");
+		this.tutor = tutor;
 	}
 	
-	public String getname() {
-		return this.name;
+	public Tutor getTutor() {
+		return this.tutor;
 	}
 }

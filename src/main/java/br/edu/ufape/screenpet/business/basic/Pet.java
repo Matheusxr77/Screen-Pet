@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -26,6 +27,18 @@ public class Pet {
 	@OneToOne
 	@Cascade(CascadeType.ALL)
 	private VaccinationCalendar vaccinationCalendar;
+	
+	@ManyToOne
+	@Cascade(CascadeType.ALL)
+	private Tutor tutor;
+	
+	public Tutor getTutor() {
+		return tutor;
+	}
+
+	public void setTutor(Tutor tutor) {
+		this.tutor = tutor;
+	}
 
 	public VaccinationCalendar getVaccinationCalendar() {
 		return vaccinationCalendar;
@@ -59,7 +72,7 @@ public class Pet {
 		this.breed = breed;
 	}
 
-	public String getSpecies() {
+	public String getSpecie() {
 		return specie;
 	}
 
