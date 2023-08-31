@@ -49,6 +49,8 @@ class InterfaceCollectionAppointmentTest {
         Exam exam2 = new Exam("X-Ray", data, "urgencia", "sucesso");
         examList.add(exam1);
         examList.add(exam2);
+        exam1.setPet(pet);
+        exam2.setPet(pet);
         a.setExams(examList);
         u.setAddress(add);
         u.setNumberPhone(tel);
