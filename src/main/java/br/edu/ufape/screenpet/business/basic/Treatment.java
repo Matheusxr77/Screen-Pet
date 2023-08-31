@@ -1,7 +1,6 @@
 package br.edu.ufape.screenpet.business.basic;
 
 import java.util.Date;
-import java.util.List;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -10,7 +9,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -25,18 +23,6 @@ public class Treatment {
     @OneToOne
     @Cascade(CascadeType.ALL)
     private Diagnosis diagnosis;
-
-	@OneToMany
-    @Cascade(CascadeType.ALL)
-    private List<Medicament> medicaments;
-    
-	public List<Medicament> getMedicaments() {
-		return medicaments;
-	}
-
-	public void setMedicaments(List<Medicament> medicaments) {
-		this.medicaments = medicaments;
-	}
 
 	public Date getDate() {
 		return date;

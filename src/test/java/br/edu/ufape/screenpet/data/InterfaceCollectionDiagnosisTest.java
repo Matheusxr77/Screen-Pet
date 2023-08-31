@@ -7,12 +7,15 @@ import java.util.Date;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import br.edu.ufape.screenpet.business.basic.Pet;
 import br.edu.ufape.screenpet.business.basic.Diagnosis;
 
 @SpringBootTest
+@ActiveProfiles("test")
 class InterfaceCollectionDiagnosisTest {
+	
 	@Autowired
     private InterfaceCollectionDiagnosis collectionDiagnosis;
 

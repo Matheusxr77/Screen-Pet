@@ -160,8 +160,8 @@ public class Front {
 		registerAttendant.deactivateAttendant(cpf);
 	}
 	
-	public Medicament findMedicament(String activeCompound) throws DoesNotExistMedicamentException {
-		return registerMedicament.findMedicament(activeCompound);
+	public Medicament findMedicament(Treatment treatment) throws DoesNotExistMedicamentException {
+		return registerMedicament.findMedicament(treatment);
 	}
 	
 	public Medicament saveMedicament(Medicament entity) throws DuplicateMedicamentException, DoesNotExistMedicamentException {
@@ -183,8 +183,8 @@ public class Front {
 	void removeMedicament(Long id) throws DoesNotExistMedicamentException {
 		registerMedicament.removeMedicament(id);
 	}
-	public Pet findPetName(String name) throws DoesNotExistPetException {
-		return registerPet.findPetName(name);
+	public Pet findPetName(Tutor tutor) throws DoesNotExistPetException {
+		return registerPet.findPet(tutor);
 	}
 	
 	public Pet savePet(Pet entity) throws DuplicatePetException {

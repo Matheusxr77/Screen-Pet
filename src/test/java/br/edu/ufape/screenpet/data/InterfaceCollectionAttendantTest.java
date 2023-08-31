@@ -17,7 +17,7 @@ import br.edu.ufape.screenpet.business.basic.Usuario;
 @SpringBootTest
 @ActiveProfiles("test") 
 class InterfaceCollectionAttendantTest {
-
+	
     @Autowired
     private InterfaceCollectionAttendant collectionAttendant;
 

@@ -1,11 +1,15 @@
 package br.edu.ufape.screenpet.business.basic;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -18,8 +22,12 @@ public class Medicament {
     private String activeCompound;
     private int dosage;
     private String comments;
-
-	public String getName() {
+    
+    @ManyToOne
+	@Cascade(CascadeType.ALL)
+	private Treatment treatment;
+    
+    public String getName() {
 		return name;
 	}
 
@@ -65,6 +73,14 @@ public class Medicament {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+	
+	public Treatment getTreatment() {
+		return treatment;
+	}
+
+	public void setTreatment(Treatment treatment) {
+		this.treatment = treatment;
 	}
 
 	public Medicament(String name, String type, String activeCompound, int dosage, String comments) {

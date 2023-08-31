@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import br.edu.ufape.screenpet.data.InterfaceCollectionPet;
 import br.edu.ufape.screenpet.business.basic.Pet;
+import br.edu.ufape.screenpet.business.basic.Tutor;
 import br.edu.ufape.screenpet.business.register.exception.DuplicatePetException;
 import br.edu.ufape.screenpet.business.register.exception.DisabledPetException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistPetException;
@@ -16,18 +17,18 @@ public class RegisterPet implements InterfaceRegisterPet {
 	@Autowired
 	private InterfaceCollectionPet collectionPet;
 	
-	public Pet findPetName(String name) throws DoesNotExistPetException {
-		Pet p = collectionPet.findByName(name); 
+	public Pet findPet(Tutor tutor) throws DoesNotExistPetException {
+		Pet p = collectionPet.findByTutor(tutor); 
 		if(p == null) {
-			throw new DoesNotExistPetException(name);
+			throw new DoesNotExistPetException(tutor);
 		}
 		return p;
 	}
 	
 	public Pet savePet(Pet entity) throws DuplicatePetException {
 		try {
-			findPetName(entity.getName());
-			throw new DuplicatePetException(entity.getName());
+			findPet(entity.getTutor());
+			throw new DuplicatePetException(entity.getTutor());
 		} catch(DoesNotExistPetException err) {
 			return collectionPet.save(entity);
 		}
@@ -35,10 +36,10 @@ public class RegisterPet implements InterfaceRegisterPet {
 	
 	public Pet updatePet(Pet entity) throws DoesNotExistPetException {
 		try {
-			findPetName(entity.getName());
+			findPet(entity.getTutor());
 			return collectionPet.save(entity);
 		} catch(DoesNotExistPetException err) {
-			throw new DoesNotExistPetException(entity.getName());
+			throw new DoesNotExistPetException(entity.getTutor());
 		}
 	}
 	

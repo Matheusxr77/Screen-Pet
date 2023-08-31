@@ -26,7 +26,7 @@ import br.edu.ufape.screenpet.business.basic.Veterinarian;
 @SpringBootTest
 @ActiveProfiles("test") 
 class InterfaceCollectionAppointmentTest {
-
+	
     @Autowired
     private InterfaceCollectionAppointment collectionAppointment;
 
