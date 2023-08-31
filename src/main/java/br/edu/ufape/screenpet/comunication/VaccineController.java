@@ -21,17 +21,17 @@ public class VaccineController {
 	@Autowired
 	public Front front;
 	
-	@GetMapping("/historico-de-vacinacao")
+	@GetMapping("/vacinas")
 	public List<Vaccine> listVaccine() {
 		return front.listVaccines();
 	}
 	
-	@PostMapping("/historico-de-vacinacao")
+	@PostMapping("/vacinas")
 	public Vaccine registerVaccine(@RequestBody Vaccine vaccine) throws DuplicateVaccineException, DoesNotExistVaccineException {
 		return front.saveVaccine(vaccine);
 	}
 	
-	@GetMapping("/historico-de-vacinacao/{id}")
+	@GetMapping("/vacinas/{id}")
 	public Vaccine printVaccine(@PathVariable long id) {
 		return front.findVaccineId(id);
 	}
