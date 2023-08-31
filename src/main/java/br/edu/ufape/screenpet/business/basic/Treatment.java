@@ -69,4 +69,8 @@ public class Treatment {
 		this.posology = posology;
 		this.comments = comments;
 	}
+	
+	public Treatment() {
+		// TODO Auto-generated constructor stub
+	}
 }

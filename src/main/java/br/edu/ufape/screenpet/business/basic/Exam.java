@@ -79,4 +79,8 @@ public class Exam {
 		this.type = type;
 		this.comments = comments;
 	}
+	
+	public Exam() {
+		// TODO Auto-generated constructor stub
+	}
 }

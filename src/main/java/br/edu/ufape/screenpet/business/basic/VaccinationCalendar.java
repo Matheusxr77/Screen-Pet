@@ -42,4 +42,8 @@ public class VaccinationCalendar {
 		this.date = date;
 		this.frequency = frequency;
 	}
+	
+	public VaccinationCalendar() {
+		// TODO Auto-generated constructor stub
+	}
 }

@@ -69,4 +69,8 @@ public class Schedule {
 		this.type = type;
 		this.date = date;
 	}
+	
+	public Schedule() {
+		// TODO Auto-generated constructor stub
+	}
 }
