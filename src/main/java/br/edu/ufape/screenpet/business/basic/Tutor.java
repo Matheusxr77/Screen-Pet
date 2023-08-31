@@ -26,4 +26,8 @@ public class Tutor extends Person {
 	public Tutor(String name, String cpf, String gender, Date dateBirth, boolean active) {
 		super(name, cpf, gender, dateBirth, active);
 	}
+	
+	public Tutor() {
+		// TODO Auto-generated constructor stub
+	}
 }

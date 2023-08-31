@@ -100,4 +100,8 @@ public class Pet {
 		this.dateBirth = dateBirth;
 		this.active = active;
 	}
+	
+	public Pet() {
+		// TODO Auto-generated constructor stub
+	}
 }

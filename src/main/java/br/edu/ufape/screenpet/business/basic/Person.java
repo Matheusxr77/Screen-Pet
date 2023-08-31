@@ -117,4 +117,8 @@ public abstract class Person {
 		this.dateBirth = dateBirth;
 		this.active = active;
 	}
+	
+	public Person() {
+		// TODO Auto-generated constructor stub
+	}
 }

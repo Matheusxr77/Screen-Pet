@@ -49,4 +49,8 @@ public class Veterinarian extends Person {
 		super(name, cpf, gender, dateBirth, active);
 		this.crmv = crmv;
 	}
+	
+	public Veterinarian() {
+		// TODO Auto-generated constructor stub
+	}
 }
