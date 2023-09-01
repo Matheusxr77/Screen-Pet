@@ -9,7 +9,7 @@ import br.edu.ufape.screenpet.business.register.exception.DoesNotExistVeterinari
 
 public interface InterfaceRegisterVeterinarian {
 	Veterinarian findByCrmv(int crmv) throws DoesNotExistVeterinarianException;
-	Veterinarian saveVeterinarian(Veterinarian entity) throws DuplicateVeterinarianException;
+	Veterinarian saveVeterinarian(Veterinarian entity) throws DuplicateVeterinarianException, DoesNotExistVeterinarianException;
 	Veterinarian updateVeterinarian(Veterinarian entity) throws DoesNotExistVeterinarianException;
 	List<Veterinarian> listVeterinarian();
 	boolean checkVeterinarianExistence(Long id);

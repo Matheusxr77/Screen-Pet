@@ -12,15 +12,16 @@ import br.edu.ufape.screenpet.business.register.exception.DoesNotExistVaccineExc
 
 @Service
 public class RegisterVaccine implements InterfaceRegisterVaccine {
+	
 	@Autowired
 	private InterfaceCollectionVaccine collectionVaccine;
 
 	public Vaccine findVaccine(String name) throws DoesNotExistVaccineException {
-		Vaccine vac = collectionVaccine.findByName(name); 
-		if(vac == null) {
+		Vaccine vaccine = collectionVaccine.findByName(name); 
+		if(vaccine == null) {
 			throw new DoesNotExistVaccineException(name);
 		}
-		return vac;
+		return vaccine;
 	}
 	
 	public Vaccine saveVaccine(Vaccine entity) throws DoesNotExistVaccineException, DuplicateVaccineException {
@@ -45,7 +46,7 @@ public class RegisterVaccine implements InterfaceRegisterVaccine {
 	}
 
 	public void removeVaccine(Long id) throws DoesNotExistVaccineException {
-		Vaccine vac = findVaccineId(id);
-		collectionVaccine.delete(vac);
+		Vaccine vaccine = findVaccineId(id);
+		collectionVaccine.delete(vaccine);
 	}
 }

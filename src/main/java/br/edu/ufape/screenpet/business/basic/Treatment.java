@@ -71,6 +71,6 @@ public class Treatment {
 	}
 	
 	public Treatment() {
-		// TODO Auto-generated constructor stub
+
 	}
 }

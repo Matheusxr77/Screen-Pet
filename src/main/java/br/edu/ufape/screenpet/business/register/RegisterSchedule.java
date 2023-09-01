@@ -13,18 +13,19 @@ import br.edu.ufape.screenpet.business.register.exception.DoesNotExistScheduleEx
 
 @Service
 public class RegisterSchedule implements InterfaceRegisterSchedule {
+	
 	@Autowired
 	private InterfaceCollectionSchedule collectionSchedule;
 
 	public Schedule findSchedule(Date date) throws DoesNotExistScheduleException {
-		Schedule s = collectionSchedule.findByDate(date); 
-		if(s == null) {
+		Schedule schedule = collectionSchedule.findByDate(date); 
+		if(schedule == null) {
 			throw new DoesNotExistScheduleException(date);
 		}
-		return s;
+		return schedule;
 	}
 	
-	public Schedule saveSchedule(Schedule entity)throws DoesNotExistScheduleException, DuplicateScheduleException {
+	public Schedule saveSchedule(Schedule entity) throws DoesNotExistScheduleException, DuplicateScheduleException {
 		try {
 			findSchedule(entity.getDate());
 			throw new DuplicateScheduleException(entity.getDate());
@@ -46,7 +47,7 @@ public class RegisterSchedule implements InterfaceRegisterSchedule {
 	}
 
 	public void removeSchedule(Long id) throws DoesNotExistScheduleException {
-		Schedule s = findScheduleId(id);
-		collectionSchedule.delete(s);
+		Schedule schedule = findScheduleId(id);
+		collectionSchedule.delete(schedule);
 	}	
 }

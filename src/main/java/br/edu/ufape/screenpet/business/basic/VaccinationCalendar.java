@@ -44,6 +44,6 @@ public class VaccinationCalendar {
 	}
 	
 	public VaccinationCalendar() {
-		// TODO Auto-generated constructor stub
+
 	}
 }

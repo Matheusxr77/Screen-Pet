@@ -92,6 +92,6 @@ public class Medicament {
 	}
 	
 	public Medicament() {
-		// TODO Auto-generated constructor stub
+
 	}
 }

@@ -16,8 +16,9 @@ import br.edu.ufape.screenpet.business.register.exception.DuplicateMedicamentExc
 import br.edu.ufape.screenpet.business.front.Front;
 
 @RestController
-@RequestMapping("/api/v3")
+@RequestMapping("/api/v5")
 public class MedicamentController {
+	
 	@Autowired
 	public Front front;
 	

@@ -13,6 +13,7 @@ import br.edu.ufape.screenpet.business.register.exception.DoesNotExistAttendantE
 
 @Service
 public class RegisterAttendant implements InterfaceRegisterAttendant {
+	
 	@Autowired
 	private InterfaceCollectionAttendant collectionAttendant;
 	
@@ -24,7 +25,7 @@ public class RegisterAttendant implements InterfaceRegisterAttendant {
 		return attendant;
 	}
 	
-	public Attendant saveAttendant(Attendant entity) throws DuplicateAttendantException {
+	public Attendant saveAttendant(Attendant entity) throws DoesNotExistAttendantException, DuplicateAttendantException {
 		try {
 			findAttendantCpf(entity.getCpf());
 			throw new DuplicateAttendantException(entity.getCpf());

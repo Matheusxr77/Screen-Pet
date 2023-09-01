@@ -9,7 +9,7 @@ import br.edu.ufape.screenpet.business.register.exception.DoesNotExistScheduleEx
 
 public interface InterfaceRegisterSchedule {
 	Schedule findSchedule(Date date) throws DoesNotExistScheduleException;
-	Schedule saveSchedule(Schedule entity)throws DoesNotExistScheduleException, DuplicateScheduleException;
+	Schedule saveSchedule(Schedule entity) throws DoesNotExistScheduleException, DuplicateScheduleException;
 	List<Schedule> listSchedules();
 	boolean checkExistenceScheduleId(Long id);
 	Schedule findScheduleId(Long id);

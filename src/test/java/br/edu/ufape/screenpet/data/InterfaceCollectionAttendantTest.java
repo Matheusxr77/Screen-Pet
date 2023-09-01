@@ -25,16 +25,14 @@ class InterfaceCollectionAttendantTest {
     void test() {
         long qtdAttendant = collectionAttendant.count();
         Date data = new Date();
-        Attendant a = new Attendant("atendente", "12345678910", "fem", data, true);
-        Address add = new Address(55299497, "rua de teste", 666, "bairro", "garanhuns", "pe");
-        Usuario u = new Usuario("atendente@gmail.com", "password", true);
-        NumberPhone tel = new NumberPhone(87, 912345678);
-        u.setAddress(add);
-        u.setNumberPhone(tel);
-        a.setAddress(add);
-        a.setUsuario(u);
-        a.setNumberPhone(tel);
-        collectionAttendant.save(a);
+        Attendant attendant = new Attendant("atendente", "12345678910", "fem", data, true);
+        Address address = new Address(55299497, "rua de teste", 666, "bairro", "garanhuns", "pe");
+        Usuario userAttendant = new Usuario("atendente@gmail.com", "password");
+        NumberPhone phone = new NumberPhone(87, 912345678);
+        attendant.setAddress(address);
+        attendant.setUsuario(userAttendant);
+        attendant.setNumberPhone(phone);
+        collectionAttendant.save(attendant);
         long qtdAttendant2 = collectionAttendant.count();
         assertEquals(qtdAttendant + 1, qtdAttendant2);
     }

@@ -9,7 +9,7 @@ import br.edu.ufape.screenpet.business.register.exception.DoesNotExistVaccinatio
 
 public interface InterfaceRegisterVaccinationHistoric {
 	VaccinationHistoric findVaccinationHistoric(VaccinationCalendar vaccinationCalendar) throws DoesNotExistVaccinationHistoricException;
-	VaccinationHistoric saveVaccinationHistoric(VaccinationHistoric entity)throws DoesNotExistVaccinationHistoricException, DuplicateVaccinationHistoricException;
+	VaccinationHistoric saveVaccinationHistoric(VaccinationHistoric entity) throws DoesNotExistVaccinationHistoricException, DuplicateVaccinationHistoricException;
 	List<VaccinationHistoric> listVaccinationHistorics();
 	boolean checkExistenceVaccinationHistoricId(Long id);
 	VaccinationHistoric findVaccinationHistoricId(Long id);

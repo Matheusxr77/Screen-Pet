@@ -37,7 +37,6 @@ import br.edu.ufape.screenpet.business.register.InterfaceRegisterVeterinarian;
 import br.edu.ufape.screenpet.business.register.exception.DisabledAttendantException;
 import br.edu.ufape.screenpet.business.register.exception.DisabledPetException;
 import br.edu.ufape.screenpet.business.register.exception.DisabledTutorException;
-import br.edu.ufape.screenpet.business.register.exception.DisabledUserException;
 import br.edu.ufape.screenpet.business.register.exception.DisabledVeterinarianException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistAppointmentException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistAttendantException;
@@ -70,6 +69,7 @@ import br.edu.ufape.screenpet.business.register.exception.DuplicateVeterinarianE
 
 @Service
 public class Front {
+	
 	@Autowired
 	private InterfaceRegisterAppointment registerAppointment;
 	
@@ -136,7 +136,7 @@ public class Front {
 		return registerAttendant.findAttendantCpf(cpf);
 	}
 	
-	public 	Attendant saveAttendant(Attendant entity) throws DuplicateAttendantException {
+	public 	Attendant saveAttendant(Attendant entity) throws DuplicateAttendantException, DoesNotExistAttendantException {
 		return registerAttendant.saveAttendant(entity);
 	}
 	
@@ -187,7 +187,7 @@ public class Front {
 		return registerPet.findPet(tutor);
 	}
 	
-	public Pet savePet(Pet entity) throws DuplicatePetException {
+	public Pet savePet(Pet entity) throws DuplicatePetException, DoesNotExistPetException {
 		return registerPet.savePet(entity);
 	}
 	
@@ -255,7 +255,7 @@ public class Front {
 		return registerSchedule.findSchedule(date);
 	}
 	
-	public Schedule saveSchedule(Schedule entity)throws DoesNotExistScheduleException, DuplicateScheduleException {
+	public Schedule saveSchedule(Schedule entity) throws DoesNotExistScheduleException, DuplicateScheduleException {
 		return registerSchedule.saveSchedule(entity);
 	}
 	
@@ -299,7 +299,7 @@ public class Front {
 		return registerTutor.findTutorCpf(cpf);
 	}
 	
-	public Tutor saveTutor(Tutor entity) throws DuplicateTutorException {
+	public Tutor saveTutor(Tutor entity) throws DuplicateTutorException, DoesNotExistTutorException {
 		return registerTutor.saveTutor(entity);
 	}
 	
@@ -327,7 +327,7 @@ public class Front {
 		return registerUsuario.findUsuarioEmail(email);
 	}
 	
-	public Usuario saveUsuario(Usuario entity) throws DuplicateUserException {
+	public Usuario saveUsuario(Usuario entity) throws DuplicateUserException, DoesNotExistUserException {
 		return registerUsuario.saveUsuario(entity);
 	}
 	
@@ -341,10 +341,6 @@ public class Front {
 	
 	public Usuario findUsuarioId(Long id) {
 		return registerUsuario.findUsuarioId(id);
-	}
-	
-	public void deactivateUsuario(Long id) throws DoesNotExistUserException, DisabledUserException {
-		registerUsuario.deactivateUsuario(id);
 	}
 
 	public VaccinationCalendar findVaccinationCalendar(Date date) throws DoesNotExistVaccinationCalendarException {
@@ -371,7 +367,7 @@ public class Front {
 		return registerVaccinationHistoric.findVaccinationHistoric(vaccinationCalendar);
 	}
 	
-	public VaccinationHistoric saveVaccinationHistoric(VaccinationHistoric entity)throws DoesNotExistVaccinationHistoricException, DuplicateVaccinationHistoricException {
+	public VaccinationHistoric saveVaccinationHistoric(VaccinationHistoric entity) throws DoesNotExistVaccinationHistoricException, DuplicateVaccinationHistoricException {
 		return registerVaccinationHistoric.saveVaccinationHistoric(entity);
 	}
 	
@@ -415,7 +411,7 @@ public class Front {
 		return registerVeterinarian.findByCrmv(crmv);
 	}
 	
-	public Veterinarian saveVeterinarian(Veterinarian entity) throws DuplicateVeterinarianException {
+	public Veterinarian saveVeterinarian(Veterinarian entity) throws DuplicateVeterinarianException, DoesNotExistVeterinarianException {
 		return registerVeterinarian.saveVeterinarian(entity);
 	}
 	

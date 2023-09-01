@@ -13,6 +13,7 @@ import br.edu.ufape.screenpet.business.register.exception.DoesNotExistTutorExcep
 
 @Service
 public class RegisterTutor implements InterfaceRegisterTutor {
+	
 	@Autowired
 	private InterfaceCollectionTutor collectionTutor;
 	
@@ -24,7 +25,7 @@ public class RegisterTutor implements InterfaceRegisterTutor {
 		return tutor;
 	}
 	
-	public Tutor saveTutor(Tutor entity) throws DuplicateTutorException {
+	public Tutor saveTutor(Tutor entity) throws DuplicateTutorException, DoesNotExistTutorException {
 		try {
 			findTutorCpf(entity.getCpf());
 			throw new DuplicateTutorException(entity.getCpf());

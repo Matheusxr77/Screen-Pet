@@ -9,7 +9,7 @@ import br.edu.ufape.screenpet.business.register.exception.DuplicateDiagnosisExce
 
 public interface InterfaceRegisterDiagnosis {
 	Diagnosis findDiagnosis(Pet pet) throws DoesNotExistDiagnosisException;
-	Diagnosis saveDiagnosis(Diagnosis entity)throws DoesNotExistDiagnosisException, DuplicateDiagnosisException;
+	Diagnosis saveDiagnosis(Diagnosis entity) throws DoesNotExistDiagnosisException, DuplicateDiagnosisException;
 	List<Diagnosis> listDiagnosis();
 	boolean checkExistenceDiagnosisId(Long id);
 	Diagnosis findDiagnosisId(Long id);

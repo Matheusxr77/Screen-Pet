@@ -7,7 +7,7 @@ public class DuplicateScheduleException extends Exception {
 	private Date date;
 	
 	public DuplicateScheduleException(Date date) {
-		super("Não é possível cadastrar dois agendamentos na mesma data!");
+		super("Não é possível cadastrar dois agendamentos na mesma data e horário!");
 		this.date = date;
 	}
 	

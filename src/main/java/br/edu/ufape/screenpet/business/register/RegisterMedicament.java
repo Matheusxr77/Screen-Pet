@@ -13,18 +13,19 @@ import br.edu.ufape.screenpet.business.register.exception.DoesNotExistMedicament
 
 @Service
 public class RegisterMedicament implements InterfaceRegisterMedicament {
+	
 	@Autowired
 	private InterfaceCollectionMedicament collectionMedicament;
 
 	public Medicament findMedicament(Treatment treatment) throws DoesNotExistMedicamentException {
-		Medicament med = collectionMedicament.findByTreatment(treatment); 
-		if(med == null) {
+		Medicament medicament = collectionMedicament.findByTreatment(treatment); 
+		if(medicament == null) {
 			throw new DoesNotExistMedicamentException(treatment);
 		}
-		return med;
+		return medicament;
 	}
 	
-	public Medicament saveMedicament(Medicament entity)throws DoesNotExistMedicamentException, DuplicateMedicamentException {
+	public Medicament saveMedicament(Medicament entity) throws DoesNotExistMedicamentException, DuplicateMedicamentException {
 		try {
 			findMedicament(entity.getTreatment());
 			throw new DuplicateMedicamentException(entity.getTreatment());
@@ -46,7 +47,7 @@ public class RegisterMedicament implements InterfaceRegisterMedicament {
 	}
 
 	public void removeMedicament(Long id) throws DoesNotExistMedicamentException {
-		Medicament med = findMedicamentId(id);
-		collectionMedicament.delete(med);
+		Medicament medicament = findMedicamentId(id);
+		collectionMedicament.delete(medicament);
 	}
 }

@@ -13,6 +13,7 @@ import br.edu.ufape.screenpet.data.InterfaceCollectionExam;
 
 @Service
 public class RegisterExam implements InterfaceRegisterExam {
+	
 	@Autowired
 	private InterfaceCollectionExam collectionExam;
 	

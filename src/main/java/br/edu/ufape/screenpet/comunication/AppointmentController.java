@@ -18,6 +18,7 @@ import br.edu.ufape.screenpet.business.front.Front;
 @RestController
 @RequestMapping("/api/v1")
 public class AppointmentController {
+	
 	@Autowired
 	public Front front;
 	

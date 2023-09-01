@@ -19,6 +19,10 @@ public class VaccinationHistoric {
 	@ManyToOne
 	@Cascade(CascadeType.ALL)
 	private VaccinationCalendar vaccinationCalendar;
+	
+	@ManyToOne
+	@Cascade(CascadeType.ALL)
+	private Vaccine vaccine;
 
 	public String getComments() {
 		return comments;
@@ -43,12 +47,20 @@ public class VaccinationHistoric {
 	public void setVaccinationCalendar(VaccinationCalendar vaccinationCalendar) {
 		this.vaccinationCalendar = vaccinationCalendar;
 	}
+	
+	public Vaccine getVaccine() {
+		return vaccine;
+	}
+
+	public void setVaccine(Vaccine vaccine) {
+		this.vaccine = vaccine;
+	}
 
 	public VaccinationHistoric(String comments) {
 		this.comments = comments;
 	}
 	
 	public VaccinationHistoric() {
-		// TODO Auto-generated constructor stub
+
 	}
 }

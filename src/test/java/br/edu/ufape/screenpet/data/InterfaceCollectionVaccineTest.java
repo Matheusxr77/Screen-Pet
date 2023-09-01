@@ -19,8 +19,8 @@ class InterfaceCollectionVaccineTest {
     @Test
     void test() {
         long qtdVaccine = collectionVaccine.count();
-        Vaccine vac = new Vaccine("Vacina", "tipo1", 2, "durante três dias");
-        collectionVaccine.save(vac);
+        Vaccine vaccine = new Vaccine("Vacina", "tipo", 4, "durante quatro dias");
+        collectionVaccine.save(vaccine);
         long qtdVaccine2 = collectionVaccine.count();
         assertEquals(qtdVaccine + 1, qtdVaccine2);
     }

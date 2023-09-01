@@ -16,8 +16,9 @@ import br.edu.ufape.screenpet.business.register.exception.DoesNotExistVaccineExc
 import br.edu.ufape.screenpet.business.register.exception.DuplicateVaccineException;
 
 @RestController
-@RequestMapping("/api/v11")
+@RequestMapping("/api/v13")
 public class VaccineController {
+	
 	@Autowired
 	public Front front;
 	

@@ -16,8 +16,9 @@ import br.edu.ufape.screenpet.business.register.exception.DoesNotExistExamExcept
 import br.edu.ufape.screenpet.business.register.exception.DuplicateExamException;
 
 @RestController
-@RequestMapping("/api/v13")
+@RequestMapping("/api/v4")
 public class ExamController {
+	
 	@Autowired
 	public Front front;
 	
@@ -26,12 +27,12 @@ public class ExamController {
 		return front.listExams();
 	}
 	
-	@PostMapping("/exam")
+	@PostMapping("/exame")
 	public Exam registerExam(@RequestBody Exam exam) throws DuplicateExamException, DoesNotExistExamException {
 		return front.saveExam(exam);
 	}
 	
-	@GetMapping("/exam/{id}")
+	@GetMapping("/exame/{id}")
 	public Exam printExam(@PathVariable long id) {
 		return front.findExamId(id);
 	}

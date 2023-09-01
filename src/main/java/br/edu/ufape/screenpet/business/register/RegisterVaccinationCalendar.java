@@ -13,15 +13,16 @@ import br.edu.ufape.screenpet.business.register.exception.DoesNotExistVaccinatio
 
 @Service
 public class RegisterVaccinationCalendar implements InterfaceRegisterVaccinationCalendar {
+	
 	@Autowired
 	private InterfaceCollectionVaccinationCalendar collectionVaccinationCalendar;
 	
 	public VaccinationCalendar findVaccinationCalendar(Date date) throws DoesNotExistVaccinationCalendarException {
-		VaccinationCalendar vc = collectionVaccinationCalendar.findByDate(date); 
-		if(vc == null) {
+		VaccinationCalendar vaccinationCalendar = collectionVaccinationCalendar.findByDate(date); 
+		if(vaccinationCalendar == null) {
 			throw new DoesNotExistVaccinationCalendarException(date);
 		}
-		return vc;
+		return vaccinationCalendar;
 	}
 	
 	public VaccinationCalendar saveVaccinationCalendar(VaccinationCalendar entity) throws DuplicateVaccinationCalendarException, DoesNotExistVaccinationCalendarException {

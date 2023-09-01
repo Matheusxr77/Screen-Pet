@@ -43,6 +43,6 @@ public class NumberPhone {
 	}
 	
 	public NumberPhone() {
-		// TODO Auto-generated constructor stub
+
 	}
 }

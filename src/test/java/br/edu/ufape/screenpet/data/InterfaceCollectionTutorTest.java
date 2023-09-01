@@ -25,16 +25,14 @@ class InterfaceCollectionTutorTest {
     void test() {
         long qtdTutor = collectionTutor.count();
         Date data = new Date();
-        Tutor a = new Tutor("Jeff", "12345678910", "masculino", data, true);
-        Address add = new Address(55299497, "rua de teste", 666, "bairro", "garanhuns", "pe");
-        Usuario u = new Usuario("atendente@gmail.com", "password", true);
-        NumberPhone tel = new NumberPhone(87, 912345678);
-        u.setAddress(add);
-        u.setNumberPhone(tel);
-        a.setAddress(add);
-        a.setUsuario(u);
-        a.setNumberPhone(tel);
-        collectionTutor.save(a);
+        Tutor tutor = new Tutor("Alan", "12345678910", "masculino", data, true);
+        Address address = new Address(55299497, "rua de teste", 666, "bairro", "garanhuns", "pe");
+        Usuario userTutor = new Usuario("alan@gmail.com", "password");
+        NumberPhone phone = new NumberPhone(87, 912345678);
+        tutor.setAddress(address);
+        tutor.setUsuario(userTutor);
+        tutor.setNumberPhone(phone);
+        collectionTutor.save(tutor);
         long qtdTutor2 = collectionTutor.count();
         assertEquals(qtdTutor + 1, qtdTutor2);
     }

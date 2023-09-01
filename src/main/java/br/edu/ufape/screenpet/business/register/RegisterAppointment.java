@@ -13,6 +13,7 @@ import br.edu.ufape.screenpet.business.register.exception.DoesNotExistAppointmen
 
 @Service
 public class RegisterAppointment implements InterfaceRegisterAppointment {
+	
 	@Autowired
 	private InterfaceCollectionAppointment collectionAppointment;
 	

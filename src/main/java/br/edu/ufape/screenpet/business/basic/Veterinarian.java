@@ -15,19 +15,7 @@ public class Veterinarian extends Person {
     
     @OneToMany
     @Cascade(CascadeType.ALL)
-    private List<Diagnosis> diagnosis;
-    
-    @OneToMany
-    @Cascade(CascadeType.ALL)
     private List<Schedule> schedules;
-
-	public List<Diagnosis> getDiagnosis() {
-		return diagnosis;
-	}
-
-	public void setDiagnosis(List<Diagnosis> diagnosis) {
-		this.diagnosis = diagnosis;
-	}
 
 	public List<Schedule> getSchedules() {
 		return schedules;
@@ -45,12 +33,12 @@ public class Veterinarian extends Person {
         this.crmv = crmv;
     }
     
-	public Veterinarian(String name, String cpf, String gender, Date dateBirth, boolean active, int crmv) {
-		super(name, cpf, gender, dateBirth, active);
+	public Veterinarian(String name, String cpf, String gender, Date birthday, boolean active, int crmv) {
+		super(name, cpf, gender, birthday, active);
 		this.crmv = crmv;
 	}
 	
 	public Veterinarian() {
-		// TODO Auto-generated constructor stub
+		
 	}
 }

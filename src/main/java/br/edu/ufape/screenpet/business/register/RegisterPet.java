@@ -14,18 +14,19 @@ import br.edu.ufape.screenpet.business.register.exception.DoesNotExistPetExcepti
 
 @Service
 public class RegisterPet implements InterfaceRegisterPet {
+	
 	@Autowired
 	private InterfaceCollectionPet collectionPet;
 	
 	public Pet findPet(Tutor tutor) throws DoesNotExistPetException {
-		Pet p = collectionPet.findByTutor(tutor); 
-		if(p == null) {
+		Pet pet = collectionPet.findByTutor(tutor); 
+		if(pet == null) {
 			throw new DoesNotExistPetException(tutor);
 		}
-		return p;
+		return pet;
 	}
 	
-	public Pet savePet(Pet entity) throws DuplicatePetException {
+	public Pet savePet(Pet entity) throws DuplicatePetException, DoesNotExistPetException {
 		try {
 			findPet(entity.getTutor());
 			throw new DuplicatePetException(entity.getTutor());
@@ -56,7 +57,7 @@ public class RegisterPet implements InterfaceRegisterPet {
 	}
 	
 	public void deactivatePet(Long id) throws DoesNotExistPetException, DisabledPetException {
-		Pet u = findPetId(id);
-		u.setActive(false);
+		Pet pet = findPetId(id);
+		pet.setActive(false);
 	}
 }

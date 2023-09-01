@@ -18,8 +18,9 @@ import br.edu.ufape.screenpet.business.register.exception.DuplicatePetException;
 import br.edu.ufape.screenpet.business.front.Front;
 
 @RestController
-@RequestMapping("/api/v4")
+@RequestMapping("/api/v6")
 public class PetController {
+	
 	@Autowired
 	public Front front;
 	
@@ -39,7 +40,7 @@ public class PetController {
 	}
 	
 	@PatchMapping("/pet/{id}")
-	public Pet updatePet(@PathVariable String name, @RequestBody Pet pet) throws DuplicatePetException, DisabledPetException {
+	public Pet updatePet(@PathVariable String name, @RequestBody Pet pet) throws DuplicatePetException, DisabledPetException, DoesNotExistPetException {
 		pet.setName(name);
 		return front.savePet(pet);
 	}

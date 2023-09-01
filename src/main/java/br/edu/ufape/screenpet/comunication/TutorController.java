@@ -18,8 +18,9 @@ import br.edu.ufape.screenpet.business.register.exception.DoesNotExistTutorExcep
 import br.edu.ufape.screenpet.business.register.exception.DuplicateTutorException;
 
 @RestController
-@RequestMapping("/api/v7")
+@RequestMapping("/api/v9")
 public class TutorController {
+	
 	@Autowired
 	public Front front;
 	
@@ -39,7 +40,7 @@ public class TutorController {
 	}
 	
 	@PatchMapping("/tutor/{id}")
-	public Tutor updateTutor(@PathVariable String cpf, @RequestBody Tutor tutor) throws DuplicateTutorException, DisabledTutorException {
+	public Tutor updateTutor(@PathVariable String cpf, @RequestBody Tutor tutor) throws DuplicateTutorException, DisabledTutorException, DoesNotExistTutorException {
 		tutor.setCpf(cpf);
 		return front.saveTutor(tutor);
 	}

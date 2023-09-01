@@ -18,8 +18,9 @@ import br.edu.ufape.screenpet.business.register.exception.DuplicateScheduleExcep
 import br.edu.ufape.screenpet.business.front.Front;
 
 @RestController
-@RequestMapping("/api/v5")
+@RequestMapping("/api/v7")
 public class ScheduleController {
+	
 	@Autowired
 	public Front front;
 	

@@ -16,8 +16,9 @@ import br.edu.ufape.screenpet.business.register.exception.DoesNotExistTreatmentE
 import br.edu.ufape.screenpet.business.register.exception.DuplicateTreatmentException;
 
 @RestController
-@RequestMapping("/api/v6")
+@RequestMapping("/api/v8")
 public class TreatmentController {
+	
 	@Autowired
 	public Front front;
 	
