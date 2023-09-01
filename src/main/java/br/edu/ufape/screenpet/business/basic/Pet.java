@@ -105,7 +105,6 @@ public class Pet {
 	}
 
 	public Pet(String name, String gender, String breed, String specie, Date dateBirth, boolean active) {
-		super();
 		this.name = name;
 		this.gender = gender;
 		this.breed = breed;
