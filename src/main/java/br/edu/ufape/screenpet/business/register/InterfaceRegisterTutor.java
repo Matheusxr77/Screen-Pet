@@ -9,7 +9,7 @@ import br.edu.ufape.screenpet.business.register.exception.DoesNotExistTutorExcep
 
 public interface InterfaceRegisterTutor {
 	Tutor findTutorCpf(String cpf) throws DoesNotExistTutorException;
-	Tutor saveTutor(Tutor entity) throws DuplicateTutorException;
+	Tutor saveTutor(Tutor entity) throws DuplicateTutorException, DoesNotExistTutorException;
 	Tutor updateTutor(Tutor entity) throws DoesNotExistTutorException;
 	List<Tutor> listTutor();
 	boolean checkTutorExistence(Long id);

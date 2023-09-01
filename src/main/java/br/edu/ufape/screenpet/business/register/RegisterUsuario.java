@@ -4,14 +4,15 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import br.edu.ufape.screenpet.data.InterfaceCollectionUsuario;
 import br.edu.ufape.screenpet.business.basic.Usuario;
-import br.edu.ufape.screenpet.business.register.exception.DisabledUserException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistUserException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateUserException;
 
 @Service
 public class RegisterUsuario implements InterfaceRegisterUsuario {
+	
 	@Autowired
 	private InterfaceCollectionUsuario collectionUsuario;
 	
@@ -23,7 +24,7 @@ public class RegisterUsuario implements InterfaceRegisterUsuario {
 		return u;
 	}
 	
-	public Usuario saveUsuario(Usuario entity) throws DuplicateUserException {
+	public Usuario saveUsuario(Usuario entity) throws DuplicateUserException, DoesNotExistUserException {
 		try {
 			findUsuarioEmail(entity.getEmail());
 			throw new DuplicateUserException(entity.getEmail());
@@ -42,10 +43,5 @@ public class RegisterUsuario implements InterfaceRegisterUsuario {
 	
 	public Usuario findUsuarioId(Long id) {
 		return collectionUsuario.findById(id).orElse(null);
-	}
-	
-	public void deactivateUsuario(Long id) throws DoesNotExistUserException, DisabledUserException {
-		Usuario u = findUsuarioId(id);
-		u.setActive(false);
 	}
 }

@@ -23,7 +23,11 @@ public class Administrator extends Person {
 		this.usuarios = usuarios;
 	}
 
-	public Administrator(String name, String cpf, String gender, Date dateBirth, boolean active) {
-		super(name, cpf, gender, dateBirth, active);
+	public Administrator(String name, String cpf, String gender, Date birthday, boolean active) {
+		super(name, cpf, gender, birthday, active);
+	}
+	
+	public Administrator() {
+		
 	}
 }

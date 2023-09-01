@@ -16,8 +16,9 @@ import br.edu.ufape.screenpet.business.register.exception.DoesNotExistDiagnosisE
 import br.edu.ufape.screenpet.business.register.exception.DuplicateDiagnosisException;
 
 @RestController
-@RequestMapping("/api/v14")
+@RequestMapping("/api/v3")
 public class DiagnosisController {
+	
 	@Autowired
 	public Front front;
 	

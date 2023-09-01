@@ -9,7 +9,7 @@ import br.edu.ufape.screenpet.business.register.exception.DoesNotExistAttendantE
 
 public interface InterfaceRegisterAttendant {
 	Attendant findAttendantCpf(String cpf) throws DoesNotExistAttendantException;
-	Attendant saveAttendant(Attendant entity) throws DuplicateAttendantException;
+	Attendant saveAttendant(Attendant entity) throws DuplicateAttendantException, DoesNotExistAttendantException;
 	Attendant updateAttendant(Attendant entity) throws DoesNotExistAttendantException;
 	List<Attendant> listAttendant();
 	boolean checkAttendantExistence(Long id);

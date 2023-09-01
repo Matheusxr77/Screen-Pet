@@ -61,4 +61,8 @@ public class Vaccine {
 		this.frequency = frequency;
 		this.comments = comments;
 	}
+	
+	public Vaccine() {
+		
+	}
 }

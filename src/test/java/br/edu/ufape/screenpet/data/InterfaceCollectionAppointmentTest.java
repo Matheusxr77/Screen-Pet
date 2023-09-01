@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Date;
 import java.util.List;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
@@ -42,14 +43,14 @@ class InterfaceCollectionAppointmentTest {
         Diagnosis diagnosis = new Diagnosis("diarreia", "patologia", "prescrição", "comentarios");
         Veterinarian veterinarian = new Veterinarian("Matheus", "22345678910", "masculino", data, true, 321);
         Address addressVeterinarian = new Address(55299497, "rua de teste", 666, "bairro", "garanhuns", "pe");
-        Usuario userVeterinarian = new Usuario("matheus@gmail.com", "password", true);
+        Usuario userVeterinarian = new Usuario("matheus@gmail.com", "password");
         NumberPhone phoneVeterinarian = new NumberPhone(87, 912345678);
         Tutor tutor = new Tutor("Thiago", "12345678910", "masculino", data, true);
         Address addressTutor = new Address(55299497, "rua de testei", 666, "bairro", "garanhuns", "pe");
-        Usuario userTutor = new Usuario("thiago@gmail.com", "password", true);
+        Usuario userTutor = new Usuario("thiago@gmail.com", "password");
         NumberPhone phoneTutor = new NumberPhone(87, 934345678);
         Vaccine vaccine = new Vaccine("Vacina", "tipo1", 2, "durante três dias");
-        Schedule schedule = new Schedule(data, "rotineira", data);
+        Schedule schedule = new Schedule(LocalTime.now(), "rotineira", data);
         Appointment appointment = new Appointment("anamnese", data);
         List<Exam> examList = new ArrayList<>();
         Exam exam1 = new Exam("Blood Test", data, "urgencia", "sucesso");
@@ -59,13 +60,9 @@ class InterfaceCollectionAppointmentTest {
         exam1.setPet(pet);
         exam2.setPet(pet);
         diagnosis.setPet(pet);
-        userVeterinarian.setAddress(addressVeterinarian);
-        userVeterinarian.setNumberPhone(phoneVeterinarian);
         veterinarian.setUsuario(userVeterinarian);
         veterinarian.setAddress(addressVeterinarian);
         veterinarian.setNumberPhone(phoneVeterinarian);
-        userTutor.setAddress(addressTutor);
-        userTutor.setNumberPhone(phoneTutor);
         tutor.setUsuario(userTutor);
         tutor.setAddress(addressTutor);
         tutor.setNumberPhone(phoneTutor);

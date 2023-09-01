@@ -18,8 +18,9 @@ import br.edu.ufape.screenpet.business.register.exception.DoesNotExistVeterinari
 import br.edu.ufape.screenpet.business.register.exception.DuplicateVeterinarianException;
 
 @RestController
-@RequestMapping("/api/v12")
+@RequestMapping("/api/v14")
 public class VeterinarianController {
+	
 	@Autowired
 	public Front front;
 	
@@ -39,7 +40,7 @@ public class VeterinarianController {
 	}
 	
 	@PatchMapping("/veterinario/{crmv}")
-	public Veterinarian updateVeterinarian(@PathVariable int crmv, @RequestBody Veterinarian veterinarian) throws DuplicateVeterinarianException, DisabledVeterinarianException {
+	public Veterinarian updateVeterinarian(@PathVariable int crmv, @RequestBody Veterinarian veterinarian) throws DuplicateVeterinarianException, DisabledVeterinarianException, DoesNotExistVeterinarianException {
 		veterinarian.setCrmv(crmv);
 		return front.saveVeterinarian(veterinarian);
 	}

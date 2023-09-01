@@ -1,6 +1,6 @@
 package br.edu.ufape.screenpet.data;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Date;
 
@@ -21,9 +21,10 @@ class InterfaceCollectionVaccinationHistoricTest {
     @Test
     void test() {
         long qtdVaccinationHistoric = collectionVaccinationHistoric.count();
+        Date data = new Date();
         Vaccine vaccine = new Vaccine("antirabica", "antiviral", 2, "vezes ao dia, durante 3 dias");
-        VaccinationCalendar vaccinationCalendar = new VaccinationCalendar(new Date(), new Date());
-        VaccinationHistoric vaccinationHistoric = new VaccinationHistoric("ajuda-me");
+        VaccinationCalendar vaccinationCalendar = new VaccinationCalendar(data, data);
+        VaccinationHistoric vaccinationHistoric = new VaccinationHistoric("Histórico de Jubileu");
         vaccinationHistoric.setVaccine(vaccine);
         vaccinationHistoric.setVaccinationCalendar(vaccinationCalendar);
         collectionVaccinationHistoric.save(vaccinationHistoric);

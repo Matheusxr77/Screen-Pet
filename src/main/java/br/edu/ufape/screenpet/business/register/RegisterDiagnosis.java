@@ -13,6 +13,7 @@ import br.edu.ufape.screenpet.data.InterfaceCollectionDiagnosis;
 
 @Service
 public class RegisterDiagnosis implements InterfaceRegisterDiagnosis {
+	
 	@Autowired
 	private InterfaceCollectionDiagnosis collectionDiagnosis;
 	

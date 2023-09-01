@@ -20,6 +20,7 @@ import br.edu.ufape.screenpet.business.front.Front;
 @RestController
 @RequestMapping("/api/v2")
 public class AttendantController {
+	
 	@Autowired
 	public Front front;
 	
@@ -39,7 +40,7 @@ public class AttendantController {
 	}
 	
 	@PatchMapping("/atendente/{id}")
-	public Attendant updateAttendant(@PathVariable String cpf, @RequestBody Attendant attendant) throws DuplicateAttendantException, DisabledAttendantException {
+	public Attendant updateAttendant(@PathVariable String cpf, @RequestBody Attendant attendant) throws DuplicateAttendantException, DisabledAttendantException, DoesNotExistAttendantException {
 		attendant.setCpf(cpf);
 		return front.saveAttendant(attendant);
 	}

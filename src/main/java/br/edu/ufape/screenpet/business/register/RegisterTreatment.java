@@ -42,7 +42,6 @@ public class RegisterTreatment implements InterfaceRegisterTreatment {
 		return collectionTreatment.existsById(id);
 	}
 
-	
 	public Treatment findTreatmentId(Long id) {
 		return collectionTreatment.findById(id).orElse(null);
 	}

@@ -77,4 +77,8 @@ public class Diagnosis {
 		this.prescription = prescription;
 		this.comments = comments;
 	}
+	
+	public Diagnosis() {
+
+	}
 }

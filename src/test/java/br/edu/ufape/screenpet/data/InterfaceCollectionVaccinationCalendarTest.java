@@ -1,6 +1,6 @@
 package br.edu.ufape.screenpet.data;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Date;
 
@@ -13,16 +13,15 @@ import br.edu.ufape.screenpet.business.basic.VaccinationCalendar;
 class InterfaceCollectionVaccinationCalendarTest {
 	
 	@Autowired
-    private InterfaceCollectionVaccinationCalendar collectionVC;
+    private InterfaceCollectionVaccinationCalendar collectionVaccinationCalendar;
 
 	@Test
 	void test() {
-		long qtdVC = collectionVC.count();
+		long qtdVaccinationCalendar = collectionVaccinationCalendar.count();
 		Date data = new Date();
-		Date frequencia = new Date();
-        VaccinationCalendar vc = new VaccinationCalendar(data, frequencia);
-        collectionVC.save(vc);
-        long qtdVC2 = collectionVC.count();
-        assertEquals(qtdVC + 1, qtdVC2);
+        VaccinationCalendar vaccinationCalendar = new VaccinationCalendar(data, data);
+        collectionVaccinationCalendar.save(vaccinationCalendar);
+        long qtdVaccinationCalendar2 = collectionVaccinationCalendar.count();
+        assertEquals(qtdVaccinationCalendar + 1, qtdVaccinationCalendar2);
 	}
 }

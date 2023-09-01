@@ -59,4 +59,8 @@ public class VaccinationHistoric {
 	public VaccinationHistoric(String comments) {
 		this.comments = comments;
 	}
+	
+	public VaccinationHistoric() {
+
+	}
 }

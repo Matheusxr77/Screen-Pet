@@ -32,11 +32,9 @@ class InterfaceCollectionDiagnosisTest {
         VaccinationCalendar vaccinationCalendar = new VaccinationCalendar(data, data);
         Tutor tutor = new Tutor("Lucas", "12345678910", "masculino", data, true);
         Address address = new Address(55299497, "rua de testei", 666, "bairro", "garanhuns", "pe");
-        Usuario userTutor = new Usuario("lucas@gmail.com", "password", true);
+        Usuario userTutor = new Usuario("lucas@gmail.com", "password");
         NumberPhone phone = new NumberPhone(87, 934345678);
         Diagnosis diagnosis = new Diagnosis("sintomas", "patologia", "prescrição", "comentarios");
-        userTutor.setAddress(address);
-        userTutor.setNumberPhone(phone);
         tutor.setUsuario(userTutor);
         tutor.setAddress(address);
         tutor.setNumberPhone(phone);

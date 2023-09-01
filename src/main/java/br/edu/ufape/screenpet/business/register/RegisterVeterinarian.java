@@ -13,18 +13,19 @@ import br.edu.ufape.screenpet.business.register.exception.DoesNotExistVeterinari
 
 @Service
 public class RegisterVeterinarian implements InterfaceRegisterVeterinarian {
+	
 	@Autowired
 	private InterfaceCollectionVeterinarian collectionVeterinarian;
 	
 	public Veterinarian findByCrmv(int crmv) throws DoesNotExistVeterinarianException {
-		Veterinarian v = collectionVeterinarian.findByCrmv(crmv);
-		if (v == null) {
+		Veterinarian veterinarian = collectionVeterinarian.findByCrmv(crmv);
+		if (veterinarian == null) {
 			throw new DoesNotExistVeterinarianException(crmv);
 		}
-		return v;
+		return veterinarian;
 	}
 	
-	public Veterinarian saveVeterinarian (Veterinarian entity) throws DuplicateVeterinarianException {
+	public Veterinarian saveVeterinarian (Veterinarian entity) throws DuplicateVeterinarianException, DoesNotExistVeterinarianException {
 		try {
 			findByCrmv(entity.getCrmv());
 			throw new DuplicateVeterinarianException(entity.getCrmv());
@@ -52,11 +53,6 @@ public class RegisterVeterinarian implements InterfaceRegisterVeterinarian {
 	
 	public Veterinarian findVeterinarianId(Long id) {
 		return collectionVeterinarian.findById(id).orElse(null);
-	}
-	
-	public void removeByCrmv(int crmv) throws DoesNotExistVeterinarianException {
-		Veterinarian v = findByCrmv(crmv);
-		collectionVeterinarian.delete(v);
 	}
 	
 	public void deactivateVeterinarian(int crmv) throws DoesNotExistVeterinarianException, DisabledVeterinarianException {

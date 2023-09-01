@@ -10,15 +10,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import br.edu.ufape.screenpet.business.basic.Usuario;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistUserException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateUserException;
-import br.edu.ufape.screenpet.business.register.exception.DisabledUserException;
 import br.edu.ufape.screenpet.business.front.Front;
 
 @RestController
-@RequestMapping("/api/v8")
+@RequestMapping("/api/v10")
 public class UsuarioController {
+	
 	@Autowired
 	public Front front;
 	
@@ -28,7 +29,7 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/usuario")
-	public Usuario registerUsuario(@RequestBody Usuario usuario) throws DuplicateUserException, DoesNotExistUserException, DisabledUserException {
+	public Usuario registerUsuario(@RequestBody Usuario usuario) throws DuplicateUserException, DoesNotExistUserException {
 		return front.saveUsuario(usuario);
 	}
 	
@@ -38,7 +39,7 @@ public class UsuarioController {
 	}
 	
 	@PatchMapping("/usuario/{id}")
-	public Usuario updateUsuario(@PathVariable String email, @RequestBody Usuario usuario) throws DuplicateUserException, DisabledUserException {
+	public Usuario updateUsuario(@PathVariable String email, @RequestBody Usuario usuario) throws DuplicateUserException, DoesNotExistUserException {
 		usuario.setEmail(email);
 		return front.saveUsuario(usuario);
 	}

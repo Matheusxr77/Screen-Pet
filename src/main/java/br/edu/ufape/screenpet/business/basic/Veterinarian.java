@@ -33,8 +33,12 @@ public class Veterinarian extends Person {
         this.crmv = crmv;
     }
     
-	public Veterinarian(String name, String cpf, String gender, Date dateBirth, boolean active, int crmv) {
-		super(name, cpf, gender, dateBirth, active);
+	public Veterinarian(String name, String cpf, String gender, Date birthday, boolean active, int crmv) {
+		super(name, cpf, gender, birthday, active);
 		this.crmv = crmv;
+	}
+	
+	public Veterinarian() {
+		
 	}
 }

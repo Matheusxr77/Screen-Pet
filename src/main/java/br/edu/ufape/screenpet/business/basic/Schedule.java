@@ -1,6 +1,7 @@
 package br.edu.ufape.screenpet.business.basic;
 
 import java.util.Date;
+import java.time.LocalTime;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -16,7 +17,7 @@ public class Schedule {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-    private Date time;
+    private LocalTime time;
     private String type;
     private Date date;
     
@@ -32,11 +33,11 @@ public class Schedule {
 		this.pet = pet;
 	}
 
-	public Date getTime() {
+	public LocalTime getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(LocalTime time) {
         this.time = time;
     }
 
@@ -64,9 +65,13 @@ public class Schedule {
 		this.id = id;
 	}
 
-	public Schedule(Date time, String type, Date date) {
+	public Schedule(LocalTime time, String type, Date date) {
 		this.time = time;
 		this.type = type;
 		this.date = date;
+	}
+	
+	public Schedule() {
+		
 	}
 }

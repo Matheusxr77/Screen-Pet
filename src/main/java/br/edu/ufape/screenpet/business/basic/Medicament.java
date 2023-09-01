@@ -90,4 +90,8 @@ public class Medicament {
 		this.dosage = dosage;
 		this.comments = comments;
 	}
+	
+	public Medicament() {
+
+	}
 }

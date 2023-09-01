@@ -16,22 +16,23 @@ import br.edu.ufape.screenpet.business.register.exception.DoesNotExistVaccineExc
 import br.edu.ufape.screenpet.business.register.exception.DuplicateVaccineException;
 
 @RestController
-@RequestMapping("/api/v11")
+@RequestMapping("/api/v13")
 public class VaccineController {
+	
 	@Autowired
 	public Front front;
 	
-	@GetMapping("/historico-de-vacinacao")
+	@GetMapping("/vacinas")
 	public List<Vaccine> listVaccine() {
 		return front.listVaccines();
 	}
 	
-	@PostMapping("/historico-de-vacinacao")
+	@PostMapping("/vacinas")
 	public Vaccine registerVaccine(@RequestBody Vaccine vaccine) throws DuplicateVaccineException, DoesNotExistVaccineException {
 		return front.saveVaccine(vaccine);
 	}
 	
-	@GetMapping("/historico-de-vacinacao/{id}")
+	@GetMapping("/vacinas/{id}")
 	public Vaccine printVaccine(@PathVariable long id) {
 		return front.findVaccineId(id);
 	}

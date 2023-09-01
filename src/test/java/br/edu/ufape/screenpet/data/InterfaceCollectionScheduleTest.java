@@ -3,6 +3,7 @@ package br.edu.ufape.screenpet.data;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Date;
+import java.time.LocalTime;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,22 +29,21 @@ class InterfaceCollectionScheduleTest {
 	void test() {
     	long qtdSchedule = collectionSchedule.count();
         Date data = new Date();
-        Tutor a = new Tutor("Ícaro", "12345678910", "masculino", data, true);
-        Address add = new Address(55299497, "rua de teste", 666, "bairro", "garanhuns", "pe");
-        Usuario u = new Usuario("atendente@gmail.com", "password", true);
-        NumberPhone tel = new NumberPhone(87, 912345678);
-        VaccinationCalendar vc = new VaccinationCalendar(data, data);
+        LocalTime time = LocalTime.now();
+        Tutor tutor = new Tutor("Ícaro", "12345678910", "masculino", data, true);
+        Address address = new Address(55299497, "rua de teste", 666, "bairro", "garanhuns", "pe");
+        Usuario userTutor = new Usuario("icaro@gmail.com", "password");
+        NumberPhone phone = new NumberPhone(87, 912345678);
+        VaccinationCalendar vaccinationCalendar = new VaccinationCalendar(data, data);
         Pet pet = new Pet("Igor", "masculino", "pinscher", "cachorro", data, true);
-        Schedule s = new Schedule(data, "rotineira", data);
-        u.setAddress(add);
-        u.setNumberPhone(tel);
-        a.setAddress(add);
-        a.setUsuario(u);
-        a.setNumberPhone(tel);
-        pet.setVaccinationCalendar(vc);
-        pet.setTutor(a);
-        s.setPet(pet);
-        collectionSchedule.save(s);
+        Schedule schedule = new Schedule(time, "rotineira", data);
+        tutor.setAddress(address);
+        tutor.setUsuario(userTutor);
+        tutor.setNumberPhone(phone);
+        pet.setVaccinationCalendar(vaccinationCalendar);
+        pet.setTutor(tutor);
+        schedule.setPet(pet);
+        collectionSchedule.save(schedule);
         long qtdSchedule2 = collectionSchedule.count();
         assertEquals(qtdSchedule + 1, qtdSchedule2);
 	}

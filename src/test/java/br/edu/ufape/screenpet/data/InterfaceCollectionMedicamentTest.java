@@ -32,13 +32,11 @@ class InterfaceCollectionMedicamentTest {
         VaccinationCalendar vaccinationCalendar = new VaccinationCalendar(data, data);
         Tutor tutor = new Tutor("Yasmin", "12345678910", "masculino", data, true);
         Address address = new Address(55299497, "rua de testei", 666, "bairro", "garanhuns", "pe");
-        Usuario userTutor = new Usuario("yasmin@gmail.com", "password", true);
+        Usuario userTutor = new Usuario("yasmin@gmail.com", "password");
         NumberPhone phone = new NumberPhone(87, 934345678);
 		Diagnosis diagnosis = new Diagnosis("coração acelerado", "ansiedade", "rivotril", "teste");
 		Treatment treatment = new Treatment(data, "posologia", "comentário");
 		Medicament medicament = new Medicament("rivotril", "ansiolitico", "clonazepam", 20, "use com moderação");
-		userTutor.setAddress(address);
-        userTutor.setNumberPhone(phone);
         tutor.setUsuario(userTutor);
         tutor.setAddress(address);
         tutor.setNumberPhone(phone);

@@ -41,4 +41,8 @@ public class NumberPhone {
 		this.ddd = ddd;
 		this.number = number;
 	}
+	
+	public NumberPhone() {
+
+	}
 }

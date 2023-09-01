@@ -21,7 +21,7 @@ public class Pet {
 	private String gender;
 	private String breed;
 	private String specie;
-	private Date dateBirth;
+	private Date birthday;
 	private boolean active;
 	
 	@OneToOne
@@ -80,12 +80,12 @@ public class Pet {
 		this.specie = specie;
 	}
 	
-	public Date getDateBirth() {
-		return dateBirth;
+	public Date getBirthday() {
+		return birthday;
 	}
 
-	public void setDateBirth(Date dateBirth) {
-		this.dateBirth = dateBirth;
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
 	}
 
 	public boolean getActive() {
@@ -104,13 +104,17 @@ public class Pet {
 		this.id = id;
 	}
 
-	public Pet(String name, String gender, String breed, String specie, Date dateBirth, boolean active) {
+	public Pet(String name, String gender, String breed, String specie, Date birthday, boolean active) {
 		super();
 		this.name = name;
 		this.gender = gender;
 		this.breed = breed;
 		this.specie = specie;
-		this.dateBirth = dateBirth;
+		this.birthday = birthday;
 		this.active = active;
+	}
+	
+	public Pet() {
+
 	}
 }

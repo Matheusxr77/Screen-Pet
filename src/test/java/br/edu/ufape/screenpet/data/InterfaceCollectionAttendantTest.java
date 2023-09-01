@@ -27,10 +27,8 @@ class InterfaceCollectionAttendantTest {
         Date data = new Date();
         Attendant attendant = new Attendant("atendente", "12345678910", "fem", data, true);
         Address address = new Address(55299497, "rua de teste", 666, "bairro", "garanhuns", "pe");
-        Usuario userAttendant = new Usuario("atendente@gmail.com", "password", true);
+        Usuario userAttendant = new Usuario("atendente@gmail.com", "password");
         NumberPhone phone = new NumberPhone(87, 912345678);
-        userAttendant.setAddress(address);
-        userAttendant.setNumberPhone(phone);
         attendant.setAddress(address);
         attendant.setUsuario(userAttendant);
         attendant.setNumberPhone(phone);

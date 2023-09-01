@@ -22,7 +22,7 @@ public abstract class Person {
 	private String name;
 	private String cpf;
 	private String gender;
-	private Date dateBirth;
+	private Date birthday;
 	private boolean active;
 	
 	@OneToOne
@@ -85,12 +85,12 @@ public abstract class Person {
 		this.gender = gender;
 	}
 
-	public Date getDateBirth() {
-		return dateBirth;
+	public Date getBirthday() {
+		return birthday;
 	}
 
-	public void setDateBirth(Date dateBirth) {
-		this.dateBirth = dateBirth;
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
 	}
 
 	public long getId() {
@@ -100,7 +100,7 @@ public abstract class Person {
 	public void setId(long id) {
 		this.id = id;
 	}
-	
+
 	public boolean isActive() {
 		return active;
 	}
@@ -109,12 +109,16 @@ public abstract class Person {
 		this.active = active;
 	}
 
-	public Person(String name, String cpf, String gender, Date dateBirth, boolean active) {
+	public Person(String name, String cpf, String gender, Date birthday, boolean active) {
 		super();
 		this.name = name;
 		this.cpf = cpf;
 		this.gender = gender;
-		this.dateBirth = dateBirth;
+		this.birthday = birthday;
 		this.active = active;
+	}
+	
+	public Person() {
+
 	}
 }

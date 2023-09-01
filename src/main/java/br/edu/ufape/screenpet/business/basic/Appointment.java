@@ -121,4 +121,8 @@ public class Appointment {
 		this.anamnesis = anamnesis;
 		this.date = date;
 	}
+	
+	public Appointment() {
+		
+	}
 }
