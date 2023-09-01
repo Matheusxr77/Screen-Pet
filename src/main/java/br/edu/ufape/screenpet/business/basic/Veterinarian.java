@@ -15,19 +15,7 @@ public class Veterinarian extends Person {
     
     @OneToMany
     @Cascade(CascadeType.ALL)
-    private List<Diagnosis> diagnosis;
-    
-    @OneToMany
-    @Cascade(CascadeType.ALL)
     private List<Schedule> schedules;
-
-	public List<Diagnosis> getDiagnosis() {
-		return diagnosis;
-	}
-
-	public void setDiagnosis(List<Diagnosis> diagnosis) {
-		this.diagnosis = diagnosis;
-	}
 
 	public List<Schedule> getSchedules() {
 		return schedules;
