@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import br.edu.ufape.screenpet.data.InterfaceCollectionVeterinarian;
 import br.edu.ufape.screenpet.business.basic.Veterinarian;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateVeterinarianException;
-import br.edu.ufape.screenpet.business.register.exception.DisabledVeterinarianException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistVeterinarianException;
 
 @Service
@@ -34,15 +33,6 @@ public class RegisterVeterinarian implements InterfaceRegisterVeterinarian {
 		}
 	}
 	
-	public Veterinarian updateVeterinarian(Veterinarian entity) throws DoesNotExistVeterinarianException {
-		try {
-			findByCrmv(entity.getCrmv());
-			return collectionVeterinarian.save(entity);
-		} catch(DoesNotExistVeterinarianException err) {
-			throw new DoesNotExistVeterinarianException(entity.getCrmv());
-		}
-	}
-	
 	public List<Veterinarian> listVeterinarian() {
 		return collectionVeterinarian.findAll();
 	}
@@ -55,8 +45,8 @@ public class RegisterVeterinarian implements InterfaceRegisterVeterinarian {
 		return collectionVeterinarian.findById(id).orElse(null);
 	}
 	
-	public void deactivateVeterinarian(int crmv) throws DoesNotExistVeterinarianException, DisabledVeterinarianException {
+	public void removeVeterinarian(int crmv) throws DoesNotExistVeterinarianException {
 		Veterinarian veterinarian = findByCrmv(crmv);
-		veterinarian.setActive(false);
+		collectionVeterinarian.delete(veterinarian);
 	}
 }

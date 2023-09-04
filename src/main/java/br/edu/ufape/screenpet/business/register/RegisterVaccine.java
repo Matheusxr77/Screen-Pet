@@ -46,7 +46,6 @@ public class RegisterVaccine implements InterfaceRegisterVaccine {
 	}
 
 	public void removeVaccine(Long id) throws DoesNotExistVaccineException {
-		Vaccine vaccine = findVaccineId(id);
-		collectionVaccine.delete(vaccine);
+		collectionVaccine.deleteById(id);
 	}
 }

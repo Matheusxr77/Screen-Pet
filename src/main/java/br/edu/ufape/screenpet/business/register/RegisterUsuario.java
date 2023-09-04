@@ -44,4 +44,9 @@ public class RegisterUsuario implements InterfaceRegisterUsuario {
 	public Usuario findUsuarioId(Long id) {
 		return collectionUsuario.findById(id).orElse(null);
 	}
+	
+	public void removeUsuarioEmail(String email) throws DoesNotExistUserException {
+		Usuario u = findUsuarioEmail(email);
+		collectionUsuario.delete(u);
+	}
 }

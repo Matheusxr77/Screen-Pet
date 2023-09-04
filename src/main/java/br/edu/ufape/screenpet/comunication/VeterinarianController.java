@@ -3,6 +3,7 @@ package br.edu.ufape.screenpet.comunication;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.screenpet.business.basic.Veterinarian;
 import br.edu.ufape.screenpet.business.front.Front;
-import br.edu.ufape.screenpet.business.register.exception.DisabledVeterinarianException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistVeterinarianException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateVeterinarianException;
 
@@ -30,7 +30,7 @@ public class VeterinarianController {
 	}
 	
 	@PostMapping("/veterinario")
-	public Veterinarian registerVeterinarian(@RequestBody Veterinarian veterinarian) throws DuplicateVeterinarianException, DoesNotExistVeterinarianException, DisabledVeterinarianException {
+	public Veterinarian registerVeterinarian(@RequestBody Veterinarian veterinarian) throws DuplicateVeterinarianException, DoesNotExistVeterinarianException {
 		return front.saveVeterinarian(veterinarian);
 	}
 	
@@ -39,9 +39,15 @@ public class VeterinarianController {
 		return front.findVeterinarianId(id);
 	}
 	
-	@PatchMapping("/veterinario/{crmv}")
-	public Veterinarian updateVeterinarian(@PathVariable int crmv, @RequestBody Veterinarian veterinarian) throws DuplicateVeterinarianException, DisabledVeterinarianException, DoesNotExistVeterinarianException {
+	@PatchMapping("/veterinario/{id}")
+	public Veterinarian updateVeterinarian(@PathVariable int crmv, @RequestBody Veterinarian veterinarian) throws DuplicateVeterinarianException, DoesNotExistVeterinarianException {
 		veterinarian.setCrmv(crmv);
 		return front.saveVeterinarian(veterinarian);
+	}
+
+	@DeleteMapping("/veterinario/{id}")
+	public String deleteVeterinarian(@PathVariable int crmv) throws DoesNotExistVeterinarianException {	
+		 front.removeVeterinarian(crmv);
+		 return "veterinário deletado!";
 	}
 }

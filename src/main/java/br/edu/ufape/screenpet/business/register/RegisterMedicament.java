@@ -47,7 +47,6 @@ public class RegisterMedicament implements InterfaceRegisterMedicament {
 	}
 
 	public void removeMedicament(Long id) throws DoesNotExistMedicamentException {
-		Medicament medicament = findMedicamentId(id);
-		collectionMedicament.delete(medicament);
+		collectionMedicament.deleteById(id);
 	}
 }

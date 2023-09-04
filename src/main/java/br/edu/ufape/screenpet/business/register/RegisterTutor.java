@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import br.edu.ufape.screenpet.data.InterfaceCollectionTutor;
 import br.edu.ufape.screenpet.business.basic.Tutor;
-import br.edu.ufape.screenpet.business.register.exception.DisabledTutorException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateTutorException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistTutorException;
 
@@ -34,15 +33,6 @@ public class RegisterTutor implements InterfaceRegisterTutor {
 		}
 	}
 	
-	public Tutor updateTutor(Tutor entity) throws DoesNotExistTutorException {
-		try {
-			findTutorCpf(entity.getCpf());
-			return collectionTutor.save(entity);
-		} catch(DoesNotExistTutorException err) {
-			throw new DoesNotExistTutorException(entity.getCpf());
-		}
-	}
-	
 	public List<Tutor> listTutor() {
 		return collectionTutor.findAll();
 	}
@@ -55,8 +45,8 @@ public class RegisterTutor implements InterfaceRegisterTutor {
 		return collectionTutor.findById(id).orElse(null);
 	}
 	
-	public void deactivateTutor(String cpf) throws DoesNotExistTutorException, DisabledTutorException {
+	public void removeTutor(String cpf) throws DoesNotExistTutorException {
 		Tutor tutor = findTutorCpf(cpf);
-		tutor.setActive(false);
+		collectionTutor.delete(tutor);
 	}
 }

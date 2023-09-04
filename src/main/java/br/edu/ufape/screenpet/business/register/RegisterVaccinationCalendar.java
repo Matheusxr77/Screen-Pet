@@ -45,4 +45,8 @@ public class RegisterVaccinationCalendar implements InterfaceRegisterVaccination
 	public VaccinationCalendar findVaccinationCalendarId(Long id) {
 		return collectionVaccinationCalendar.findById(id).orElse(null);
 	}
+	
+	public void removeVaccinationCalendar(Long id) throws DoesNotExistVaccinationCalendarException {
+		collectionVaccinationCalendar.deleteById(id);
+	}
 }

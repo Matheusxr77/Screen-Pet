@@ -34,10 +34,6 @@ import br.edu.ufape.screenpet.business.register.InterfaceRegisterVaccinationCale
 import br.edu.ufape.screenpet.business.register.InterfaceRegisterVaccinationHistoric;
 import br.edu.ufape.screenpet.business.register.InterfaceRegisterVaccine;
 import br.edu.ufape.screenpet.business.register.InterfaceRegisterVeterinarian;
-import br.edu.ufape.screenpet.business.register.exception.DisabledAttendantException;
-import br.edu.ufape.screenpet.business.register.exception.DisabledPetException;
-import br.edu.ufape.screenpet.business.register.exception.DisabledTutorException;
-import br.edu.ufape.screenpet.business.register.exception.DisabledVeterinarianException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistAppointmentException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistAttendantException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistMedicamentException;
@@ -132,16 +128,16 @@ public class Front {
 		return registerAppointment.findAppointmentId(id);
 	}
 	
+	public void removeAppointment(Long id) throws DoesNotExistAppointmentException {
+		registerAppointment.removeAppointment(id);
+	}
+	
 	public Attendant findAttendantCpf(String cpf) throws DoesNotExistAttendantException {
 		return registerAttendant.findAttendantCpf(cpf);
 	}
 	
 	public 	Attendant saveAttendant(Attendant entity) throws DuplicateAttendantException, DoesNotExistAttendantException {
 		return registerAttendant.saveAttendant(entity);
-	}
-	
-	public 	Attendant updateAttendant(Attendant entity) throws DoesNotExistAttendantException {
-		return registerAttendant.updateAttendant(entity);
 	}
 	
 	public List<Attendant> listAttendant() {
@@ -156,8 +152,8 @@ public class Front {
 		return registerAttendant.findAttendantId(id);
 	}
 	
-	public void deactivateAttendant(String cpf) throws DoesNotExistAttendantException, DisabledAttendantException {
-		registerAttendant.deactivateAttendant(cpf);
+	public void removeAttendant(String cpf) throws DoesNotExistAttendantException {
+		registerAttendant.removeAttendantCpf(cpf);
 	}
 	
 	public Medicament findMedicament(Treatment treatment) throws DoesNotExistMedicamentException {
@@ -180,19 +176,16 @@ public class Front {
 		return registerMedicament.findMedicamentId(id);
 	}
 	
-	void removeMedicament(Long id) throws DoesNotExistMedicamentException {
+	public void removeMedicament(Long id) throws DoesNotExistMedicamentException {
 		registerMedicament.removeMedicament(id);
 	}
+	
 	public Pet findPetName(Tutor tutor) throws DoesNotExistPetException {
 		return registerPet.findPet(tutor);
 	}
 	
 	public Pet savePet(Pet entity) throws DuplicatePetException, DoesNotExistPetException {
 		return registerPet.savePet(entity);
-	}
-	
-	public Pet updatePet(Pet entity) throws DoesNotExistPetException {
-		return registerPet.updatePet(entity);
 	}
 	
 	public List<Pet> listPets() {
@@ -207,8 +200,8 @@ public class Front {
 		return registerPet.findPetId(id);
 	}
 	
-	public void deactivatePet(Long id) throws DoesNotExistPetException, DisabledPetException {
-		registerPet.deactivatePet(id);
+	public void removePet(Long id) throws DoesNotExistPetException {
+		registerPet.removePet(id);
 	}
 	
 	public Exam findExam(Pet pet) throws DoesNotExistExamException {
@@ -231,6 +224,10 @@ public class Front {
 		return registerExam.findExamId(id);
 	}
 	
+	public void removeExam(Long id) throws DoesNotExistExamException {
+		registerExam.removeExam(id);
+	}
+	
 	public Diagnosis findDiagnosis(Pet pet) throws DoesNotExistDiagnosisException {
 		return registerDiagnosis.findDiagnosis(pet);
 	}
@@ -249,6 +246,10 @@ public class Front {
 	
 	public Diagnosis findDiagnosisId(Long id) {
 		return registerDiagnosis.findDiagnosisId(id);
+	}
+	
+	public void removeDiagnosis(Long id) throws DoesNotExistDiagnosisException {
+		registerDiagnosis.removeDiagnosis(id);
 	}
 
 	public Schedule findSchedule(Date date) throws DoesNotExistScheduleException {
@@ -294,6 +295,10 @@ public class Front {
 	public Treatment findTreatmentId(Long id) {
 		return registerTreatment.findTreatmentId(id);
 	}
+	
+	public void removeTreatment(Long id) throws DoesNotExistTreatmentException {
+		registerTreatment.removeTreatment(id);
+	}
 
 	public Tutor findTutorCpf(String cpf) throws DoesNotExistTutorException {
 		return registerTutor.findTutorCpf(cpf);
@@ -301,10 +306,6 @@ public class Front {
 	
 	public Tutor saveTutor(Tutor entity) throws DuplicateTutorException, DoesNotExistTutorException {
 		return registerTutor.saveTutor(entity);
-	}
-	
-	public Tutor updateTutor(Tutor entity) throws DoesNotExistTutorException {
-		return registerTutor.updateTutor(entity);
 	}
 	
 	public List<Tutor> listTutor() {
@@ -319,8 +320,8 @@ public class Front {
 		return registerTutor.findTutorId(id);
 	}
 	
-	public void deactivateTutor(String cpf) throws DoesNotExistTutorException, DisabledTutorException {
-		registerTutor.deactivateTutor(cpf);
+	public void removeTutor(String cpf) throws DoesNotExistTutorException {
+		registerTutor.removeTutor(cpf);
 	}
 
 	public Usuario findUsuarioEmail(String email) throws DoesNotExistUserException {
@@ -341,6 +342,10 @@ public class Front {
 	
 	public Usuario findUsuarioId(Long id) {
 		return registerUsuario.findUsuarioId(id);
+	}
+	
+	public void removeUsuario(String email) throws DoesNotExistUserException {
+		registerUsuario.removeUsuarioEmail(email);
 	}
 
 	public VaccinationCalendar findVaccinationCalendar(Date date) throws DoesNotExistVaccinationCalendarException {
@@ -363,6 +368,10 @@ public class Front {
 		return registerVaccinationCalendar.findVaccinationCalendarId(id);
 	}
 	
+	public void removeVaccinationCalendar(Long id) throws DoesNotExistVaccinationCalendarException {
+		registerVaccinationCalendar.removeVaccinationCalendar(id);
+	}
+	
 	public VaccinationHistoric findVaccinationHistoric(VaccinationCalendar vaccinationCalendar) throws DoesNotExistVaccinationHistoricException {
 		return registerVaccinationHistoric.findVaccinationHistoric(vaccinationCalendar);
 	}
@@ -381,6 +390,10 @@ public class Front {
 	
 	public VaccinationHistoric findVaccinationHistoricId(Long id) {
 		return registerVaccinationHistoric.findVaccinationHistoricId(id);
+	}
+	
+	public void removeVaccinationHistoric(Long id) throws DoesNotExistVaccinationHistoricException {
+		registerVaccinationHistoric.removeVaccinationHistoric(id);
 	}
 	
 	public Vaccine findVaccine(String name) throws DoesNotExistVaccineException {
@@ -415,10 +428,6 @@ public class Front {
 		return registerVeterinarian.saveVeterinarian(entity);
 	}
 	
-	public Veterinarian updateVeterinarian(Veterinarian entity) throws DoesNotExistVeterinarianException {
-		return registerVeterinarian.updateVeterinarian(entity);
-	}
-	
 	public List<Veterinarian> listVeterinarian() {
 		return registerVeterinarian.listVeterinarian();
 	}
@@ -431,7 +440,7 @@ public class Front {
 		return registerVeterinarian.findVeterinarianId(id);
 	}
 	
-	public void deactivateVeterinarian(int crmv) throws DoesNotExistVeterinarianException, DisabledVeterinarianException {
-		registerVeterinarian.deactivateVeterinarian(crmv);
+	public void removeVeterinarian(int crmv) throws DoesNotExistVeterinarianException {
+		registerVeterinarian.removeVeterinarian(crmv);
 	}
 }

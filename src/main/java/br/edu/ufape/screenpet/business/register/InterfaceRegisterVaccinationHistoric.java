@@ -13,4 +13,5 @@ public interface InterfaceRegisterVaccinationHistoric {
 	List<VaccinationHistoric> listVaccinationHistorics();
 	boolean checkExistenceVaccinationHistoricId(Long id);
 	VaccinationHistoric findVaccinationHistoricId(Long id);
+	void removeVaccinationHistoric(Long id) throws DoesNotExistVaccinationHistoricException;
 }

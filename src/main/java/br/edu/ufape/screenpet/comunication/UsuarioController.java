@@ -3,6 +3,7 @@ package br.edu.ufape.screenpet.comunication;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -42,5 +43,11 @@ public class UsuarioController {
 	public Usuario updateUsuario(@PathVariable String email, @RequestBody Usuario usuario) throws DuplicateUserException, DoesNotExistUserException {
 		usuario.setEmail(email);
 		return front.saveUsuario(usuario);
+	}
+	
+	@DeleteMapping("/usuario/{id}")
+	public String deleteUsuario(@PathVariable String email) throws DoesNotExistUserException {	
+		 front.removeUsuario(email);
+		 return "usuário deletado!";
 	}
 }

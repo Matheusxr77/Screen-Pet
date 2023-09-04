@@ -3,6 +3,7 @@ package br.edu.ufape.screenpet.comunication;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.screenpet.business.basic.Pet;
-import br.edu.ufape.screenpet.business.register.exception.DisabledPetException;
+import br.edu.ufape.screenpet.business.basic.Tutor;
+import br.edu.ufape.screenpet.business.register.exception.DoesNotExistMedicamentException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistPetException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicatePetException;
 import br.edu.ufape.screenpet.business.front.Front;
@@ -30,7 +32,7 @@ public class PetController {
 	}
 	
 	@PostMapping("/pet")
-	public Pet registerPet(@RequestBody Pet pet) throws DuplicatePetException, DoesNotExistPetException, DisabledPetException {
+	public Pet registerPet(@RequestBody Pet pet) throws DuplicatePetException, DoesNotExistPetException {
 		return front.savePet(pet);
 	}
 	
@@ -40,8 +42,14 @@ public class PetController {
 	}
 	
 	@PatchMapping("/pet/{id}")
-	public Pet updatePet(@PathVariable String name, @RequestBody Pet pet) throws DuplicatePetException, DisabledPetException, DoesNotExistPetException {
-		pet.setName(name);
+	public Pet updatePet(@PathVariable Tutor tutor, @RequestBody Pet pet) throws DuplicatePetException, DoesNotExistPetException {
+		pet.setTutor(tutor);
 		return front.savePet(pet);
+	}
+	
+	@DeleteMapping("/pet/{id}")
+	public String deleteMedicament(@PathVariable long id) throws DoesNotExistMedicamentException {	
+		 front.removeMedicament(id);
+		 return "pet deletado!";
 	}
 }
