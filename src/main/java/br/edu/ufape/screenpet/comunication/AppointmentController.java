@@ -45,7 +45,7 @@ public class AppointmentController {
 		return front.saveAppointment(appointment);
 	}
 	
-	@DeleteMapping("/consulta/{date}")
+	@DeleteMapping("/consulta/{id}")
 	public String deleteAppointment(@PathVariable long id) throws DoesNotExistAppointmentException {	
 		 front.removeAppointment(id);
 		 return "agendamento deletado!";

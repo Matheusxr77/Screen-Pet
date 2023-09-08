@@ -46,7 +46,7 @@ public class ExamController {
 		return front.saveExam(exam);
 	}
 	
-	@DeleteMapping("/exame/{pet}")
+	@DeleteMapping("/exame/{id}")
 	public String deleteExam(@PathVariable long id) throws DoesNotExistExamException {	
 		 front.removeExam(id);
 		 return "exame deletado!";

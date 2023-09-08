@@ -46,7 +46,7 @@ public class DiagnosisController {
 		return front.saveDiagnosis(diagnosis);
 	}
 	
-	@DeleteMapping("/diagnostico/{pet}")
+	@DeleteMapping("/diagnostico/{id}")
 	public String deleteDiagnosis(@PathVariable long id) throws DoesNotExistDiagnosisException {	
 		 front.removeDiagnosis(id);
 		 return "diagnóstico deletado!";
