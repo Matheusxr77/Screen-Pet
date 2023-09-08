@@ -13,4 +13,5 @@ public interface InterfaceRegisterTreatment {
 	List<Treatment> listTreatments();
 	boolean checkExistenceTreatmentId(Long id);
 	Treatment findTreatmentId(Long id);
+	void removeTreatment(Long id) throws DoesNotExistTreatmentException;
 }

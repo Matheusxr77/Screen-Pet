@@ -13,4 +13,5 @@ public interface InterfaceRegisterVaccinationCalendar {
 	List<VaccinationCalendar> listVaccinationCalendar();
 	boolean checkExistenceVaccinationCalendarId(Long id);
 	VaccinationCalendar findVaccinationCalendarId(Long id);
+	void removeVaccinationCalendar(Long id) throws DoesNotExistVaccinationCalendarException;
 }

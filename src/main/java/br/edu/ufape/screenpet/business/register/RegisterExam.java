@@ -45,4 +45,8 @@ public class RegisterExam implements InterfaceRegisterExam {
 	public Exam findExamId(Long id) {
 		return collectionExam.findById(id).orElse(null);
 	}
+	
+	public void removeExam(Long id) throws DoesNotExistExamException {
+		collectionExam.deleteById(id);
+	}
 }

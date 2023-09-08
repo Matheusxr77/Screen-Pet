@@ -45,4 +45,8 @@ public class RegisterAppointment implements InterfaceRegisterAppointment {
 	public Appointment findAppointmentId(Long id) {
 		return collectionAppointment.findById(id).orElse(null);
 	}
+	
+	public void removeAppointment(Long id) throws DoesNotExistAppointmentException {
+		collectionAppointment.deleteById(id);
+	}
 }

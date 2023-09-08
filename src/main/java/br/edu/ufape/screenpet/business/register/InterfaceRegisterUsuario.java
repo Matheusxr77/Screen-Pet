@@ -12,4 +12,5 @@ public interface InterfaceRegisterUsuario {
 	List<Usuario> listUsuarios();
 	boolean checkUsuarioExistence(Long id);
 	Usuario findUsuarioId(Long id);
+	void removeUsuarioEmail(String email) throws DoesNotExistUserException;
 }

@@ -45,4 +45,8 @@ public class RegisterDiagnosis implements InterfaceRegisterDiagnosis {
 	public Diagnosis findDiagnosisId(Long id) {
 		return collectionDiagnosis.findById(id).orElse(null);
 	}
+	
+	public void removeDiagnosis(Long id) throws DoesNotExistDiagnosisException {
+		collectionDiagnosis.deleteById(id);
+	}
 }

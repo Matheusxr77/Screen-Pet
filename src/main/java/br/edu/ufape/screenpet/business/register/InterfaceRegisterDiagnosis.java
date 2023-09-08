@@ -13,4 +13,5 @@ public interface InterfaceRegisterDiagnosis {
 	List<Diagnosis> listDiagnosis();
 	boolean checkExistenceDiagnosisId(Long id);
 	Diagnosis findDiagnosisId(Long id);
+	void removeDiagnosis(Long id) throws DoesNotExistDiagnosisException;
 }

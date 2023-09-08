@@ -45,4 +45,8 @@ public class RegisterTreatment implements InterfaceRegisterTreatment {
 	public Treatment findTreatmentId(Long id) {
 		return collectionTreatment.findById(id).orElse(null);
 	}
+	
+	public void removeTreatment(Long id) throws DoesNotExistTreatmentException {
+		collectionTreatment.deleteById(id);
+	}
 }

@@ -3,7 +3,9 @@ package br.edu.ufape.screenpet.comunication;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,4 +38,16 @@ public class AppointmentController {
 	public Appointment printAppointment(@PathVariable long id) {
 		return front.findAppointmentId(id);
 	}	
+	
+	@PatchMapping("/consulta/{id}")
+	public Appointment updateAppointment(@PathVariable long id, @RequestBody Appointment appointment) throws DuplicateAppointmentException, DoesNotExistAppointmentException {
+		appointment.setId(id);
+		return front.saveAppointment(appointment);
+	}
+	
+	@DeleteMapping("/consulta/{date}")
+	public String deleteAppointment(@PathVariable long id) throws DoesNotExistAppointmentException {	
+		 front.removeAppointment(id);
+		 return "agendamento deletado!";
+	}
 }

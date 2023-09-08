@@ -13,4 +13,5 @@ public interface InterfaceRegisterExam {
 	List<Exam> listExams();
 	boolean checkExistenceExamId(Long id);
 	Exam findExamId(Long id);
+	void removeExam(Long id) throws DoesNotExistExamException;
 }

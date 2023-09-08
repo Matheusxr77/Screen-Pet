@@ -9,7 +9,6 @@ import br.edu.ufape.screenpet.data.InterfaceCollectionPet;
 import br.edu.ufape.screenpet.business.basic.Pet;
 import br.edu.ufape.screenpet.business.basic.Tutor;
 import br.edu.ufape.screenpet.business.register.exception.DuplicatePetException;
-import br.edu.ufape.screenpet.business.register.exception.DisabledPetException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistPetException;
 
 @Service
@@ -35,15 +34,6 @@ public class RegisterPet implements InterfaceRegisterPet {
 		}
 	}
 	
-	public Pet updatePet(Pet entity) throws DoesNotExistPetException {
-		try {
-			findPet(entity.getTutor());
-			return collectionPet.save(entity);
-		} catch(DoesNotExistPetException err) {
-			throw new DoesNotExistPetException(entity.getTutor());
-		}
-	}
-	
 	public List<Pet> listPets() {
 		return collectionPet.findAll();
 	}
@@ -56,8 +46,7 @@ public class RegisterPet implements InterfaceRegisterPet {
 		return collectionPet.findById(id).orElse(null);
 	}
 	
-	public void deactivatePet(Long id) throws DoesNotExistPetException, DisabledPetException {
-		Pet pet = findPetId(id);
-		pet.setActive(false);
+	public void removePet(Long id) throws DoesNotExistPetException {
+		collectionPet.deleteById(id);
 	}
 }

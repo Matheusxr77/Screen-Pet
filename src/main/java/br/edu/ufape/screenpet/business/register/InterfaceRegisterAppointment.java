@@ -13,4 +13,5 @@ public interface InterfaceRegisterAppointment {
 	List<Appointment> listAppointments();
 	boolean checkExistenceAppointmentId(Long id);
 	Appointment findAppointmentId(Long id);
+	void removeAppointment(Long id) throws DoesNotExistAppointmentException;
 }

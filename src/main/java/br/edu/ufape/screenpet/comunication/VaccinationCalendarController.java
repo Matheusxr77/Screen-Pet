@@ -1,9 +1,12 @@
 package br.edu.ufape.screenpet.comunication;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,5 +38,17 @@ public class VaccinationCalendarController {
 	@GetMapping("/calendario-de-vacinacao/{id}")
 	public VaccinationCalendar printVaccinationCalendar(@PathVariable long id) {
 		return front.findVaccinationCalendarId(id);
+	}
+	
+	@PatchMapping("/calendario-de-vacinacao/{id}")
+	public VaccinationCalendar updateVaccinationCalendar(@PathVariable Date date, @RequestBody VaccinationCalendar vaccinationCalendar) throws DuplicateVaccinationCalendarException, DoesNotExistVaccinationCalendarException {
+		vaccinationCalendar.setDate(date);
+		return front.saveVaccinationCalendar(vaccinationCalendar);
+	}
+	
+	@DeleteMapping("/calendario-de-vacinacao/{id}")
+	public String deleteVaccinationCalendar(@PathVariable long id) throws DoesNotExistVaccinationCalendarException {	
+		 front.removeVaccinationCalendar(id);
+		 return "calendário de vacinação deletado!";
 	}
 }

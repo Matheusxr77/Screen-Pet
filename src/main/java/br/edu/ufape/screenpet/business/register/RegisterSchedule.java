@@ -47,7 +47,6 @@ public class RegisterSchedule implements InterfaceRegisterSchedule {
 	}
 
 	public void removeSchedule(Long id) throws DoesNotExistScheduleException {
-		Schedule schedule = findScheduleId(id);
-		collectionSchedule.delete(schedule);
+		collectionSchedule.deleteById(id);
 	}	
 }

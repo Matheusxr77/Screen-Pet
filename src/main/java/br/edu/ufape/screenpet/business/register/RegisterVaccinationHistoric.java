@@ -45,4 +45,8 @@ public class RegisterVaccinationHistoric implements InterfaceRegisterVaccination
 	public VaccinationHistoric findVaccinationHistoricId(Long id) {
 		return collectionVaccinationHistoric.findById(id).orElse(null);
 	}
+	
+	public void removeVaccinationHistoric(Long id) throws DoesNotExistVaccinationHistoricException {
+		collectionVaccinationHistoric.deleteById(id);
+	}
 }
