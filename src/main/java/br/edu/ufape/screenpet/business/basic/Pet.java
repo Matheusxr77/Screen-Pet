@@ -104,12 +104,7 @@ public class Pet {
 		this.id = id;
 	}
 
-<<<<<<< HEAD
-	public Pet(String name, String gender, String breed, String specie, Date dateBirth, boolean active) {
-=======
 	public Pet(String name, String gender, String breed, String specie, Date birthday, boolean active) {
-		super();
->>>>>>> 6f954d05337aa72cccbd31123a6d1ccacb72ee8e
 		this.name = name;
 		this.gender = gender;
 		this.breed = breed;
