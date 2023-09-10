@@ -52,8 +52,6 @@ import br.edu.ufape.screenpet.business.register.exception.DuplicateAppointmentEx
 import br.edu.ufape.screenpet.business.register.exception.DuplicateAttendantException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateMedicamentException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicatePetException;
-import br.edu.ufape.screenpet.business.register.exception.DuplicateExamException;
-import br.edu.ufape.screenpet.business.register.exception.DuplicateDiagnosisException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateScheduleException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateTreatmentException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateTutorException;
@@ -156,8 +154,8 @@ public class Front {
 		registerAttendant.removeAttendantCpf(cpf);
 	}
 	
-	public Medicament findMedicament(Treatment treatment) throws DoesNotExistMedicamentException {
-		return registerMedicament.findMedicament(treatment);
+	public Medicament findMedicament(String activeCompound) throws DoesNotExistMedicamentException {
+		return registerMedicament.findMedicament(activeCompound);
 	}
 	
 	public Medicament saveMedicament(Medicament entity) throws DuplicateMedicamentException, DoesNotExistMedicamentException {
@@ -208,7 +206,7 @@ public class Front {
 		return registerExam.findExam(pet);
 	}
 	
-	public Exam saveExam(Exam entity) throws DoesNotExistExamException, DuplicateExamException {
+	public Exam saveExam(Exam entity) throws DoesNotExistExamException {
 		return registerExam.saveExam(entity);
 	}
 	
@@ -232,7 +230,7 @@ public class Front {
 		return registerDiagnosis.findDiagnosis(pet);
 	}
 	
-	public Diagnosis saveDiagnosis(Diagnosis entity) throws DoesNotExistDiagnosisException, DuplicateDiagnosisException {
+	public Diagnosis saveDiagnosis(Diagnosis entity) throws DoesNotExistDiagnosisException {
 		return registerDiagnosis.saveDiagnosis(entity);
 	}
 	

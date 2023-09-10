@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.screenpet.business.basic.Medicament;
-import br.edu.ufape.screenpet.business.basic.Treatment;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistMedicamentException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateMedicamentException;
 import br.edu.ufape.screenpet.business.front.Front;
@@ -41,8 +40,8 @@ public class MedicamentController {
 	}
 	
 	@PatchMapping("/medicamento/{id}")
-	public Medicament updateMedicament(@PathVariable Treatment treatment, @RequestBody Medicament medicament) throws DuplicateMedicamentException, DoesNotExistMedicamentException {
-		medicament.setTreatment(treatment);
+	public Medicament updateMedicament(@PathVariable long id, @RequestBody Medicament medicament) throws DuplicateMedicamentException, DoesNotExistMedicamentException {
+		medicament.setId(id);
 		return front.saveMedicament(medicament);
 	}
 	

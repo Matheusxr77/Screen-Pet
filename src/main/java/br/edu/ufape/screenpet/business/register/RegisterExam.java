@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import br.edu.ufape.screenpet.business.basic.Pet;
 import br.edu.ufape.screenpet.business.basic.Exam;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistExamException;
-import br.edu.ufape.screenpet.business.register.exception.DuplicateExamException;
 import br.edu.ufape.screenpet.data.InterfaceCollectionExam;
 
 @Service
@@ -25,13 +24,14 @@ public class RegisterExam implements InterfaceRegisterExam {
 		return exam;
 	}
 	
-	public Exam saveExam(Exam entity) throws DoesNotExistExamException, DuplicateExamException {
+	public Exam saveExam(Exam entity) throws DoesNotExistExamException {
 		try {
 			findExam((Pet) entity.getPet());
-			throw new DuplicateExamException((Pet) entity.getPet());
+			entity.getPet();
 		} catch(DoesNotExistExamException err) {
 			return collectionExam.save(entity);
 		}
+		return entity;
 	}
 
 	public List<Exam> listExams() {

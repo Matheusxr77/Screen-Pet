@@ -13,10 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.screenpet.business.basic.Exam;
-import br.edu.ufape.screenpet.business.basic.Pet;
 import br.edu.ufape.screenpet.business.front.Front;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistExamException;
-import br.edu.ufape.screenpet.business.register.exception.DuplicateExamException;
 
 @RestController
 @RequestMapping("/api/v4")
@@ -31,7 +29,7 @@ public class ExamController {
 	}
 	
 	@PostMapping("/exame")
-	public Exam registerExam(@RequestBody Exam exam) throws DuplicateExamException, DoesNotExistExamException {
+	public Exam registerExam(@RequestBody Exam exam) throws DoesNotExistExamException {
 		return front.saveExam(exam);
 	}
 	
@@ -41,8 +39,8 @@ public class ExamController {
 	}
 	
 	@PatchMapping("/exame/{id}")
-	public Exam updateExam(@PathVariable Pet pet, @RequestBody Exam exam) throws DuplicateExamException, DoesNotExistExamException {
-		exam.setPet(pet);
+	public Exam updateExam(@PathVariable long id, @RequestBody Exam exam) throws DoesNotExistExamException {
+		exam.setId(id);
 		return front.saveExam(exam);
 	}
 	

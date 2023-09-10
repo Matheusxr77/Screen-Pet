@@ -1,6 +1,5 @@
 package br.edu.ufape.screenpet.comunication;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,8 +40,8 @@ public class ScheduleController {
 	}
 	
 	@PatchMapping("/agendamento/{id}")
-	public Schedule updateSchedule(@PathVariable Date date, @RequestBody Schedule schedule) throws DuplicateScheduleException, DoesNotExistScheduleException {
-		schedule.setDate(date);
+	public Schedule updateSchedule(@PathVariable long id, @RequestBody Schedule schedule) throws DuplicateScheduleException, DoesNotExistScheduleException {
+		schedule.setId(id);
 		return front.saveSchedule(schedule);
 	}
 	

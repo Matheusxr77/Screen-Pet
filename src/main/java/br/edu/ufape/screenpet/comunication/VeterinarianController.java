@@ -45,7 +45,7 @@ public class VeterinarianController {
 		return front.saveVeterinarian(veterinarian);
 	}
 
-	@DeleteMapping("/veterinario/{id}")
+	@DeleteMapping("/veterinario/{crmv}")
 	public String deleteVeterinarian(@PathVariable int crmv) throws DoesNotExistVeterinarianException {	
 		 front.removeVeterinarian(crmv);
 		 return "veterinário deletado!";

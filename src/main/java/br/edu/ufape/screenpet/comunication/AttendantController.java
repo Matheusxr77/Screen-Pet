@@ -40,8 +40,8 @@ public class AttendantController {
 	}
 	
 	@PatchMapping("/atendente/{id}")
-	public Attendant updateAttendant(@PathVariable String cpf, @RequestBody Attendant attendant) throws DuplicateAttendantException, DoesNotExistAttendantException {
-		attendant.setCpf(cpf);
+	public Attendant updateAttendant(@PathVariable long id, @RequestBody Attendant attendant) throws DuplicateAttendantException, DoesNotExistAttendantException {
+		attendant.setId(id);
 		return front.saveAttendant(attendant);
 	}
 	
