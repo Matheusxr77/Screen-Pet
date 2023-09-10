@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.ufape.screenpet.business.basic.VaccinationCalendar;
 import br.edu.ufape.screenpet.business.basic.VaccinationHistoric;
 import br.edu.ufape.screenpet.business.front.Front;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistVaccinationHistoricException;
@@ -41,8 +40,8 @@ public class VaccinationHistoricController {
 	}
 	
 	@PatchMapping("/historico-de-vacinacao/{id}")
-	public VaccinationHistoric updateVaccinationHistoric(@PathVariable VaccinationCalendar vaccinationCalendar, @RequestBody VaccinationHistoric vaccinationHistoric) throws DuplicateVaccinationHistoricException, DoesNotExistVaccinationHistoricException {
-		vaccinationHistoric.setVaccinationCalendar(vaccinationCalendar);
+	public VaccinationHistoric updateVaccinationHistoric(@PathVariable long id, @RequestBody VaccinationHistoric vaccinationHistoric) throws DuplicateVaccinationHistoricException, DoesNotExistVaccinationHistoricException {
+		vaccinationHistoric.setId(id);
 		return front.saveVaccinationHistoric(vaccinationHistoric);
 	}
 	

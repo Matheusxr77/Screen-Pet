@@ -7,7 +7,7 @@ public class DuplicateTreatmentException extends Exception {
 	private Date date;
 	
 	public DuplicateTreatmentException(Date date) {
-		super("Não é possível cadastrar dois tratamentos iguais para o mesmo diagnóstico!");
+		super("Não é possível cadastrar dois tratamentos iguais para a mesma data!");
 		this.date = date;
 	}
 	

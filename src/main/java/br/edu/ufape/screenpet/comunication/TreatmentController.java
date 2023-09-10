@@ -1,6 +1,5 @@
 package br.edu.ufape.screenpet.comunication;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,8 +40,8 @@ public class TreatmentController {
 	}
 	
 	@PatchMapping("/tratamento/{id}")
-	public Treatment updateTreatment(@PathVariable Date date, @RequestBody Treatment treatment) throws DuplicateTreatmentException, DoesNotExistTreatmentException {
-		treatment.setDate(date);
+	public Treatment updateTreatment(@PathVariable long id, @RequestBody Treatment treatment) throws DuplicateTreatmentException, DoesNotExistTreatmentException {
+		treatment.setId(id);
 		return front.saveTreatment(treatment);
 	}
 	

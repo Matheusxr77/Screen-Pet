@@ -39,7 +39,7 @@ public class TutorController {
 		return front.findTutorId(id);
 	}
 	
-	@PatchMapping("/tutor/{id}")
+	@PatchMapping("/tutor/{cpf}")
 	public Tutor updateTutor(@PathVariable String cpf, @RequestBody Tutor tutor) throws DuplicateTutorException, DoesNotExistTutorException {
 		tutor.setCpf(cpf);
 		return front.saveTutor(tutor);

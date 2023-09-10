@@ -40,8 +40,8 @@ public class UsuarioController {
 	}
 	
 	@PatchMapping("/usuario/{id}")
-	public Usuario updateUsuario(@PathVariable String email, @RequestBody Usuario usuario) throws DuplicateUserException, DoesNotExistUserException {
-		usuario.setEmail(email);
+	public Usuario updateUsuario(@PathVariable long id, @RequestBody Usuario usuario) throws DuplicateUserException, DoesNotExistUserException {
+		usuario.setId(id);
 		return front.saveUsuario(usuario);
 	}
 	
