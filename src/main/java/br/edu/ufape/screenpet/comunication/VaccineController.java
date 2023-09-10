@@ -40,8 +40,8 @@ public class VaccineController {
 	}
 	
 	@PatchMapping("/vacinas/{id}")
-	public Vaccine updateVaccine(@PathVariable String name, @RequestBody Vaccine vaccine) throws DuplicateVaccineException, DoesNotExistVaccineException {
-		vaccine.setName(name);
+	public Vaccine updateVaccine(@PathVariable long id, @RequestBody Vaccine vaccine) throws DuplicateVaccineException, DoesNotExistVaccineException {
+		vaccine.setId(id);
 		return front.saveVaccine(vaccine);
 	}
 

@@ -1,6 +1,5 @@
 package br.edu.ufape.screenpet.comunication;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,8 +40,8 @@ public class VaccinationCalendarController {
 	}
 	
 	@PatchMapping("/calendario-de-vacinacao/{id}")
-	public VaccinationCalendar updateVaccinationCalendar(@PathVariable Date date, @RequestBody VaccinationCalendar vaccinationCalendar) throws DuplicateVaccinationCalendarException, DoesNotExistVaccinationCalendarException {
-		vaccinationCalendar.setDate(date);
+	public VaccinationCalendar updateVaccinationCalendar(@PathVariable long id, @RequestBody VaccinationCalendar vaccinationCalendar) throws DuplicateVaccinationCalendarException, DoesNotExistVaccinationCalendarException {
+		vaccinationCalendar.setId(id);
 		return front.saveVaccinationCalendar(vaccinationCalendar);
 	}
 	

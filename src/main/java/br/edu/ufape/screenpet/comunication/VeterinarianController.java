@@ -40,8 +40,8 @@ public class VeterinarianController {
 	}
 	
 	@PatchMapping("/veterinario/{id}")
-	public Veterinarian updateVeterinarian(@PathVariable int crmv, @RequestBody Veterinarian veterinarian) throws DuplicateVeterinarianException, DoesNotExistVeterinarianException {
-		veterinarian.setCrmv(crmv);
+	public Veterinarian updateVeterinarian(@PathVariable long id, @RequestBody Veterinarian veterinarian) throws DuplicateVeterinarianException, DoesNotExistVeterinarianException {
+		veterinarian.setId(id);
 		return front.saveVeterinarian(veterinarian);
 	}
 
