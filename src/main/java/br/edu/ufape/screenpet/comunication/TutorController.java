@@ -45,7 +45,7 @@ public class TutorController {
 		return front.saveTutor(tutor);
 	}
 	
-	@DeleteMapping("/tutor/{id}")
+	@DeleteMapping("/tutor/{cpf}")
 	public String deleteAttendant(@PathVariable String cpf) throws DoesNotExistTutorException {	
 		 front.removeTutor(cpf);
 		 return "tutor deletado!";

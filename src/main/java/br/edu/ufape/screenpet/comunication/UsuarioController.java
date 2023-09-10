@@ -45,7 +45,7 @@ public class UsuarioController {
 		return front.saveUsuario(usuario);
 	}
 	
-	@DeleteMapping("/usuario/{id}")
+	@DeleteMapping("/usuario/{email}")
 	public String deleteUsuario(@PathVariable String email) throws DoesNotExistUserException {	
 		 front.removeUsuario(email);
 		 return "usuário deletado!";

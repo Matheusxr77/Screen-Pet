@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import br.edu.ufape.screenpet.business.basic.Diagnosis;
 import br.edu.ufape.screenpet.business.basic.Pet;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistDiagnosisException;
-import br.edu.ufape.screenpet.business.register.exception.DuplicateDiagnosisException;
 import br.edu.ufape.screenpet.data.InterfaceCollectionDiagnosis;
 
 @Service
@@ -25,13 +24,14 @@ public class RegisterDiagnosis implements InterfaceRegisterDiagnosis {
 		return diagnosis;
 	}
 	
-	public Diagnosis saveDiagnosis(Diagnosis entity) throws DoesNotExistDiagnosisException, DuplicateDiagnosisException {
+	public Diagnosis saveDiagnosis(Diagnosis entity) throws DoesNotExistDiagnosisException {
 		try {
 			findDiagnosis((Pet) entity.getPet());
-			throw new DuplicateDiagnosisException((Pet) entity.getPet());
+			entity.getPet();
 		} catch(DoesNotExistDiagnosisException err) {
 			return collectionDiagnosis.save(entity);
 		}
+		return entity;
 	}
 
 	public List<Diagnosis> listDiagnosis() {

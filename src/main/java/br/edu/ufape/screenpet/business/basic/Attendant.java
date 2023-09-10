@@ -12,4 +12,6 @@ public class Attendant extends Person {
 	public Attendant() {
 		
 	}
+	
+	
 }

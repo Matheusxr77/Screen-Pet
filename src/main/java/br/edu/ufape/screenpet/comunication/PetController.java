@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.screenpet.business.basic.Pet;
-import br.edu.ufape.screenpet.business.basic.Tutor;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistMedicamentException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistPetException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicatePetException;
@@ -42,8 +41,8 @@ public class PetController {
 	}
 	
 	@PatchMapping("/pet/{id}")
-	public Pet updatePet(@PathVariable Tutor tutor, @RequestBody Pet pet) throws DuplicatePetException, DoesNotExistPetException {
-		pet.setTutor(tutor);
+	public Pet updatePet(@PathVariable long id, @RequestBody Pet pet) throws DuplicatePetException, DoesNotExistPetException {
+		pet.setId(id);
 		return front.savePet(pet);
 	}
 	

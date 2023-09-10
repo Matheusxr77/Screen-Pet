@@ -40,12 +40,12 @@ public class AttendantController {
 	}
 	
 	@PatchMapping("/atendente/{id}")
-	public Attendant updateAttendant(@PathVariable String cpf, @RequestBody Attendant attendant) throws DuplicateAttendantException, DoesNotExistAttendantException {
-		attendant.setCpf(cpf);
+	public Attendant updateAttendant(@PathVariable long id, @RequestBody Attendant attendant) throws DuplicateAttendantException, DoesNotExistAttendantException {
+		attendant.setId(id);
 		return front.saveAttendant(attendant);
 	}
 	
-	@DeleteMapping("/atendente/{id}")
+	@DeleteMapping("/atendente/{cpf}")
 	public String deleteAttendant(@PathVariable String cpf) throws DoesNotExistAttendantException {	
 		 front.removeAttendant(cpf);
 		 return "atendente deletado!";

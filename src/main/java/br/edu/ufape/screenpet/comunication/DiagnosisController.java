@@ -13,10 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.screenpet.business.basic.Diagnosis;
-import br.edu.ufape.screenpet.business.basic.Pet;
 import br.edu.ufape.screenpet.business.front.Front;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistDiagnosisException;
-import br.edu.ufape.screenpet.business.register.exception.DuplicateDiagnosisException;
 
 @RestController
 @RequestMapping("/api/v3")
@@ -31,7 +29,7 @@ public class DiagnosisController {
 	}
 	
 	@PostMapping("/diagnostico")
-	public Diagnosis registerDiagnosis(@RequestBody Diagnosis diagnosis) throws DuplicateDiagnosisException, DoesNotExistDiagnosisException {
+	public Diagnosis registerDiagnosis(@RequestBody Diagnosis diagnosis) throws DoesNotExistDiagnosisException {
 		return front.saveDiagnosis(diagnosis);
 	}
 	
@@ -41,12 +39,12 @@ public class DiagnosisController {
 	}
 	
 	@PatchMapping("/diagnostico/{id}")
-	public Diagnosis updateDiagnosis(@PathVariable Pet pet, @RequestBody Diagnosis diagnosis) throws DuplicateDiagnosisException, DoesNotExistDiagnosisException {
-		diagnosis.setPet(pet);
+	public Diagnosis updateDiagnosis(@PathVariable long id, @RequestBody Diagnosis diagnosis) throws DoesNotExistDiagnosisException {
+		diagnosis.setId(id);
 		return front.saveDiagnosis(diagnosis);
 	}
 	
-	@DeleteMapping("/diagnostico/{pet}")
+	@DeleteMapping("/diagnostico/{id}")
 	public String deleteDiagnosis(@PathVariable long id) throws DoesNotExistDiagnosisException {	
 		 front.removeDiagnosis(id);
 		 return "diagnóstico deletado!";
