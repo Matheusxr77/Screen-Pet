@@ -22,8 +22,8 @@ class RegisterVaccineTest {
 	@Test
 	void testRegisterDuplicateVaccine() {
 		String name = "injeção";
-		Vaccine vaccine1 = new Vaccine(name, "tipo1", 4, "durante quatro dias");
-		Vaccine vaccine2 = new Vaccine(name, "tipo2", 4, "durante quatro dias");
+		Vaccine vaccine1 = new Vaccine(name, "Fizer", "tipo1", 4, "durante quatro dias");
+		Vaccine vaccine2 = new Vaccine(name, "Butata", "tipo2", 4, "durante quatro dias");
 		
 		DuplicateVaccineException exception = assertThrows(DuplicateVaccineException.class, () -> {
 			registerVaccine.saveVaccine(vaccine1);
