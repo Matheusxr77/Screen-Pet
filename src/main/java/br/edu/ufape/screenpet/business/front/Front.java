@@ -50,10 +50,8 @@ import br.edu.ufape.screenpet.business.register.exception.DoesNotExistVaccineExc
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistVeterinarianException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateAppointmentException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateAttendantException;
-import br.edu.ufape.screenpet.business.register.exception.DuplicateMedicamentException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicatePetException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateScheduleException;
-import br.edu.ufape.screenpet.business.register.exception.DuplicateTreatmentException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateTutorException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateUserException;
 import br.edu.ufape.screenpet.business.register.exception.DuplicateVaccinationCalendarException;
@@ -158,7 +156,7 @@ public class Front {
 		return registerMedicament.findMedicament(activeCompound);
 	}
 	
-	public Medicament saveMedicament(Medicament entity) throws DuplicateMedicamentException, DoesNotExistMedicamentException {
+	public Medicament saveMedicament(Medicament entity) throws DoesNotExistMedicamentException {
 		return registerMedicament.saveMedicament(entity);
 	}
 	
@@ -278,7 +276,7 @@ public class Front {
 		return registerTreatment.findTreatment(date);
 	}
 	
-	public Treatment saveTreatment(Treatment entity) throws DoesNotExistTreatmentException, DuplicateTreatmentException {
+	public Treatment saveTreatment(Treatment entity) throws DoesNotExistTreatmentException {
 		return registerTreatment.saveTreatment(entity);
 	}
 	

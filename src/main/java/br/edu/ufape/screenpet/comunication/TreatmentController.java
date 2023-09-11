@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import br.edu.ufape.screenpet.business.basic.Treatment;
 import br.edu.ufape.screenpet.business.front.Front;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistTreatmentException;
-import br.edu.ufape.screenpet.business.register.exception.DuplicateTreatmentException;
 
 @RestController
 @RequestMapping("/api/v8")
@@ -30,7 +29,7 @@ public class TreatmentController {
 	}
 	
 	@PostMapping("/tratamento")
-	public Treatment registerTreatment(@RequestBody Treatment treatment) throws DuplicateTreatmentException, DoesNotExistTreatmentException {
+	public Treatment registerTreatment(@RequestBody Treatment treatment) throws DoesNotExistTreatmentException {
 		return front.saveTreatment(treatment);
 	}
 	
@@ -40,7 +39,7 @@ public class TreatmentController {
 	}
 	
 	@PatchMapping("/tratamento/{id}")
-	public Treatment updateTreatment(@PathVariable long id, @RequestBody Treatment treatment) throws DuplicateTreatmentException, DoesNotExistTreatmentException {
+	public Treatment updateTreatment(@PathVariable long id, @RequestBody Treatment treatment) throws DoesNotExistTreatmentException {
 		treatment.setId(id);
 		return front.saveTreatment(treatment);
 	}

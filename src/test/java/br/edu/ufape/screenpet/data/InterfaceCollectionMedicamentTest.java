@@ -44,7 +44,6 @@ class InterfaceCollectionMedicamentTest {
         pet.setVaccinationCalendar(vaccinationCalendar);
         diagnosis.setPet(pet);
 		treatment.setDiagnosis(diagnosis);
-        medicament.setTreatment(treatment);
         collectionMedicament.save(medicament);
         long qtdMedicament2 = collectionMedicament.count();
         assertEquals(qtdMedicament + 1, qtdMedicament2);

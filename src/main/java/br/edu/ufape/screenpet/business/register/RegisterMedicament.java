@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import br.edu.ufape.screenpet.data.InterfaceCollectionMedicament;
 import br.edu.ufape.screenpet.business.basic.Medicament;
-import br.edu.ufape.screenpet.business.register.exception.DuplicateMedicamentException;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistMedicamentException;
 
 @Service
@@ -24,13 +23,14 @@ public class RegisterMedicament implements InterfaceRegisterMedicament {
 		return medicament;
 	}
 	
-	public Medicament saveMedicament(Medicament entity) throws DoesNotExistMedicamentException, DuplicateMedicamentException {
+	public Medicament saveMedicament(Medicament entity) throws DoesNotExistMedicamentException {
 		try {
 			findMedicament(entity.getActiveCompound());
-			throw new DuplicateMedicamentException(entity.getName());
+			entity.getName();
 		} catch(DoesNotExistMedicamentException err) {
 			return collectionMedicament.save(entity);
 		}
+		return entity;
 	}
 
 	public List<Medicament> listMedicaments() {
