@@ -3,6 +3,7 @@ package br.edu.ufape.screenpet.comunication;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -19,34 +20,35 @@ import br.edu.ufape.screenpet.business.register.exception.DuplicatePetException;
 import br.edu.ufape.screenpet.business.front.Front;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/api/v6")
 public class PetController {
 	
 	@Autowired
 	public Front front;
 	
-	@GetMapping("/pet")
+	@GetMapping("/listar-pets")
 	public List<Pet> listPets() {
 		return front.listPets();
 	}
 	
-	@PostMapping("/pet")
+	@PostMapping("/cadastrar-pet")
 	public Pet registerPet(@RequestBody Pet pet) throws DuplicatePetException, DoesNotExistPetException {
 		return front.savePet(pet);
 	}
 	
-	@GetMapping("/pet/{id}")
+	@GetMapping("/pesquisar-pet/{id}")
 	public Pet printPet(@PathVariable long id) {
 		return front.findPetId(id);
 	}
 	
-	@PatchMapping("/pet/{id}")
+	@PatchMapping("/editar-pet/{id}")
 	public Pet updatePet(@PathVariable long id, @RequestBody Pet pet) throws DuplicatePetException, DoesNotExistPetException {
 		pet.setId(id);
 		return front.savePet(pet);
 	}
 	
-	@DeleteMapping("/pet/{id}")
+	@DeleteMapping("/deletar-pet/{id}")
 	public String deleteMedicament(@PathVariable long id) throws DoesNotExistMedicamentException {	
 		 front.removeMedicament(id);
 		 return "pet deletado!";
