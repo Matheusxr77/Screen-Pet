@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import br.edu.ufape.screenpet.business.basic.Treatment;
 import br.edu.ufape.screenpet.business.register.exception.DoesNotExistTreatmentException;
-import br.edu.ufape.screenpet.business.register.exception.DuplicateTreatmentException;
 import br.edu.ufape.screenpet.data.InterfaceCollectionTreatment;
 
 @Service
@@ -25,13 +24,14 @@ public class RegisterTreatment implements InterfaceRegisterTreatment {
 		return treatment;
 	}
 
-	public Treatment saveTreatment(Treatment entity) throws DoesNotExistTreatmentException, DuplicateTreatmentException {
+	public Treatment saveTreatment(Treatment entity) throws DoesNotExistTreatmentException {
 		try {
 			findTreatment(entity.getDate());
-			throw new DuplicateTreatmentException(entity.getDate());
+			entity.getDate();
 		} catch(DoesNotExistTreatmentException err) {
 			return collectionTreatment.save(entity);
 		}
+		return entity;
 	}
 
 	public List<Treatment> listTreatments() {

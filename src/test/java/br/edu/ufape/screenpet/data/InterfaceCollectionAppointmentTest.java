@@ -49,7 +49,7 @@ class InterfaceCollectionAppointmentTest {
         Address addressTutor = new Address(55299497, "rua de testei", 666, "bairro", "garanhuns", "pe");
         Usuario userTutor = new Usuario("thiago@gmail.com", "password");
         NumberPhone phoneTutor = new NumberPhone(87, 934345678);
-        Vaccine vaccine = new Vaccine("Vacina", "tipo1", 2, "durante três dias");
+        Vaccine vaccine = new Vaccine("Vacina", "Butata", "tipo1", 2, "durante três dias");
         Schedule schedule = new Schedule(LocalTime.now(), "rotineira", data);
         Appointment appointment = new Appointment("anamnese", data);
         List<Exam> examList = new ArrayList<>();

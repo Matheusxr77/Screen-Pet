@@ -24,28 +24,28 @@ public class ScheduleController {
 	@Autowired
 	public Front front;
 	
-	@GetMapping("/agendamento")
+	@GetMapping("/listar-agendamentos")
 	public List<Schedule> listSchedules() {
 		return front.listSchedules();
 	}
 	
-	@PostMapping("/agendamento")
+	@PostMapping("/cadastrar-agendamento")
 	public Schedule registerSchedule(@RequestBody Schedule schedule) throws DuplicateScheduleException, DoesNotExistScheduleException {
 		return front.saveSchedule(schedule);
 	}
 	
-	@GetMapping("/agendamento/{id}")
+	@GetMapping("/pesquisar-agendamento/{id}")
 	public Schedule printSchedule(@PathVariable long id) {
 		return front.findScheduleId(id);
 	}
 	
-	@PatchMapping("/agendamento/{id}")
+	@PatchMapping("/editar/agendamento/{id}")
 	public Schedule updateSchedule(@PathVariable long id, @RequestBody Schedule schedule) throws DuplicateScheduleException, DoesNotExistScheduleException {
 		schedule.setId(id);
 		return front.saveSchedule(schedule);
 	}
 	
-	@DeleteMapping("/agendamento/{id}")
+	@DeleteMapping("/deletar-agendamento/{id}")
 	public String deleteSchedule(@PathVariable long id) throws DoesNotExistScheduleException {	
 		 front.removeSchedule(id);
 		 return "agendamento deletado!";

@@ -22,7 +22,7 @@ class InterfaceCollectionVaccinationHistoricTest {
     void test() {
         long qtdVaccinationHistoric = collectionVaccinationHistoric.count();
         Date data = new Date();
-        Vaccine vaccine = new Vaccine("antirabica", "antiviral", 2, "vezes ao dia, durante 3 dias");
+        Vaccine vaccine = new Vaccine("antirabica", "cloroquina", "antiviral", 2, "vezes ao dia, durante 3 dias");
         VaccinationCalendar vaccinationCalendar = new VaccinationCalendar(data, data);
         VaccinationHistoric vaccinationHistoric = new VaccinationHistoric("Histórico de Jubileu");
         vaccinationHistoric.setVaccine(vaccine);

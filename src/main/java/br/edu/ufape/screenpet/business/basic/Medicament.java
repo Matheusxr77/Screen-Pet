@@ -18,7 +18,7 @@ public class Medicament {
     private String activeCompound;
     private int dosage;
     private String comments;
-        
+
     public String getName() {
 		return name;
 	}

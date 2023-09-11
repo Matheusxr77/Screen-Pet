@@ -23,28 +23,28 @@ public class DiagnosisController {
 	@Autowired
 	public Front front;
 	
-	@GetMapping("/diagnostico")
+	@GetMapping("/listar-diagnosticos")
 	public List<Diagnosis> listDiagnosis() {
 		return front.listDiagnosis();
 	}
 	
-	@PostMapping("/diagnostico")
+	@PostMapping("/cadastrar-diagnostico")
 	public Diagnosis registerDiagnosis(@RequestBody Diagnosis diagnosis) throws DoesNotExistDiagnosisException {
 		return front.saveDiagnosis(diagnosis);
 	}
 	
-	@GetMapping("/diagnostico/{id}")
+	@GetMapping("/pesquisar-diagnostico/{id}")
 	public Diagnosis printDiagnosis(@PathVariable long id) {
 		return front.findDiagnosisId(id);
 	}
 	
-	@PatchMapping("/diagnostico/{id}")
+	@PatchMapping("/editar-diagnostico/{id}")
 	public Diagnosis updateDiagnosis(@PathVariable long id, @RequestBody Diagnosis diagnosis) throws DoesNotExistDiagnosisException {
 		diagnosis.setId(id);
 		return front.saveDiagnosis(diagnosis);
 	}
 	
-	@DeleteMapping("/diagnostico/{id}")
+	@DeleteMapping("/deletar-diagnostico/{id}")
 	public String deleteDiagnosis(@PathVariable long id) throws DoesNotExistDiagnosisException {	
 		 front.removeDiagnosis(id);
 		 return "diagnóstico deletado!";

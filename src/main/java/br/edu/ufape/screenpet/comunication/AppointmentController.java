@@ -3,6 +3,7 @@ package br.edu.ufape.screenpet.comunication;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -18,34 +19,35 @@ import br.edu.ufape.screenpet.business.register.exception.DuplicateAppointmentEx
 import br.edu.ufape.screenpet.business.front.Front;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/api/v1")
 public class AppointmentController {
 	
 	@Autowired
 	public Front front;
 	
-	@GetMapping("/consulta")
+	@GetMapping("/listar-consultas")
 	public List<Appointment> listAppointments() {
 		return front.listAppointments();
 	}
 	
-	@PostMapping("/consulta")
+	@PostMapping("/cadastrar-consulta")
 	public Appointment registerAppointment(@RequestBody Appointment appointment) throws DuplicateAppointmentException, DoesNotExistAppointmentException {
 		return front.saveAppointment(appointment);
 	}
 	
-	@GetMapping("/consulta/{id}")
+	@GetMapping("/pesquisar-consulta/{id}")
 	public Appointment printAppointment(@PathVariable long id) {
 		return front.findAppointmentId(id);
 	}	
 	
-	@PatchMapping("/consulta/{id}")
+	@PatchMapping("/editar-consulta/{id}")
 	public Appointment updateAppointment(@PathVariable long id, @RequestBody Appointment appointment) throws DuplicateAppointmentException, DoesNotExistAppointmentException {
 		appointment.setId(id);
 		return front.saveAppointment(appointment);
 	}
 	
-	@DeleteMapping("/consulta/{id}")
+	@DeleteMapping("/deletar-consulta/{id}")
 	public String deleteAppointment(@PathVariable long id) throws DoesNotExistAppointmentException {	
 		 front.removeAppointment(id);
 		 return "consulta deletada!";

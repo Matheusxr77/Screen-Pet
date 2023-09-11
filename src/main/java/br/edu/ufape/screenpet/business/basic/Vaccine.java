@@ -11,6 +11,7 @@ public class Vaccine {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String name;
+	private String fabricator;
 	private String type;
 	private int frequency;
 	private String comments;
@@ -21,6 +22,14 @@ public class Vaccine {
 	
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public String getFabricator() {
+		return fabricator;
+	}
+
+	public void setFabricator(String fabricator) {
+		this.fabricator = fabricator;
 	}
 	
 	public String getType () {
@@ -55,8 +64,9 @@ public class Vaccine {
 		this.id = id;
 	}
 	
-	public Vaccine(String name, String type, int frequency, String comments) {
+	public Vaccine(String name, String fabricator, String type, int frequency, String comments) {
 		this.name = name;
+		this.fabricator = fabricator;
 		this.type = type;
 		this.frequency = frequency;
 		this.comments = comments;

@@ -3,6 +3,7 @@ package br.edu.ufape.screenpet.comunication;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -18,34 +19,35 @@ import br.edu.ufape.screenpet.business.register.exception.DoesNotExistVeterinari
 import br.edu.ufape.screenpet.business.register.exception.DuplicateVeterinarianException;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/api/v14")
 public class VeterinarianController {
 	
 	@Autowired
 	public Front front;
 	
-	@GetMapping("/veterinario")
+	@GetMapping("/listar-veterinarios")
 	public List<Veterinarian> listVeterinarian() {
 		return front.listVeterinarian();
 	}
 	
-	@PostMapping("/veterinario")
+	@PostMapping("/cadastrar-veterinario")
 	public Veterinarian registerVeterinarian(@RequestBody Veterinarian veterinarian) throws DuplicateVeterinarianException, DoesNotExistVeterinarianException {
 		return front.saveVeterinarian(veterinarian);
 	}
 	
-	@GetMapping("/veterinario/{id}")
+	@GetMapping("/pesquisar-veterinario/{id}")
 	public Veterinarian printVeterinarian(@PathVariable long id) {
 		return front.findVeterinarianId(id);
 	}
-	
-	@PatchMapping("/veterinario/{id}")
+
+	@PatchMapping("/editar-veterinario/{id}")
 	public Veterinarian updateVeterinarian(@PathVariable long id, @RequestBody Veterinarian veterinarian) throws DuplicateVeterinarianException, DoesNotExistVeterinarianException {
 		veterinarian.setId(id);
 		return front.saveVeterinarian(veterinarian);
 	}
 
-	@DeleteMapping("/veterinario/{crmv}")
+	@DeleteMapping("/deletar-veterinario/{crmv}")
 	public String deleteVeterinarian(@PathVariable int crmv) throws DoesNotExistVeterinarianException {	
 		 front.removeVeterinarian(crmv);
 		 return "veterinário deletado!";

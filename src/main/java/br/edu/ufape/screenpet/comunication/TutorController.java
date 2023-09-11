@@ -36,18 +36,19 @@ public class TutorController {
 		return front.saveTutor(tutor);
 	}
 	
-	@GetMapping("/tutor/{id}")
+	@GetMapping("/pesquisar-tutor/{id}")
 	public Tutor printTutor(@PathVariable long id) {
 		return front.findTutorId(id);
 	}
 	
-	@PatchMapping("/tutor/{cpf}")
+	
+	@PatchMapping("/editar-tutor/{id}")
 	public Tutor updateTutor(@PathVariable String cpf, @RequestBody Tutor tutor) throws DuplicateTutorException, DoesNotExistTutorException {
 		tutor.setCpf(cpf);
 		return front.saveTutor(tutor);
 	}
 	
-	@DeleteMapping("/tutor/{cpf}")
+	@DeleteMapping("/deletar-tutor/{cpf}")
 	public String deleteAttendant(@PathVariable String cpf) throws DoesNotExistTutorException {	
 		 front.removeTutor(cpf);
 		 return "tutor deletado!";

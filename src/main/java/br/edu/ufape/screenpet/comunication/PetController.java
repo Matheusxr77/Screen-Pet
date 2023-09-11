@@ -27,7 +27,7 @@ public class PetController {
 	@Autowired
 	public Front front;
 	
-	@GetMapping("/pet")
+	@GetMapping("/listar-pets")
 	public List<Pet> listPets() {
 		return front.listPets();
 	}
@@ -37,18 +37,18 @@ public class PetController {
 		return front.savePet(pet);
 	}
 	
-	@GetMapping("/pet/{id}")
+	@GetMapping("/pesquisar-pet/{id}")
 	public Pet printPet(@PathVariable long id) {
 		return front.findPetId(id);
 	}
 	
-	@PatchMapping("/pet/{id}")
+	@PatchMapping("/editar-pet/{id}")
 	public Pet updatePet(@PathVariable long id, @RequestBody Pet pet) throws DuplicatePetException, DoesNotExistPetException {
 		pet.setId(id);
 		return front.savePet(pet);
 	}
 	
-	@DeleteMapping("/pet/{id}")
+	@DeleteMapping("/deletar-pet/{id}")
 	public String deleteMedicament(@PathVariable long id) throws DoesNotExistMedicamentException {	
 		 front.removeMedicament(id);
 		 return "pet deletado!";
