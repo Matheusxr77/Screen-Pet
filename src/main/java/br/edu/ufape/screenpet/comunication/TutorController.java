@@ -3,6 +3,7 @@ package br.edu.ufape.screenpet.comunication;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -18,18 +19,19 @@ import br.edu.ufape.screenpet.business.register.exception.DoesNotExistTutorExcep
 import br.edu.ufape.screenpet.business.register.exception.DuplicateTutorException;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/api/v9")
 public class TutorController {
 	
 	@Autowired
 	public Front front;
 	
-	@GetMapping("/tutor")
+	@GetMapping("/listar-tutores")
 	public List<Tutor> listTutor() {
 		return front.listTutor();
 	}
 	
-	@PostMapping("/tutor")
+	@PostMapping("/cadastrar-tutor")
 	public Tutor registerTutor(@RequestBody Tutor tutor) throws DuplicateTutorException, DoesNotExistTutorException {
 		return front.saveTutor(tutor);
 	}
